@@ -28,6 +28,14 @@ export const SidebarLeft: React.FC = () => {
   const sys = CONSTRUCTION_SYSTEMS[activeSystem];
 
   const groups = catalog.reduce((acc, mat) => {
+    const isVerticalSystem = sys?.orientation === 'vertical';
+    const isHorizontalSystem = sys?.orientation === 'horizontal';
+    const matOrientation = mat.orientationType || 'ambos';
+    
+    // Filtrado de incompatibles por orientación:
+    if (isVerticalSystem && matOrientation === 'horizontal') return acc;
+    if (isHorizontalSystem && matOrientation === 'vertical') return acc;
+
     if (!acc[mat.Categoria]) acc[mat.Categoria] = [];
     acc[mat.Categoria].push(mat);
     return acc;
@@ -72,7 +80,7 @@ export const SidebarLeft: React.FC = () => {
       {/* Catalog Header + Air Chamber */}
       <div className="p-3 border-b border-slate-800 flex justify-between items-center bg-slate-900/40">
         <h2 className="text-[9px] font-bold uppercase tracking-widest text-orange-500 flex items-center">
-          <SwatchBook className="w-3.5 h-3.5 mr-1.5" /> 2. Catálogo
+          <SwatchBook className="w-3.5 h-3.5 mr-1.5" /> 2. Catálogo {sys?.orientation === 'vertical' ? '(Vertical)' : '(Horizontal)'}
         </h2>
         <div className="flex gap-1.5">
           <button 
@@ -102,6 +110,17 @@ export const SidebarLeft: React.FC = () => {
             placeholder="Buscar material..." 
             type="text"
           />
+        </div>
+
+        {/* Orientation filter banner */}
+        <div className="mb-3 px-2 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-md flex items-center justify-between">
+          <div className="flex items-center gap-1.5">
+            <Shield className="w-3 h-3 text-blue-400" />
+            <span className="text-[8px] font-bold text-blue-300 uppercase tracking-tighter">Filtro ETSIE Activo: {sys?.orientation}</span>
+          </div>
+          <div className="flex items-center gap-1 text-[7px] text-slate-500 italic">
+            <span>Automático</span>
+          </div>
         </div>
 
         <div className="flex-1 space-y-1.5">

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Compass } from 'lucide-react';
 import { useAppContext } from '../context/AppContext';
-import { TEXTURE_MAP } from '../utils/config';
+import { TEXTURE_MAP, CONSTRUCTION_SYSTEMS } from '../utils/config';
 
 const TYPE_COLORS: Record<string, string> = {
   'Aislante Térmico': '#facc15',
@@ -61,14 +61,11 @@ export const Viewport2D: React.FC = () => {
         // Draw photorealistic image as tiled pattern
         const pattern = ctx.createPattern(texImg, 'repeat');
         if (pattern) {
-          // Semi-transparent base color first
-          ctx.globalAlpha = 0.3;
-          ctx.fillStyle = color;
-          ctx.fillRect(x, y, w, h);
-          ctx.globalAlpha = 1.0;
-          
-          // Scale pattern to fit nicely
-          const scale = Math.min(w / texImg.width * 3, h / texImg.height * 3, 0.3);
+          // v15: Scale based on real-world: texture image = 1m²
+          // Calculate pixels-per-mm for the current viewport
+          const layerThickPx = Math.max(w, h); // use the larger visible axis
+          const scale = Math.min(0.5, Math.max(0.08, (layerThickPx / texImg.width) * 0.25));
+
           ctx.save();
           ctx.translate(x, y);
           ctx.scale(scale, scale);
@@ -78,9 +75,9 @@ export const Viewport2D: React.FC = () => {
           
           // Subtle edge darkening for depth
           const gradient = ctx.createLinearGradient(x, y, x + w, y);
-          gradient.addColorStop(0, 'rgba(0,0,0,0.15)');
+          gradient.addColorStop(0, 'rgba(0,0,0,0.12)');
           gradient.addColorStop(0.5, 'rgba(0,0,0,0)');
-          gradient.addColorStop(1, 'rgba(0,0,0,0.1)');
+          gradient.addColorStop(1, 'rgba(0,0,0,0.08)');
           ctx.fillStyle = gradient;
           ctx.fillRect(x, y, w, h);
         }
@@ -188,78 +185,152 @@ export const Viewport2D: React.FC = () => {
       const usableW = w - padX * 2 - legendW;
       const dH = h - padTop - padBot;
       const tMm = layers.reduce((a, l) => a + Math.max(l.EspesorVirtualMM, 5), 0);
-      const sc = Math.min(tMm > 0 ? usableW / Math.max(tMm, 200) : 1, usableW / 80) * 0.5;
-      let cx = padX + (usableW - (tMm * sc)) / 2;
-      const drawY = padTop;
+      
+      const isHorizontal = CONSTRUCTION_SYSTEMS[activeSystem]?.orientation === 'horizontal';
 
-      // EXT label
-      ctx.fillStyle = '#60a5fa';
-      ctx.font = 'bold 9px "Inter", sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('EXT', cx - 18, drawY + dH / 2 + 3);
-      ctx.strokeStyle = '#60a5fa40';
-      ctx.lineWidth = 1;
-      ctx.beginPath(); ctx.moveTo(cx - 8, drawY); ctx.lineTo(cx - 8, drawY + dH); ctx.stroke();
+      if (isHorizontal) {
+        const dW = usableW * 0.6;
+        const drawX = padX + (usableW - dW) / 2;
+        const scH = Math.min(tMm > 0 ? dH / Math.max(tMm, 200) : 1, dH / 80) * 0.45;
+        let cy = padTop + (dH - (tMm * scH)) / 2;
 
-      // Total dimension line
-      ctx.strokeStyle = '#60a5fa';
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.moveTo(cx, drawY - 12);
-      ctx.lineTo(cx + (tMm * sc), drawY - 12);
-      ctx.stroke();
-      for (const ax of [cx, cx + tMm * sc]) {
-        ctx.beginPath(); ctx.moveTo(ax, drawY - 16); ctx.lineTo(ax, drawY - 8); ctx.stroke();
-      }
-      ctx.fillStyle = '#93c5fd';
-      ctx.font = 'bold 9px "JetBrains Mono", monospace';
-      ctx.textAlign = 'center';
-      ctx.fillText(`${tMm} mm`, cx + (tMm * sc) / 2, drawY - 18);
+        // EXT / SUP
+        ctx.fillStyle = '#60a5fa';
+        ctx.font = 'bold 9px "Inter", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('EXT / SUP', drawX + dW / 2, cy - 18);
+        ctx.strokeStyle = '#60a5fa40';
+        ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(drawX, cy - 8); ctx.lineTo(drawX + dW, cy - 8); ctx.stroke();
 
-      // Draw layers
-      layers.forEach(l => {
-        const rw = Math.max(l.EspesorVirtualMM * sc, 4);
-        const isTargeted = hoveredId ? (hoveredId === l.instanceId) : (selectedId ? selectedId === l.instanceId : false);
-        const isFaded = (hoveredId || selectedId) && !isTargeted;
-        
-        ctx.globalAlpha = isFaded ? 0.25 : 1.0;
-        drawHatch(ctx, l.textureClass, cx, drawY, rw, dH, l.color, l.textureId);
-        
-        ctx.strokeStyle = isTargeted ? '#f97316' : 'rgba(15,23,42,0.7)';
-        ctx.lineWidth = isTargeted ? 2 : 0.8;
-        if (isTargeted) { ctx.shadowColor = 'rgba(249,115,22,0.4)'; ctx.shadowBlur = 6; }
-        ctx.strokeRect(cx, drawY, rw, dH);
-        ctx.shadowBlur = 0;
-        ctx.globalAlpha = 1.0;
-
-        // Per-layer thickness label
-        if (rw > 10) {
-          const rawMM = parseInt(l.EspesorRaw) || l.EspesorVirtualMM;
-          ctx.fillStyle = isFaded ? 'rgba(148,163,184,0.3)' : '#94a3b8';
-          ctx.font = '600 7px "JetBrains Mono", monospace';
-          ctx.textAlign = 'center';
-          ctx.fillText(`${rawMM}`, cx + rw / 2, drawY + dH + 12);
+        // Dimension Line Left
+        ctx.strokeStyle = '#60a5fa';
+        ctx.beginPath();
+        ctx.moveTo(drawX - 16, cy);
+        ctx.lineTo(drawX - 16, cy + (tMm * scH));
+        ctx.stroke();
+        for (const ay of [cy, cy + (tMm * scH)]) {
+          ctx.beginPath(); ctx.moveTo(drawX - 20, ay); ctx.lineTo(drawX - 12, ay); ctx.stroke();
         }
+        ctx.fillStyle = '#93c5fd';
+        ctx.font = 'bold 9px "JetBrains Mono", monospace';
+        ctx.save();
+        ctx.translate(drawX - 24, cy + (tMm * scH) / 2);
+        ctx.rotate(-Math.PI / 2);
+        ctx.fillText(`${tMm} mm`, 0, 0);
+        ctx.restore();
 
-        // Tick marks
-        ctx.strokeStyle = '#60a5fa55';
-        ctx.lineWidth = 0.8;
+        // Layers
+        layers.forEach(l => {
+          const rh = Math.max(l.EspesorVirtualMM * scH, 4);
+          const isTargeted = hoveredId ? (hoveredId === l.instanceId) : (selectedId ? selectedId === l.instanceId : false);
+          const isFaded = (hoveredId || selectedId) && !isTargeted;
+          
+          ctx.globalAlpha = isFaded ? 0.25 : 1.0;
+          drawHatch(ctx, l.textureClass, drawX, cy, dW, rh, l.color, l.textureId);
+          
+          ctx.strokeStyle = isTargeted ? '#f97316' : 'rgba(15,23,42,0.7)';
+          ctx.lineWidth = isTargeted ? 2 : 0.8;
+          if (isTargeted) { ctx.shadowColor = 'rgba(249,115,22,0.4)'; ctx.shadowBlur = 6; }
+          ctx.strokeRect(drawX, cy, dW, rh);
+          ctx.shadowBlur = 0;
+          ctx.globalAlpha = 1.0;
+
+          if (rh > 8) {
+            const rawMM = parseInt(l.EspesorRaw) || l.EspesorVirtualMM;
+            ctx.fillStyle = isFaded ? 'rgba(148,163,184,0.3)' : '#94a3b8';
+            ctx.font = '600 7px "JetBrains Mono", monospace';
+            ctx.textAlign = 'left';
+            ctx.fillText(`${rawMM}mm`, drawX + dW + 8, cy + rh / 2 + 3);
+          }
+
+          cy += rh;
+        });
+
+        // INT / INF
+        ctx.fillStyle = '#a78bfa';
+        ctx.font = 'bold 9px "Inter", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('INT / INF', drawX + dW / 2, cy + 18);
+        ctx.strokeStyle = '#a78bfa40';
+        ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(drawX, cy + 8); ctx.lineTo(drawX + dW, cy + 8); ctx.stroke();
+
+      } else {
+
+        const sc = Math.min(tMm > 0 ? usableW / Math.max(tMm, 200) : 1, usableW / 80) * 0.5;
+        let cx = padX + (usableW - (tMm * sc)) / 2;
+        const drawY = padTop;
+
+        // EXT label
+        ctx.fillStyle = '#60a5fa';
+        ctx.font = 'bold 9px "Inter", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('EXT', cx - 18, drawY + dH / 2 + 3);
+        ctx.strokeStyle = '#60a5fa40';
+        ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(cx - 8, drawY); ctx.lineTo(cx - 8, drawY + dH); ctx.stroke();
+
+        // Total dimension line
+        ctx.strokeStyle = '#60a5fa';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(cx, drawY - 12);
+        ctx.lineTo(cx + (tMm * sc), drawY - 12);
+        ctx.stroke();
+        for (const ax of [cx, cx + tMm * sc]) {
+          ctx.beginPath(); ctx.moveTo(ax, drawY - 16); ctx.lineTo(ax, drawY - 8); ctx.stroke();
+        }
+        ctx.fillStyle = '#93c5fd';
+        ctx.font = 'bold 9px "JetBrains Mono", monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText(`${tMm} mm`, cx + (tMm * sc) / 2, drawY - 18);
+
+        // Draw layers
+        layers.forEach(l => {
+          const rw = Math.max(l.EspesorVirtualMM * sc, 4);
+          const isTargeted = hoveredId ? (hoveredId === l.instanceId) : (selectedId ? selectedId === l.instanceId : false);
+          const isFaded = (hoveredId || selectedId) && !isTargeted;
+          
+          ctx.globalAlpha = isFaded ? 0.25 : 1.0;
+          drawHatch(ctx, l.textureClass, cx, drawY, rw, dH, l.color, l.textureId);
+          
+          ctx.strokeStyle = isTargeted ? '#f97316' : 'rgba(15,23,42,0.7)';
+          ctx.lineWidth = isTargeted ? 2 : 0.8;
+          if (isTargeted) { ctx.shadowColor = 'rgba(249,115,22,0.4)'; ctx.shadowBlur = 6; }
+          ctx.strokeRect(cx, drawY, rw, dH);
+          ctx.shadowBlur = 0;
+          ctx.globalAlpha = 1.0;
+
+          // Per-layer thickness label
+          if (rw > 10) {
+            const rawMM = parseInt(l.EspesorRaw) || l.EspesorVirtualMM;
+            ctx.fillStyle = isFaded ? 'rgba(148,163,184,0.3)' : '#94a3b8';
+            ctx.font = '600 7px "JetBrains Mono", monospace';
+            ctx.textAlign = 'center';
+            ctx.fillText(`${rawMM}`, cx + rw / 2, drawY + dH + 12);
+          }
+
+          // Tick marks
+          ctx.strokeStyle = '#60a5fa55';
+          ctx.lineWidth = 0.8;
+          ctx.beginPath(); ctx.moveTo(cx, drawY - 14); ctx.lineTo(cx, drawY - 10); ctx.stroke();
+
+          cx += rw;
+        });
+
+        // Final tick
         ctx.beginPath(); ctx.moveTo(cx, drawY - 14); ctx.lineTo(cx, drawY - 10); ctx.stroke();
 
-        cx += rw;
-      });
-
-      // Final tick
-      ctx.beginPath(); ctx.moveTo(cx, drawY - 14); ctx.lineTo(cx, drawY - 10); ctx.stroke();
-
-      // INT label
-      ctx.fillStyle = '#a78bfa';
-      ctx.font = 'bold 9px "Inter", sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('INT', cx + 18, drawY + dH / 2 + 3);
-      ctx.strokeStyle = '#a78bfa40';
-      ctx.lineWidth = 1;
-      ctx.beginPath(); ctx.moveTo(cx + 8, drawY); ctx.lineTo(cx + 8, drawY + dH); ctx.stroke();
+        // INT label
+        ctx.fillStyle = '#a78bfa';
+        ctx.font = 'bold 9px "Inter", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('INT', cx + 18, drawY + dH / 2 + 3);
+        ctx.strokeStyle = '#a78bfa40';
+        ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(cx + 8, drawY); ctx.lineTo(cx + 8, drawY + dH); ctx.stroke();
+      }
 
       // ═══ LEGEND ═══
       const legX = w - legendW - 10;

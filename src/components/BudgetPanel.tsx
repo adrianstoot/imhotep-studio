@@ -11,7 +11,7 @@ interface BudgetPanelProps {
 }
 
 export const BudgetPanel: React.FC<BudgetPanelProps> = ({ open, onClose }) => {
-  const { layers, area } = useAppContext();
+  const { layers, area, setArea } = useAppContext();
 
   const budget = useMemo<BudgetSummary>(() => {
     const lines: BudgetLine[] = layers.filter(l => l.type !== 'Cámara de Aire').map(l => {
@@ -61,15 +61,23 @@ export const BudgetPanel: React.FC<BudgetPanelProps> = ({ open, onClose }) => {
         <motion.div initial={{ scale: 0.9, y: 30 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9 }} className="bg-[#1e293b] border border-slate-600/50 rounded-2xl shadow-2xl w-full max-w-5xl max-h-[90vh] overflow-hidden flex flex-col" onClick={e => e.stopPropagation()}>
           
           {/* Header */}
-          <div className="p-5 border-b border-slate-700 flex justify-between items-center bg-gradient-to-r from-blue-900/30 to-indigo-900/30">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center"><Receipt className="w-5 h-5 text-white" /></div>
+          <div className="p-6 border-b border-white/5 flex justify-between items-center bg-slate-900 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-transparent to-indigo-600/10" />
+            <div className="flex items-center gap-4 relative z-10">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/20">
+                <Receipt className="w-6 h-6 text-white" />
+              </div>
               <div>
-                <h2 className="text-lg font-black text-white uppercase tracking-wider">Presupuesto de Ejecución</h2>
-                <p className="text-[10px] text-slate-400 font-bold tracking-widest">BASE DE PRECIOS IVE — COMUNITAT VALENCIANA 2025</p>
+                <h2 className="text-xl font-black text-white uppercase tracking-tight">Presupuesto de Ejecución <span className="text-blue-400 font-medium">v14</span></h2>
+                <div className="flex items-center gap-2 mt-0.5">
+                  <Building2 className="w-3 h-3 text-slate-500" />
+                  <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Base de Datos Normativa — ETSIE UPV</p>
+                </div>
               </div>
             </div>
-            <button onClick={onClose} className="w-8 h-8 rounded-lg bg-slate-800 hover:bg-red-900/50 flex items-center justify-center text-slate-400 hover:text-red-400 transition-all"><X className="w-5 h-5" /></button>
+            <button onClick={onClose} className="w-10 h-10 rounded-xl bg-white/5 hover:bg-red-500/20 border border-white/5 flex items-center justify-center text-slate-400 hover:text-red-400 transition-all shadow-sm">
+              <X className="w-5 h-5" />
+            </button>
           </div>
 
           {/* Content */}
@@ -82,15 +90,17 @@ export const BudgetPanel: React.FC<BudgetPanelProps> = ({ open, onClose }) => {
                 <span className="text-sm font-bold text-white">Detalle Constructivo</span>
               </div>
               <div>
-                <span className="text-[9px] font-bold text-slate-500 uppercase block mb-1">Superficie (m²)</span>
-                <div className="flex items-center gap-2">
+                <span className="text-[9px] font-bold text-slate-500 uppercase block mb-1">Superficie Base de Cálculo</span>
+                <div className="flex items-center gap-3 bg-slate-900/80 rounded-lg px-3 py-1.5 border border-slate-700/50 focus-within:border-blue-500 transition-colors">
                   <input 
                     type="number" 
                     min="1" 
+                    step="0.5"
                     value={area}
-                    onChange={(e) => useAppContext().setArea(parseFloat(e.target.value) || 0)}
-                    className="w-24 bg-slate-900 border border-blue-500/50 rounded px-2 py-1 text-sm font-bold text-white font-mono focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 shadow-inner"
+                    onChange={(e) => setArea(parseFloat(e.target.value) || 1)}
+                    className="w-20 bg-transparent text-sm font-black text-white font-mono focus:outline-none"
                   />
+                  <span className="text-xs font-bold text-slate-500 border-l border-slate-700 pl-3">m²</span>
                 </div>
               </div>
               <div>

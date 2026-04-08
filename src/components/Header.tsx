@@ -38,7 +38,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBudget, onOpenGlaser, onOp
   const toolButtons = [
     { icon: FolderOpen, label: 'Mis Detalles', onClick: onOpenSavedDetails, color: 'text-teal-400', bg: 'hover:bg-teal-900/30' },
     { icon: Receipt, label: 'Presupuesto', onClick: onOpenBudget, color: 'text-blue-400', bg: 'hover:bg-blue-900/30' },
-    { icon: Thermometer, label: 'Glaser', onClick: onOpenGlaser, color: 'text-cyan-400', bg: 'hover:bg-cyan-900/30' },
+    { icon: Thermometer, label: 'Condensaciones', onClick: onOpenGlaser, color: 'text-cyan-400', bg: 'hover:bg-cyan-900/30' },
     { icon: GraduationCap, label: 'Examen', onClick: onOpenExam, color: 'text-purple-400', bg: 'hover:bg-purple-900/30' },
     { icon: Building2, label: 'Empresas', onClick: onOpenCompanies, color: 'text-amber-400', bg: 'hover:bg-amber-900/30' },
   ];
@@ -52,9 +52,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBudget, onOpenGlaser, onOp
       <div className="absolute inset-0 pointer-events-none border-b border-white/5" />
       <div className="flex items-center gap-3">
         <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-600 rounded flex items-center justify-center font-bold text-white shadow-lg shadow-blue-500/30">CP</div>
-        <h1 className="text-lg font-semibold tracking-tight text-slate-200">
-          Constructo<span className="text-orange-500">Pro</span>{' '}
-          <span className="text-xs font-normal text-slate-400 ml-2">v13.0 ÉLITE TÉCNICA</span>
+        <h1 className="text-lg font-semibold tracking-tight text-slate-200 flex flex-col items-start leading-tight">
+          <span>Constructo<span className="text-orange-500">Pro</span> <span className="text-[10px] font-normal text-slate-400 ml-1 bg-slate-800 px-1.5 py-0.5 rounded border border-slate-700">v14.0 ÉLITE</span></span>
+          <span className="text-[9px] font-medium text-blue-400 tracking-widest uppercase mt-0.5">ETSIE, Univ. Politècnica de València</span>
         </h1>
       </div>
 

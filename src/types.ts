@@ -19,6 +19,7 @@ export interface Material {
   iveCode?: string;         // v13: IVE price database code
   budgetChapter?: string;   // v13: budget chapter assignment
   mu?: number;              // v13: vapor diffusion resistance factor (μ)
+  orientationType?: 'vertical' | 'horizontal' | 'ambos'; // v14: orientation filter
 }
 
 export interface Layer extends Material {
@@ -32,6 +33,7 @@ export interface ConstructionSystem {
   requiredLayers: string[];
   requiredOrder: string[];
   normRef: string;
+  orientation?: 'vertical' | 'horizontal';
 }
 
 export interface Mission {
@@ -44,6 +46,7 @@ export interface Mission {
   badge: string;
   badgeIcon: string;
   difficulty: 'Principiante' | 'Intermedio' | 'Avanzado' | 'Experto';
+  evolvesToId?: string;
 }
 
 export interface Badge {
@@ -108,6 +111,7 @@ export interface ExamChallenge {
   difficulty: 'Principiante' | 'Intermedio' | 'Avanzado' | 'Experto';
   rubric: { criterion: string; maxPoints: number }[];
   xpReward: number;
+  evolvesToId?: string;
 }
 
 export interface ExamResult {

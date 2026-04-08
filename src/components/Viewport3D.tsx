@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { Box, Layers } from 'lucide-react';
 import { useAppContext } from '../context/AppContext';
-import { TEXTURE_MAP } from '../utils/config';
+import { TEXTURE_MAP, CONSTRUCTION_SYSTEMS } from '../utils/config';
 
 // Texture loader with cache
 const loader = new THREE.TextureLoader();
@@ -81,7 +81,7 @@ function generateFallbackTexture(type: string, color: string, textureId?: string
 }
 
 export const Viewport3D: React.FC = () => {
-  const { layers, selectedId, hoveredId, setHoveredId } = useAppContext();
+  const { layers, selectedId, hoveredId, setHoveredId, activeSystem } = useAppContext();
   const containerRef = useRef<HTMLDivElement>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
   const sceneRef = useRef<THREE.Scene | null>(null);
@@ -222,21 +222,25 @@ export const Viewport3D: React.FC = () => {
       if (realTex) {
         texture = realTex.clone();
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-        texture.repeat.set(2, 2);
+        // v15: Block is 55x55 units ≈ 0.55m, texture = 1m². Repeat = 0.55
+        const repeatFactor = BLOCK_W / 100;
+        texture.repeat.set(repeatFactor, repeatFactor);
       } else {
         texture = generateFallbackTexture(l.textureClass, l.color, l.textureId);
       }
       
+      const isInsulation = l.type === 'Aislante Térmico';
+      const isWaterproof = l.type === 'Barrera de Agua';
       const mat = new THREE.MeshStandardMaterial({
         map: texture,
-        color: realTex ? 0xffffff : l.color,  // Don't tint if using real texture
+        color: realTex ? 0xffffff : l.color,
         transparent: isFaded,
         opacity: isFaded ? 0.15 : 1.0,
         emissive: isTargeted ? new THREE.Color(l.color) : new THREE.Color(0x000000),
         emissiveIntensity: isTargeted ? 0.3 : 0,
         depthWrite: !isFaded,
-        roughness: 0.7,
-        metalness: 0.0,
+        roughness: isInsulation ? 0.95 : (isWaterproof ? 0.4 : 0.7),
+        metalness: l.textureId === 'aluminio' || l.textureId === 'composite-alu' ? 0.6 : 0.0,
       });
 
       const mesh = new THREE.Mesh(geo, mat);
@@ -256,11 +260,20 @@ export const Viewport3D: React.FC = () => {
     const box = new THREE.Box3().setFromObject(group);
     if (!box.isEmpty()) {
       const center = box.getCenter(new THREE.Vector3());
-      group.position.set(-center.x, 0, -center.z);
-      group.rotation.y = Math.PI / 10;
-    }
+      const sysConfig = CONSTRUCTION_SYSTEMS[activeSystem];
+      const isHorizontal = sysConfig?.orientation === 'horizontal';
 
-  }, [layers, hoveredId, selectedId]);
+      if (isHorizontal) {
+        // Rotamos para que quede horizontal sobre el plano, EXT arriba
+        group.rotation.x = -Math.PI / 2;
+        group.rotation.z = Math.PI / 8;
+        group.position.set(-center.x, -center.y, -center.z);
+      } else {
+        group.position.set(-center.x, -center.y, -center.z);
+        group.rotation.y = Math.PI / 10;
+      }
+    }
+  }, [layers, hoveredId, selectedId, activeSystem]);
 
   // Method to force render for PDF capture
   (window as any).__force3DRender = () => {
@@ -279,20 +292,23 @@ export const Viewport3D: React.FC = () => {
       </div>
 
       {/* EXT / INT labels */}
-      {layers.length > 0 && (
-        <>
-          <div className="absolute top-2 left-2 z-10 pointer-events-none">
-            <span className="bg-blue-500/15 text-blue-400 text-[8px] px-2 py-0.5 rounded font-bold uppercase tracking-widest border border-blue-500/20 backdrop-blur-sm">
-              ← EXT
-            </span>
-          </div>
-          <div className="absolute bottom-[60px] left-2 z-10 pointer-events-none">
-            <span className="bg-purple-500/15 text-purple-400 text-[8px] px-2 py-0.5 rounded font-bold uppercase tracking-widest border border-purple-500/20 backdrop-blur-sm">
-              INT →
-            </span>
-          </div>
-        </>
-      )}
+      {layers.length > 0 && (() => {
+        const isHoriz = CONSTRUCTION_SYSTEMS[activeSystem]?.orientation === 'horizontal';
+        return (
+          <>
+            <div className="absolute top-2 left-2 z-10 pointer-events-none">
+              <span className="bg-blue-500/15 text-blue-400 text-[8px] px-2 py-0.5 rounded font-bold uppercase tracking-widest border border-blue-500/20 backdrop-blur-sm">
+                {isHoriz ? '↑ EXT / SUP' : '← EXT'}
+              </span>
+            </div>
+            <div className="absolute bottom-[60px] left-2 z-10 pointer-events-none">
+              <span className="bg-purple-500/15 text-purple-400 text-[8px] px-2 py-0.5 rounded font-bold uppercase tracking-widest border border-purple-500/20 backdrop-blur-sm">
+                {isHoriz ? '↓ INT / INF' : 'INT →'}
+              </span>
+            </div>
+          </>
+        );
+      })()}
 
       {/* Enhanced legend */}
       {layers.length > 0 && (

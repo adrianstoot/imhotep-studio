@@ -6,7 +6,7 @@ import { CONSTRUCTION_SYSTEMS } from '../utils/config';
 import { CarbonPanel } from './CarbonPanel';
 
 export const SidebarRight: React.FC = () => {
-  const { layers, activeSystem, selectedId, selectLayer, moveLayer, removeLayer, isCertified, uValue, mass, updateLayerThickness, normativeErrors, normativeScore } = useAppContext();
+  const { layers, activeSystem, selectedId, selectLayer, moveLayer, removeLayer, isCertified, uValue, mass, updateLayerThickness, normativeErrors, normativeScore, area, setArea } = useAppContext();
   const sys = CONSTRUCTION_SYSTEMS[activeSystem];
   const reqLayers = sys?.requiredLayers || [];
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -130,11 +130,27 @@ export const SidebarRight: React.FC = () => {
         )}
       </div>
 
-      {/* ═══════════ ENERGY EFFICIENCY ═══════════ */}
+      {/* ═══════════ ENERGY EFFICIENCY & METRICS ═══════════ */}
       <div className="border-b border-slate-800/80 p-4 bg-slate-900/10">
-        <h2 className="text-xs font-black uppercase tracking-widest text-blue-400 flex items-center mb-3">
-          <Flame className="w-4 h-4 mr-2" /> Eficiencia Energética
-        </h2>
+        <div className="flex justify-between items-center mb-3">
+          <h2 className="text-xs font-black uppercase tracking-widest text-blue-400 flex items-center">
+            <Flame className="w-4 h-4 mr-2" /> Eficiencia Energética
+          </h2>
+          <div className="flex items-center gap-2">
+            <span className="text-[9px] font-bold text-slate-500 uppercase">Área:</span>
+            <div className="relative group">
+              <input 
+                type="number" 
+                min="1" 
+                value={area}
+                onChange={(e) => setArea(parseFloat(e.target.value) || 1)}
+                className="w-14 bg-slate-800 border border-slate-700 text-white text-[10px] font-mono font-bold rounded px-1.5 py-0.5 text-right focus:outline-none focus:border-blue-500 transition-colors"
+                title="Superficie de cálculo para el presupuesto"
+              />
+              <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[9px] text-slate-500 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity m²">m²</span>
+            </div>
+          </div>
+        </div>
 
         <div className="flex gap-3 mb-4">
           <div className="w-14 h-14 rounded-xl flex items-center justify-center font-black text-3xl border-2 shrink-0 shadow-lg" style={{ backgroundColor: rating.bg, color: rating.color, borderColor: `${rating.color}40`, textShadow: `0 0 12px ${rating.color}40` }}>

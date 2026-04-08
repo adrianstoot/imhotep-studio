@@ -61,7 +61,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [activeSystem, setActiveSystem] = useState<string>('SATE');
-  const [area, setArea] = useState<number>(100);
+  const [area, setArea] = useState<number>(1); // Predefinido a 1 m²
   const [isCertified, setIsCertified] = useState<boolean>(false);
   const [isEngineOnline, setIsEngineOnline] = useState<boolean>(false);
   const [uValue, setUValue] = useState<number>(0);
@@ -104,8 +104,8 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             vPrice = parseFloat(priceMatch[1].replace(',', '.'));
           }
 
-          const match = PHYSICS_DICTIONARY.find(p => p.keywords.some(k => (cat + ' ' + nom).toLowerCase().includes(k))) || 
-            { lambda: 0.5, density: 1000, color: '#475569', icon: 'Box', type: 'Genérico', textureClass: 'concrete', textureId: 'generic', image: '' };
+          const match = (PHYSICS_DICTIONARY as any).find((p: any) => p.keywords.some((k: string) => (cat + ' ' + nom).toLowerCase().includes(k))) || 
+            { lambda: 0.5, density: 1000, color: '#475569', icon: 'Box', type: 'Genérico', textureClass: 'concrete', textureId: 'generic', image: '', orientationType: 'ambos' };
           
           return { 
             id: `M_${i}`, 
@@ -115,6 +115,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             EspesorRaw: eRaw, 
             EspesorVirtualMM: vThick, 
             PrecioNum: vPrice, 
+            orientationType: match.orientationType || 'ambos',
             ...match 
           } as Material;
         });

@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Thermometer, X, AlertTriangle, CheckCircle2, Droplets, Info, BookOpen } from 'lucide-react';
 import { useAppContext } from '../context/AppContext';
-import { calculateGlaser } from '../utils/config';
+import { calculateCondensacionesDBHE } from '../utils/config';
 
 interface GlaserChartProps {
   open: boolean;
@@ -20,7 +20,7 @@ export const GlaserChart: React.FC<GlaserChartProps> = ({ open, onClose }) => {
       lambda: l.lambda,
       mu: (l as any).mu || 10,
     }));
-    return calculateGlaser(input);
+    return calculateCondensacionesDBHE(input);
   }, [layers]);
 
   const hasCondensation = glaserData?.some(p => p.condensation) || false;
@@ -101,7 +101,7 @@ export const GlaserChart: React.FC<GlaserChartProps> = ({ open, onClose }) => {
               <div className="w-10 h-10 bg-cyan-600 rounded-xl flex items-center justify-center"><Thermometer className="w-5 h-5 text-white" /></div>
               <div>
                 <h2 className="text-lg font-black text-white uppercase tracking-wider">Condensaciones Intersticiales</h2>
-                <p className="text-[10px] text-slate-400 font-bold tracking-widest">MÉTODO GLASER — UNE-EN ISO 13788 · Valencia (Tₑ=7°C, HR=65%)</p>
+                <p className="text-[10px] text-slate-400 font-bold tracking-widest">MÉTODO UNE-EN ISO 13788 (CTE DB-HE) · ETSIE UPV (Tₑ=7°C, HR=65%)</p>
               </div>
             </div>
             <button onClick={onClose} className="w-8 h-8 rounded-lg bg-slate-800 hover:bg-red-900/50 flex items-center justify-center text-slate-400 hover:text-red-400 transition-all"><X className="w-5 h-5" /></button>
@@ -116,14 +116,14 @@ export const GlaserChart: React.FC<GlaserChartProps> = ({ open, onClose }) => {
               </span>
             </div>
 
-            {/* ═══ EDUCATIONAL GUIDE (MÉTODO GLASER) ═══ */}
+            {/* ═══ EDUCATIONAL GUIDE (MÉTODO CTE) ═══ */}
             <div className="bg-slate-800/40 rounded-xl p-4 border border-indigo-500/30 shadow-inner">
               <div className="flex items-center gap-2 mb-3">
                 <BookOpen className="w-5 h-5 text-indigo-400" />
-                <h3 className="text-sm font-black text-indigo-300 uppercase tracking-widest">Guía Didáctica: Método de Glaser</h3>
+                <h3 className="text-sm font-black text-indigo-300 uppercase tracking-widest">Guía Didáctica: Perfil Intersticial DB-HE</h3>
               </div>
               <p className="text-xs text-slate-300 mb-4 leading-relaxed">
-                El <strong>Método de Glaser</strong> (basado en la norma UNE-EN ISO 13788) es un procedimiento gráfico-analítico utilizado en edificación para determinar el riesgo de <strong>condensaciones intersticiales</strong>. Es decir, preevalúa si el vapor de agua generado en el interior del edificio condensará dentro del propio cerramiento al atravesar las distintas capas hacia el exterior frío.
+                El <strong>Análisis de Condensaciones</strong> (basado en la norma UNE-EN ISO 13788 y el CTE DB-HE) es un procedimiento gráfico-analítico utilizado en edificación para determinar el riesgo de <strong>condensaciones intersticiales</strong>. Es decir, preevalúa si el vapor de agua generado en el interior del edificio condensará dentro del propio cerramiento al atravesar las distintas capas hacia el exterior frío.
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

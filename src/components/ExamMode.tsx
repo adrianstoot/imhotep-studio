@@ -411,7 +411,10 @@ export const ExamMode: React.FC<ExamModeProps> = ({ open, onClose }) => {
               )}
 
               {/* ═══ PHASE: RESULTS ═══ */}
-              {phase === 'results' && result && selectedExam && (
+              {phase === 'results' && result && selectedExam && (() => {
+                const nextExam = selectedExam.evolvesToId ? EXAM_CHALLENGES.find(e => e.id === selectedExam.evolvesToId) : null;
+                const passed = result.grade !== 'Suspendido';
+                return (
                 <motion.div key="results" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="max-w-2xl mx-auto space-y-6">
                   <motion.div initial={{ y: -20 }} animate={{ y: 0 }} className={`rounded-3xl p-8 text-center border shadow-[0_20px_50px_rgba(0,0,0,0.6),inset_0_1px_2px_rgba(255,255,255,0.2)] overflow-hidden relative ${result.grade === 'Suspendido' ? 'bg-gradient-to-b from-red-900/40 to-red-950/30 border-red-700/50' : result.grade === 'Matrícula de Honor' ? 'bg-gradient-to-b from-amber-900/40 to-amber-950/30 border-amber-500/50' : 'bg-gradient-to-b from-emerald-900/40 to-emerald-950/30 border-emerald-600/50'}`}>
                     {result.grade === 'Matrícula de Honor' && <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(251,191,36,0.15),transparent_70%)]" />}
@@ -458,7 +461,12 @@ export const ExamMode: React.FC<ExamModeProps> = ({ open, onClose }) => {
                     </div>
                   </div>
 
-                  <div className="flex gap-4">
+                  <div className="flex gap-4 flex-wrap">
+                    {passed && nextExam && (
+                      <button onClick={() => selectExam(nextExam)} className="w-full mb-2 py-4 bg-gradient-to-r from-orange-500 to-amber-500 hover:brightness-110 rounded-xl text-sm font-black text-white transition-all shadow-[0_10px_20px_rgba(249,115,22,0.4),inset_0_1px_1px_rgba(255,255,255,0.3)] flex items-center justify-center gap-2">
+                        <Flame className="w-5 h-5" /> EVOLUCIONAR RETO: {nextExam.title}
+                      </button>
+                    )}
                     <button onClick={resetExam} className="flex-1 py-4 bg-slate-800 hover:bg-slate-700 rounded-xl text-sm font-bold text-slate-300 transition-all border border-slate-600/50 shadow-md flex items-center justify-center gap-2">
                       <RotateCcw className="w-4 h-4" /> Seleccionar Otro Examen
                     </button>
@@ -467,7 +475,8 @@ export const ExamMode: React.FC<ExamModeProps> = ({ open, onClose }) => {
                     </button>
                   </div>
                 </motion.div>
-              )}
+                );
+              })}
             </AnimatePresence>
           </div>
         </motion.div>
