@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IMHOTEP | Creative Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "inverse-surface": "#303030",
+        "on-background": "#1b1b1b",
+        "on-secondary-fixed": "#1b1b1d",
+        "on-surface": "#1b1b1b",
+        "surface-container-lowest": "#ffffff",
+        "on-secondary": "#ffffff",
+        "primary": "#000000",
+        "primary-container": "#3b3b3b",
+        "error": "#ba1a1a",
+        "on-error-container": "#410002",
+        "on-primary-fixed": "#ffffff",
+        "tertiary-fixed-dim": "#46464b",
+        "error-container": "#ffdad6",
+        "surface-tint": "#5e5e5e",
+        "on-primary-fixed-variant": "#e2e2e2",
+        "surface-bright": "#f9f9f9",
+        "on-error": "#ffffff",
+        "on-tertiary-container": "#ffffff",
+        "secondary-fixed": "#c8c6c8",
+        "inverse-primary": "#c6c6c6",
+        "secondary-container": "#d6d3d6",
+        "on-tertiary-fixed-variant": "#e3e2e7",
+        "on-primary": "#e2e2e2",
+        "outline-variant": "#c6c6c6",
+        "surface": "#f9f9f9",
+        "on-tertiary": "#e3e2e7",
+        "surface-container-low": "#f3f3f3",
+        "primary-fixed": "#5e5e5e",
+        "on-secondary-container": "#1b1b1d",
+        "on-surface-variant": "#474747",
+        "tertiary-container": "#747479",
+        "surface-container": "#eeeeee",
+        "surface-container-high": "#e8e8e8",
+        "outline": "#777777",
+        "background": "#f9f9f9",
+        "surface-container-highest": "#e2e2e2",
+        "secondary-fixed-dim": "#acaaad",
+        "tertiary-fixed": "#5e5e63",
+        "surface-variant": "#e2e2e2",
+        "secondary": "#5f5e60",
+        "on-tertiary-fixed": "#ffffff",
+        "surface-dim": "#dadada",
+        "primary-fixed-dim": "#474747",
+        "on-primary-container": "#ffffff",
+        "inverse-on-surface": "#f1f1f1",
+        "tertiary": "#3a3b40",
+        "on-secondary-fixed-variant": "#3b3b3d"
+      },
+      borderRadius: {
+        DEFAULT: "0.125rem",
+        lg: "0.25rem",
+        xl: "0.5rem",
+        full: "0.75rem"
+      },
+      fontFamily: {
+        headline: ["Inter"],
+        body: ["Inter"],
+        label: ["Inter"]
+      }
+    },
+  },
+}
+</script>
+<style>
+body { font-family: 'Inter', sans-serif; background-color: #f9f9f9; overflow-x: hidden; }
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.glass-effect { backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+.page { display: none; opacity: 0; transition: opacity 0.5s ease; }
+.page.active { display: block; opacity: 1; }
+.slider-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease-in-out; }
+.slider-slide.active { opacity: 1; }
+.hero-text-animate { transform: translateY(40px); opacity: 0; transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.hero-text-animate.visible { transform: translateY(0); opacity: 1; }
+.project-card { transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.project-card:hover { transform: translateY(-4px); }
+.project-card:hover .project-overlay { opacity: 1; }
+.project-overlay { opacity: 0; transition: opacity 0.5s ease; }
+.nav-link { position: relative; }
+.nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: black; transition: width 0.3s ease; }
+.nav-link:hover::after, .nav-link.active::after { width: 100%; }
+.nav-link.active { color: black; font-weight: 600; }
+.fade-up { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.counter { transition: all 0.5s ease; }
+.team-card:hover .team-img { transform: scale(1.05); }
+.team-img { transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+input:focus, textarea:focus { outline: none; border-color: black; }
+.mobile-menu { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.mobile-menu.open { transform: translateX(0); }
+@keyframes pulse-slow { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.8; } }
+.animate-pulse-slow { animation: pulse-slow 3s infinite; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.animate-marquee { animation: marquee 20s linear infinite; }
+.progress-bar { transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
+</style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+
+<!-- ============================================ -->
+<!-- TOP NAVIGATION BAR -->
+<!-- ============================================ -->
+<nav id="mainNav" class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl transition-all duration-300">
+  <div class="flex items-center justify-between px-6 md:px-12 py-6 max-w-[1920px] mx-auto">
+    <a href="#" onclick="navigateTo('home')" class="flex flex-col cursor-pointer">
+      <span class="text-xl font-bold tracking-tighter uppercase text-black leading-none">IMHOTEP</span>
+      <span class="text-[9px] tracking-[0.3em] uppercase text-neutral-500 font-medium">creative studio</span>
+    </a>
+    <div class="hidden md:flex items-center space-x-10">
+      <a class="nav-link active text-sm uppercase tracking-widest cursor-pointer" data-page="home" onclick="navigateTo('home')">Home</a>
+      <a class="nav-link text-neutral-500 text-sm uppercase tracking-widest cursor-pointer" data-page="nosotros" onclick="navigateTo('nosotros')">Nosotros</a>
+      <a class="nav-link text-neutral-500 text-sm uppercase tracking-widest cursor-pointer" data-page="archviz" onclick="navigateTo('archviz')">Archviz</a>
+      <a class="nav-link text-neutral-500 text-sm uppercase tracking-widest cursor-pointer" data-page="metaverse" onclick="navigateTo('metaverse')">Metaverse</a>
+      <a class="nav-link text-neutral-500 text-sm uppercase tracking-widest cursor-pointer" data-page="marketing" onclick="navigateTo('marketing')">Marketing & IA</a>
+      <a class="nav-link text-neutral-500 text-sm uppercase tracking-widest cursor-pointer" data-page="clientes" onclick="navigateTo('clientes')">Clientes</a>
+      <a class="nav-link text-neutral-500 text-sm uppercase tracking-widest cursor-pointer" data-page="contacto" onclick="navigateTo('contacto')">Contacto</a>
+    </div>
+    <div class="flex items-center space-x-6">
+      <button class="hover:opacity-70 transition-opacity duration-300" onclick="navigateTo('clientes')">
+        <span class="material-symbols-outlined text-black">person</span>
+      </button>
+      <button class="hover:opacity-70 transition-opacity duration-300">
+        <span class="material-symbols-outlined text-black">shopping_bag</span>
+      </button>
+      <button class="md:hidden" onclick="toggleMobileMenu()">
+        <span class="material-symbols-outlined text-black" id="menuIcon">menu</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-full h-full z-[60] bg-white flex flex-col items-center justify-center space-y-8">
+  <button class="absolute top-6 right-6" onclick="toggleMobileMenu()">
+    <span class="material-symbols-outlined text-black text-3xl">close</span>
+  </button>
+  <a class="text-2xl font-bold uppercase tracking-widest cursor-pointer" onclick="navigateTo('home'); toggleMobileMenu()">Home</a>
+  <a class="text-2xl font-light uppercase tracking-widest cursor-pointer text-neutral-500" onclick="navigateTo('nosotros'); toggleMobileMenu()">Nosotros</a>
+  <a class="text-2xl font-light uppercase tracking-widest cursor-pointer text-neutral-500" onclick="navigateTo('archviz'); toggleMobileMenu()">Archviz</a>
+  <a class="text-2xl font-light uppercase tracking-widest cursor-pointer text-neutral-500" onclick="navigateTo('metaverse'); toggleMobileMenu()">Metaverse</a>
+  <a class="text-2xl font-light uppercase tracking-widest cursor-pointer text-neutral-500" onclick="navigateTo('marketing'); toggleMobileMenu()">Marketing & IA</a>
+  <a class="text-2xl font-light uppercase tracking-widest cursor-pointer text-neutral-500" onclick="navigateTo('clientes'); toggleMobileMenu()">Clientes</a>
+  <a class="text-2xl font-light uppercase tracking-widest cursor-pointer text-neutral-500" onclick="navigateTo('contacto'); toggleMobileMenu()">Contacto</a>
+</div>
+
+<!-- ============================================ -->
+<!-- PAGE: HOME -->
+<!-- ============================================ -->
+<div id="page-home" class="page active">
+  <!-- Hero Slider -->
+  <section class="relative h-screen w-full overflow-hidden bg-black">
+    <!-- Slides -->
+    <div id="heroSlider" class="absolute inset-0">
+      <div class="slider-slide active" data-slide="0">
+        <img class="w-full h-full object-cover opacity-50" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1920&q=80" alt="Monolithic Architecture"/>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+      </div>
+      <div class="slider-slide" data-slide="1">
+        <img class="w-full h-full object-cover opacity-50" src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1920&q=80" alt="Modern Design"/>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+      </div>
+      <div class="slider-slide" data-slide="2">
+        <img class="w-full h-full object-cover opacity-50" src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1920&q=80" alt="Virtual Reality"/>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+      </div>
+      <div class="slider-slide" data-slide="3">
+        <img class="w-full h-full object-cover opacity-50" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1920&q=80" alt="Digital Innovation"/>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+      </div>
+    </div>
+
+    <!-- Slide Content -->
+    <div class="relative z-10 h-full flex flex-col justify-center px-6 md:px-12 max-w-[1920px] mx-auto">
+      <div class="max-w-4xl" id="heroContent">
+        <div class="hero-text-animate" style="transition-delay: 0.1s">
+          <p class="text-white/70 text-xs tracking-[0.5em] uppercase mb-6">Established MMXXIV</p>
+        </div>
+        <div class="hero-text-animate" style="transition-delay: 0.3s">
+          <h1 id="heroTitle" class="text-white text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9] mb-8">
+            MONOLITHIC<br/>ARCHITECTURE
+          </h1>
+        </div>
+        <div class="hero-text-animate" style="transition-delay: 0.5s">
+          <p id="heroSubtitle" class="text-white/50 text-sm md:text-base max-w-lg mb-8 font-light">Diseño arquitectonico, mundos virtuales, marketing digital e inteligencia artificial. Todo en un solo estudio.</p>
+        </div>
+        <div class="hero-text-animate flex flex-col md:flex-row md:items-center space-y-6 md:space-y-0 md:space-x-8" style="transition-delay: 0.7s">
+          <button onclick="navigateTo('archviz')" class="bg-white text-black px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-neutral-200 transition-all">
+            Ver Portfolio
+          </button>
+          <div class="flex items-center space-x-4">
+            <span class="w-12 h-[1px] bg-white/30"></span>
+            <span id="heroCounter" class="text-white/60 text-[10px] tracking-widest uppercase">01 / 04</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slider Progress Bar -->
+    <div class="absolute bottom-0 left-0 w-full h-[2px] bg-white/10 z-20">
+      <div id="sliderProgress" class="h-full bg-white/60 progress-bar" style="width: 25%"></div>
+    </div>
+
+    <!-- Slider Controls -->
+    <div class="absolute bottom-12 right-6 md:right-12 z-20 flex space-x-4">
+      <button onclick="prevSlide()" class="w-12 h-12 flex items-center justify-center border border-white/20 text-white hover:bg-white hover:text-black transition-all">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </button>
+      <button onclick="nextSlide()" class="w-12 h-12 flex items-center justify-center border border-white/20 text-white hover:bg-white hover:text-black transition-all">
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Services Marquee -->
+  <section class="py-6 bg-black overflow-hidden">
+    <div class="animate-marquee whitespace-nowrap flex items-center">
+      <span class="text-white/40 text-xs tracking-[0.3em] uppercase mx-8">Arquitectura</span>
+      <span class="text-white/20 mx-4">&#9670;</span>
+      <span class="text-white/40 text-xs tracking-[0.3em] uppercase mx-8">Visualizacion 3D</span>
+      <span class="text-white/20 mx-4">&#9670;</span>
+      <span class="text-white/40 text-xs tracking-[0.3em] uppercase mx-8">Mundos Virtuales</span>
+      <span class="text-white/20 mx-4">&#9670;</span>
+      <span class="text-white/40 text-xs tracking-[0.3em] uppercase mx-8">Marketing Digital</span>
+      <span class="text-white/20 mx-4">&#9670;</span>
+      <span class="text-white/40 text-xs tracking-[0.3em] uppercase mx-8">Inteligencia Artificial</span>
+      <span class="text-white/20 mx-4">&#9670;</span>
+      <span class="text-white/40 text-xs tracking-[0.3em] uppercase mx-8">Software Personalizado</span>
+      <span class="text-white/20 mx-4">&#9670;</span>
+      <span class="text-white/40 text-xs tracking-[0.3em] uppercase mx-8">Arquitectura</span>
+      <span class="text-white/20 mx-4">&#9670;</span>
+      <span class="text-white/40 text-xs tracking-[0.3em] uppercase mx-8">Visualizacion 3D</span>
+      <span class="text-white/20 mx-4">&#9670;</span>
+      <span class="text-white/40 text-xs tracking-[0.3em] uppercase mx-8">Mundos Virtuales</span>
+      <span class="text-white/20 mx-4">&#9670;</span>
+      <span class="text-white/40 text-xs tracking-[0.3em] uppercase mx-8">Marketing Digital</span>
+      <span class="text-white/20 mx-4">&#9670;</span>
+      <span class="text-white/40 text-xs tracking-[0.3em] uppercase mx-8">Inteligencia Artificial</span>
+      <span class="text-white/20 mx-4">&#9670;</span>
+      <span class="text-white/40 text-xs tracking-[0.3em] uppercase mx-8">Software Personalizado</span>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="py-24 px-6 md:px-12 max-w-[1920px] mx-auto">
+    <div class="mb-16">
+      <p class="text-[10px] tracking-[0.2em] uppercase text-neutral-500 mb-4">Nuestros Servicios</p>
+      <h2 class="text-5xl md:text-7xl font-bold tracking-tighter">Lo que hacemos</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
+      <!-- Service 1 -->
+      <div class="group border border-neutral-100 p-8 md:p-12 hover:bg-black hover:text-white transition-all duration-500 cursor-pointer" onclick="navigateTo('archviz')">
+        <span class="material-symbols-outlined text-4xl mb-8 block group-hover:text-white transition-colors">architecture</span>
+        <h3 class="text-xl font-bold tracking-tight mb-4">Archviz</h3>
+        <p class="text-sm font-light text-neutral-500 group-hover:text-neutral-300 leading-relaxed mb-8">Visualizacion arquitectonica de alto nivel. Renders fotorrealistas, recorridos virtuales y animaciones cinematograficas.</p>
+        <span class="text-[10px] font-bold uppercase tracking-widest group-hover:text-white/60">Explorar &rarr;</span>
+      </div>
+      <!-- Service 2 -->
+      <div class="group border border-neutral-100 p-8 md:p-12 hover:bg-black hover:text-white transition-all duration-500 cursor-pointer" onclick="navigateTo('metaverse')">
+        <span class="material-symbols-outlined text-4xl mb-8 block group-hover:text-white transition-colors">vrpano</span>
+        <h3 class="text-xl font-bold tracking-tight mb-4">Mundos Virtuales</h3>
+        <p class="text-sm font-light text-neutral-500 group-hover:text-neutral-300 leading-relaxed mb-8">Experiencias inmersivas en VR/AR. Creacion de espacios digitales interactivos para el metaverso y plataformas Web3.</p>
+        <span class="text-[10px] font-bold uppercase tracking-widest group-hover:text-white/60">Explorar &rarr;</span>
+      </div>
+      <!-- Service 3 -->
+      <div class="group border border-neutral-100 p-8 md:p-12 hover:bg-black hover:text-white transition-all duration-500 cursor-pointer" onclick="navigateTo('marketing')">
+        <span class="material-symbols-outlined text-4xl mb-8 block group-hover:text-white transition-colors">smart_toy</span>
+        <h3 class="text-xl font-bold tracking-tight mb-4">Marketing & IA</h3>
+        <p class="text-sm font-light text-neutral-500 group-hover:text-neutral-300 leading-relaxed mb-8">Estrategias de marketing potenciadas con IA. Automatizaciones, software personalizado y mentorias empresariales.</p>
+        <span class="text-[10px] font-bold uppercase tracking-widest group-hover:text-white/60">Explorar &rarr;</span>
+      </div>
+      <!-- Service 4 -->
+      <div class="group border border-neutral-100 p-8 md:p-12 hover:bg-black hover:text-white transition-all duration-500 cursor-pointer" onclick="navigateTo('contacto')">
+        <span class="material-symbols-outlined text-4xl mb-8 block group-hover:text-white transition-colors">handshake</span>
+        <h3 class="text-xl font-bold tracking-tight mb-4">Consultoria</h3>
+        <p class="text-sm font-light text-neutral-500 group-hover:text-neutral-300 leading-relaxed mb-8">Asesoria estrategica para empresas que buscan integrar tecnologia de vanguardia en sus procesos creativos.</p>
+        <span class="text-[10px] font-bold uppercase tracking-widest group-hover:text-white/60">Contactar &rarr;</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section class="py-24 px-6 md:px-12 max-w-[1920px] mx-auto bg-surface-container-low">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+      <div>
+        <p class="text-[10px] tracking-[0.2em] uppercase text-neutral-500 mb-4">Portfolio Destacado</p>
+        <h2 class="text-5xl md:text-7xl font-bold tracking-tighter">Proyectos<br/>Recientes</h2>
+      </div>
+      <button onclick="navigateTo('archviz')" class="mt-8 md:mt-0 text-[10px] font-bold uppercase tracking-widest border-b border-black pb-1 hover:opacity-50 transition-opacity">Ver todos los proyectos &rarr;</button>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-0">
+      <div class="project-card relative overflow-hidden cursor-pointer aspect-[3/4]" onclick="navigateTo('archviz')">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Project 1" class="w-full h-full object-cover"/>
+        <div class="project-overlay absolute inset-0 bg-black/60 flex flex-col justify-end p-8">
+          <p class="text-white/50 text-[10px] tracking-widest uppercase mb-2">Archviz / Residencial</p>
+          <h3 class="text-white text-2xl font-bold tracking-tight">Villa Monolith</h3>
+        </div>
+      </div>
+      <div class="project-card relative overflow-hidden cursor-pointer aspect-[3/4]" onclick="navigateTo('metaverse')">
+        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80" alt="Project 2" class="w-full h-full object-cover"/>
+        <div class="project-overlay absolute inset-0 bg-black/60 flex flex-col justify-end p-8">
+          <p class="text-white/50 text-[10px] tracking-widest uppercase mb-2">Metaverse / Virtual Gallery</p>
+          <h3 class="text-white text-2xl font-bold tracking-tight">Neo Digital Pavilion</h3>
+        </div>
+      </div>
+      <div class="project-card relative overflow-hidden cursor-pointer aspect-[3/4]" onclick="navigateTo('marketing')">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Project 3" class="w-full h-full object-cover"/>
+        <div class="project-overlay absolute inset-0 bg-black/60 flex flex-col justify-end p-8">
+          <p class="text-white/50 text-[10px] tracking-widest uppercase mb-2">Marketing & IA / Automatizacion</p>
+          <h3 class="text-white text-2xl font-bold tracking-tight">AI Business Suite</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-24 px-6 md:px-12 max-w-[1920px] mx-auto">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-0">
+      <div class="border border-neutral-100 p-8 md:p-12 text-center">
+        <p class="text-5xl md:text-7xl font-bold tracking-tighter counter" data-target="150">0</p>
+        <p class="text-[10px] tracking-[0.2em] uppercase text-neutral-500 mt-4">Proyectos Completados</p>
+      </div>
+      <div class="border border-neutral-100 p-8 md:p-12 text-center">
+        <p class="text-5xl md:text-7xl font-bold tracking-tighter counter" data-target="45">0</p>
+        <p class="text-[10px] tracking-[0.2em] uppercase text-neutral-500 mt-4">Clientes Activos</p>
+      </div>
+      <div class="border border-neutral-100 p-8 md:p-12 text-center">
+        <p class="text-5xl md:text-7xl font-bold tracking-tighter counter" data-target="12">0</p>
+        <p class="text-[10px] tracking-[0.2em] uppercase text-neutral-500 mt-4">Paises</p>
+      </div>
+      <div class="border border-neutral-100 p-8 md:p-12 text-center">
+        <p class="text-5xl md:text-7xl font-bold tracking-tighter counter" data-target="8">0</p>
+        <p class="text-[10px] tracking-[0.2em] uppercase text-neutral-500 mt-4">Anos de Experiencia</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="relative h-[60vh] bg-black overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80" alt="CTA" class="absolute inset-0 w-full h-full object-cover opacity-30"/>
+    <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
+      <p class="text-white/50 text-[10px] tracking-[0.3em] uppercase mb-6">Ready to Start?</p>
+      <h2 class="text-white text-4xl md:text-7xl font-bold tracking-tighter mb-8">Hagamos algo<br/>extraordinario</h2>
+      <button onclick="navigateTo('contacto')" class="bg-white text-black px-12 py-4 text-xs font-bold uppercase tracking-widest hover:bg-neutral-200 transition-all">Contactar</button>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================ -->
+<!-- PAGE: NOSOTROS -->
+<!-- ============================================ -->
+<div id="page-nosotros" class="page">
+  <!-- Hero -->
+  <section class="relative h-[70vh] bg-black overflow-hidden flex items-end">
+    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1920&q=80" alt="Studio" class="absolute inset-0 w-full h-full object-cover opacity-40"/>
+    <div class="relative z-10 px-6 md:px-12 pb-16 max-w-[1920px] mx-auto w-full">
+      <p class="text-white/50 text-[10px] tracking-[0.3em] uppercase mb-6">About Us</p>
+      <h1 class="text-white text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9]">Quienes<br/>Somos</h1>
+    </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section class="py-24 px-6 md:px-12 max-w-[1920px] mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+      <div class="pr-0 lg:pr-24 pb-16 lg:pb-0">
+        <p class="text-[10px] tracking-[0.2em] uppercase text-neutral-500 mb-8">Nuestra Filosofia</p>
+        <h2 class="text-4xl md:text-6xl font-bold tracking-tighter leading-[0.95] mb-8">Donde la vision<br/>se convierte en<br/>realidad</h2>
+        <p class="text-base text-neutral-600 font-light leading-relaxed mb-6">IMHOTEP Creative Studio nace de la interseccion entre arquitectura, tecnologia y creatividad. Nuestro nombre rinde homenaje al primer arquitecto conocido de la historia, Imhotep, quien diseno la primera piramide escalonada de Egipto.</p>
+        <p class="text-base text-neutral-600 font-light leading-relaxed mb-6">Nos especializamos en la creacion de experiencias visuales que trascienden lo convencional. Desde la visualizacion arquitectonica de alto nivel hasta la construccion de mundos virtuales inmersivos, cada proyecto refleja nuestra obsesion por la excelencia y el detalle.</p>
+        <p class="text-base text-neutral-600 font-light leading-relaxed">Combinamos herramientas de vanguardia con una sensibilidad artistica unica, creando soluciones que no solo comunican, sino que transforman la manera en que las personas experimentan los espacios.</p>
+      </div>
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Studio Work" class="w-full h-full object-cover min-h-[400px]"/>
+        <div class="absolute bottom-0 left-0 bg-black text-white p-8 md:p-12 max-w-xs">
+          <p class="text-3xl font-bold tracking-tighter mb-2">+150</p>
+          <p class="text-[10px] tracking-widest uppercase text-white/60">Proyectos entregados con excelencia</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="py-24 px-6 md:px-12 max-w-[1920px] mx-auto bg-black text-white">
+    <div class="mb-16">
+      <p class="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-4">Core Values</p>
+      <h2 class="text-5xl md:text-7xl font-bold tracking-tighter">Nuestros Valores</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-0">
+      <div class="border border-white/10 p-8 md:p-12">
+        <span class="text-6xl font-bold text-white/10 mb-6 block">01</span>
+        <h3 class="text-xl font-bold tracking-tight mb-4">Excelencia</h3>
+        <p class="text-sm font-light text-white/50 leading-relaxed">Cada pixel, cada linea, cada detalle importa. No entregamos hasta que la calidad sea impecable.</p>
+      </div>
+      <div class="border border-white/10 p-8 md:p-12">
+        <span class="text-6xl font-bold text-white/10 mb-6 block">02</span>
+        <h3 class="text-xl font-bold tracking-tight mb-4">Innovacion</h3>
+        <p class="text-sm font-light text-white/50 leading-relaxed">Exploramos constantemente nuevas tecnologias y metodologias para ofrecer soluciones de vanguardia.</p>
+      </div>
+      <div class="border border-white/10 p-8 md:p-12">
+        <span class="text-6xl font-bold text-white/10 mb-6 block">03</span>
+        <h3 class="text-xl font-bold tracking-tight mb-4">Colaboracion</h3>
+        <p class="text-sm font-light text-white/50 leading-relaxed">Trabajamos codo a codo con nuestros clientes, entendiendo su vision para superarla en cada entrega.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="py-24 px-6 md:px-12 max-w-[1920px] mx-auto">
+    <div class="mb-16">
+      <p class="text-[10px] tracking-[0.2em] uppercase text-neutral-500 mb-4">El Equipo</p>
+      <h2 class="text-5xl md:text-7xl font-bold tracking-tighter">Mentes Creativas</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
+      <!-- Team Member 1 -->
+      <div class="team-card group border border-neutral-100 overflow-hidden">
+        <div class="aspect-[3/4] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Director Creativo" class="team-img w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"/>
+        </div>
+        <div class="p-8">
+          <h3 class="text-lg font-bold tracking-tight">Adrian Morales</h3>
+          <p class="text-[10px] tracking-widest uppercase text-neutral-500 mt-1">Director Creativo & CEO</p>
+          <p class="text-sm font-light text-neutral-500 mt-4 leading-relaxed">Arquitecto y artista digital con mas de 10 anos de experiencia en visualizacion arquitectonica y mundos virtuales.</p>
+        </div>
+      </div>
+      <!-- Team Member 2 -->
+      <div class="team-card group border border-neutral-100 overflow-hidden">
+        <div class="aspect-[3/4] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" alt="Directora de Arte" class="team-img w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"/>
+        </div>
+        <div class="p-8">
+          <h3 class="text-lg font-bold tracking-tight">Laura Fernandez</h3>
+          <p class="text-[10px] tracking-widest uppercase text-neutral-500 mt-1">Directora de Arte</p>
+          <p class="text-sm font-light text-neutral-500 mt-4 leading-relaxed">Especialista en diseno de interiores y direccion artistica con enfoque en estetica minimalista monolitica.</p>
+        </div>
+      </div>
+      <!-- Team Member 3 -->
+      <div class="team-card group border border-neutral-100 overflow-hidden">
+        <div class="aspect-[3/4] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80" alt="Lead Developer" class="team-img w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"/>
+        </div>
+        <div class="p-8">
+          <h3 class="text-lg font-bold tracking-tight">Carlos Rivera</h3>
+          <p class="text-[10px] tracking-widest uppercase text-neutral-500 mt-1">Lead Developer & VR</p>
+          <p class="text-sm font-light text-neutral-500 mt-4 leading-relaxed">Desarrollador especializado en experiencias inmersivas, Unreal Engine y desarrollo de entornos virtuales.</p>
+        </div>
+      </div>
+      <!-- Team Member 4 -->
+      <div class="team-card group border border-neutral-100 overflow-hidden">
+        <div class="aspect-[3/4] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" alt="Marketing Lead" class="team-img w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"/>
+        </div>
+        <div class="p-8">
+          <h3 class="text-lg font-bold tracking-tight">Sofia Martinez</h3>
+          <p class="text-[10px] tracking-widest uppercase text-neutral-500 mt-1">Marketing & IA Strategist</p>
+          <p class="text-sm font-light text-neutral-500 mt-4 leading-relaxed">Experta en estrategias de marketing digital, automatizacion con IA y transformacion digital empresarial.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram CTA -->
+  <section class="py-24 px-6 md:px-12 max-w-[1920px] mx-auto bg-surface-container-low">
+    <div class="flex flex-col items-center text-center">
+      <p class="text-[10px] tracking-[0.2em] uppercase text-neutral-500 mb-4">Siguenos</p>
+      <h2 class="text-4xl md:text-6xl font-bold tracking-tighter mb-8">@imhotepestudio</h2>
+      <a href="https://www.instagram.com/imhotepestudio/" target="_blank" class="bg-black text-white px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-neutral-800 transition-all inline-flex items-center gap-3">
+        <span class="material-symbols-outlined text-sm">photo_camera</span>
+        Ver Instagram
+      </a>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================ -->
+<!-- PAGE: ARCHVIZ -->
+<!-- ============================================ -->
+<div id="page-archviz" class="page">
+  <!-- Hero -->
+  <section class="relative h-[70vh] bg-black overflow-hidden flex items-end">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80" alt="Archviz" class="absolute inset-0 w-full h-full object-cover opacity-40"/>
+    <div class="relative z-10 px-6 md:px-12 pb-16 max-w-[1920px] mx-auto w-full">
+      <p class="text-white/50 text-[10px] tracking-[0.3em] uppercase mb-6">Architectural Visualization</p>
+      <h1 class="text-white text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9]">Archviz<br/>Portfolio</h1>
+    </div>
+  </section>
+
+  <!-- Filter -->
+  <section class="py-12 px-6 md:px-12 max-w-[1920px] mx-auto border-b border-neutral-100">
+    <div class="flex flex-wrap gap-6">
+      <button class="archviz-filter text-xs font-bold uppercase tracking-widest pb-1 border-b-2 border-black" data-filter="all" onclick="filterArchviz('all')">Todos</button>
+      <button class="archviz-filter text-xs uppercase tracking-widest text-neutral-400 pb-1 border-b-2 border-transparent hover:border-black hover:text-black transition-all" data-filter="residencial" onclick="filterArchviz('residencial')">Residencial</button>
+      <button class="archviz-filter text-xs uppercase tracking-widest text-neutral-400 pb-1 border-b-2 border-transparent hover:border-black hover:text-black transition-all" data-filter="comercial" onclick="filterArchviz('comercial')">Comercial</button>
+      <button class="archviz-filter text-xs uppercase tracking-widest text-neutral-400 pb-1 border-b-2 border-transparent hover:border-black hover:text-black transition-all" data-filter="cultural" onclick="filterArchviz('cultural')">Cultural</button>
+      <button class="archviz-filter text-xs uppercase tracking-widest text-neutral-400 pb-1 border-b-2 border-transparent hover:border-black hover:text-black transition-all" data-filter="interior" onclick="filterArchviz('interior')">Interior</button>
+    </div>
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="px-0 max-w-[1920px] mx-auto">
+    <div id="archvizGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+      <!-- Project 1 -->
+      <div class="archviz-item project-card relative overflow-hidden cursor-pointer aspect-square" data-category="residencial">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Villa Monolith" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+        <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-end p-8">
+          <p class="text-white/50 text-[10px] tracking-widest uppercase mb-2">Residencial</p>
+          <h3 class="text-white text-2xl font-bold tracking-tight mb-2">Villa Monolith</h3>
+          <p class="text-white/60 text-sm font-light">Render fotorrealista exterior con paisajismo integrado y materiales de hormigon visto.</p>
+        </div>
+      </div>
+      <!-- Project 2 -->
+      <div class="archviz-item project-card relative overflow-hidden cursor-pointer aspect-square" data-category="comercial">
+        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80" alt="Corporativo" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+        <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-end p-8">
+          <p class="text-white/50 text-[10px] tracking-widest uppercase mb-2">Comercial</p>
+          <h3 class="text-white text-2xl font-bold tracking-tight mb-2">Torre Axiom</h3>
+          <p class="text-white/60 text-sm font-light">Rascacielos corporativo con fachada parametrica y sistema de iluminacion dinamico.</p>
+        </div>
+      </div>
+      <!-- Project 3 -->
+      <div class="archviz-item project-card relative overflow-hidden cursor-pointer aspect-square" data-category="cultural">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Museo" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+        <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-end p-8">
+          <p class="text-white/50 text-[10px] tracking-widest uppercase mb-2">Cultural</p>
+          <h3 class="text-white text-2xl font-bold tracking-tight mb-2">Museo Horizon</h3>
+          <p class="text-white/60 text-sm font-light">Centro cultural con volumetria escultorial y espacios de exposicion de doble altura.</p>
+        </div>
+      </div>
+      <!-- Project 4 -->
+      <div class="archviz-item project-card relative overflow-hidden cursor-pointer aspect-square" data-category="interior">
+        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80" alt="Interior" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+        <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-end p-8">
+          <p class="text-white/50 text-[10px] tracking-widest uppercase mb-2">Interior</p>
+          <h3 class="text-white text-2xl font-bold tracking-tight mb-2">Loft Brutalist</h3>
+          <p class="text-white/60 text-sm font-light">Interiorismo minimalista con materiales naturales, hormigon expuesto y madera noble.</p>
+        </div>
+      </div>
+      <!-- Project 5 -->
+      <div class="archviz-item project-card relative overflow-hidden cursor-pointer aspect-square" data-category="residencial">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80" alt="Residencial" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+        <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-end p-8">
+          <p class="text-white/50 text-[10px] tracking-widest uppercase mb-2">Residencial</p>
+          <h3 class="text-white text-2xl font-bold tracking-tight mb-2">Casa Nexus</h3>
+          <p class="text-white/60 text-sm font-light">Residencia contemporanea con piscina infinity y vistas panoramicas al mar.</p>
+        </div>
+      </div>
+      <!-- Project 6 -->
+      <div class="archviz-item project-card relative overflow-hidden cursor-pointer aspect-square" data-category="comercial">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Oficinas" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+        <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-end p-8">
+          <p class="text-white/50 text-[10px] tracking-widest uppercase mb-2">Comercial</p>
+          <h3 class="text-white text-2xl font-bold tracking-tight mb-2">Hub Central</h3>
+          <p class="text-white/60 text-sm font-light">Espacio de coworking con diseno biofilico y sistemas de iluminacion inteligente.</p>
+        </div>
+      </div>
+      <!-- Project 7 -->
+      <div class="archviz-item project-card relative overflow-hidden cursor-pointer aspect-square" data-category="cultural">
+        <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&q=80" alt="Cultural" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+        <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-end p-8">
+          <p class="text-white/50 text-[10px] tracking-widest uppercase mb-2">Cultural</p>
+          <h3 class="text-white text-2xl font-bold tracking-tight mb-2">Galeria Prism</h3>
+          <p class="text-white/60 text-sm font-light">Galeria de arte con iluminacion zenital y recorrido narrativo arquitectonico.</p>
+        </div>
+      </div>
+      <!-- Project 8 -->
+      <div class="archviz-item project-card relative overflow-hidden cursor-pointer aspect-square" data-category="interior">
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80" alt="Interior" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+        <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-end p-8">
+          <p class="text-white/50 text-[10px] tracking-widest uppercase mb-2">Interior</p>
+          <h3 class="text-white text-2xl font-bold tracking-tight mb-2">Suite Noir</h3>
+          <p class="text-white/60 text-sm font-light">Suite de hotel de lujo con acabados oscuros, iluminacion dramatica y texturas premium.</p>
+        </div>
+      </div>
+      <!-- Project 9 -->
+      <div class="archviz-item project-card relative overflow-hidden cursor-pointer aspect-square" data-category="residencial">
+        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80" alt="Residencial" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+        <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-end p-8">
+          <p class="text-white/50 text-[10px] tracking-widest uppercase mb-2">Residencial</p>
+          <h3 class="text-white text-2xl font-bold tracking-tight mb-2">Penthouse Vertex</h3>
+          <p class="text-white/60 text-sm font-light">Atico de ultra lujo con terraza panoramica y diseno interior de autor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="py-24 px-6 md:px-12 max-w-[1920px] mx-auto">
+    <div class="mb-16">
+      <p class="text-[10px] tracking-[0.2em] uppercase text-neutral-500 mb-4">Workflow</p>
+      <h2 class="text-5xl md:text-7xl font-bold tracking-tighter">Nuestro Proceso</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-0">
+      <div class="border border-neutral-100 p-8 md:p-12">
+        <span class="text-6xl font-bold text-neutral-100 mb-6 block">01</span>
+        <h3 class="text-lg font-bold tracking-tight mb-3">Briefing</h3>
+        <p class="text-sm font-light text-neutral-500 leading-relaxed">Analizamos el proyecto, entendemos la vision del cliente y definimos los objetivos visuales.</p>
+      </div>
+      <div class="border border-neutral-100 p-8 md:p-12">
+        <span class="text-6xl font-bold text-neutral-100 mb-6 block">02</span>
+        <h3 class="text-lg font-bold tracking-tight mb-3">Modelado 3D</h3>
+        <p class="text-sm font-light text-neutral-500 leading-relaxed">Creamos el modelo tridimensional con precision milimetrica y atencion al detalle constructivo.</p>
+      </div>
+      <div class="border border-neutral-100 p-8 md:p-12">
+        <span class="text-6xl font-bold text-neutral-100 mb-6 block">03</span>
+        <h3 class="text-lg font-bold tracking-tight mb-3">Iluminacion & Materiales</h3>
+        <p class="text-sm font-light text-neutral-500 leading-relaxed">Aplicamos materiales PBR e iluminacion fisica para lograr resultados fotorrealistas.</p>
+      </div>
+      <div class="border border-neutral-100 p-8 md:p-12">
+        <span class="text-6xl font-bold text-neutral-100 mb-6 block">04</span>
+        <h3 class="text-lg font-bold tracking-tight mb-3">Render & Entrega</h3>
+        <p class="text-sm font-light text-neutral-500 leading-relaxed">Renderizamos en alta resolucion, post-producimos y entregamos los archivos finales.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================ -->
+<!-- PAGE: METAVERSE -->
+<!-- ============================================ -->
+<div id="page-metaverse" class="page">
+  <!-- Hero -->
+  <section class="relative h-[70vh] bg-black overflow-hidden flex items-end">
+    <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1920&q=80" alt="Metaverse" class="absolute inset-0 w-full h-full object-cover opacity-40"/>
+    <div class="relative z-10 px-6 md:px-12 pb-16 max-w-[1920px] mx-auto w-full">
+      <p class="text-white/50 text-[10px] tracking-[0.3em] uppercase mb-6">Virtual Worlds & VR</p>
+      <h1 class="text-white text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9]">Mundos<br/>Virtuales</h1>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="py-24 px-6 md:px-12 max-w-[1920px] mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+      <div class="pr-0 lg:pr-24">
+        <p class="text-[10px] tracking-[0.2em] uppercase text-neutral-500 mb-8">Experiencias Inmersivas</p>
+        <h2 class="text-4xl md:text-6xl font-bold tracking-tighter leading-[0.95] mb-8">El futuro de los<br/>espacios digitales</h2>
+        <p class="text-base text-neutral-600 font-light leading-relaxed mb-6">Creamos experiencias inmersivas que redefinen como las personas interactuan con los espacios digitales. Desde galerias virtuales hasta ciudades enteras en el metaverso.</p>
+        <p class="text-base text-neutral-600 font-light leading-relaxed">Utilizamos Unreal Engine 5, Unity y herramientas de desarrollo Web3 para construir mundos que inspiran, educan y conectan.</p>
+      </div>
+      <div class="grid grid-cols-2 gap-0 mt-12 lg:mt-0">
+        <div class="bg-black text-white p-8 flex flex-col justify-end aspect-square">
+          <span class="material-symbols-outlined text-4xl mb-4">view_in_ar</span>
+          <h3 class="text-lg font-bold">VR/AR</h3>
+          <p class="text-xs text-white/50 mt-2">Realidad Virtual y Aumentada</p>
+        </div>
+        <div class="bg-neutral-100 p-8 flex flex-col justify-end aspect-square">
+          <span class="material-symbols-outlined text-4xl mb-4">language</span>
+          <h3 class="text-lg font-bold">Web3</h3>
+          <p class="text-xs text-neutral-500 mt-2">Metaverso & Blockchain</p>
+        </div>
+        <div class="bg-neutral-100 p-8 flex flex-col justify-end aspect-square">
+          <span class="material-symbols-outlined text-4xl mb-4">sports_esports</span>
+          <h3 class="text-lg font-bold">Gaming</h3>
+          <p class="text-xs text-neutral-500 mt-2">Entornos Interactivos</p>
+        </div>
+        <div class="bg-black text-white p-8 flex flex-col justify-end aspect-square">
+          <span class="material-symbols-outlined text-4xl mb-4">hub</span>
+          <h3 class="text-lg font-bold">Digital Twin</h3>
+          <p class="text-xs text-white/50 mt-2">Gemelos Digitales</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VR Projects -->
+  <section class="px-0 max-w-[1920px] mx-auto">
+    <div class="px-6 md:px-12 mb-16">
+      <p class="text-[10px] tracking-[0.2em] uppercase text-neutral-500 mb-4">Featured Projects</p>
+      <h2 class="text-5xl md:text-7xl font-bold tracking-tighter">Proyectos VR</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+      <!-- VR Project 1 -->
+      <div class="project-card relative overflow-hidden cursor-pointer aspect-video">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1000&q=80" alt="VR Gallery" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+        <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-end p-8 md:p-12">
+          <span class="text-white/30 text-[10px] tracking-widest uppercase mb-2">Galeria Virtual</span>
+          <h3 class="text-white text-3xl font-bold tracking-tight mb-3">Neo Digital Pavilion</h3>
+          <p class="text-white/60 text-sm font-light max-w-md">Espacio de exposicion virtual inmersivo con capacidad para 500 visitantes simultaneos. Compatible con Meta Quest y HTC Vive.</p>
+        </div>
+      </div>
+      <!-- VR Project 2 -->
+      <div class="project-card relative overflow-hidden cursor-pointer aspect-video">
+        <img src="https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?w=1000&q=80" alt="Virtual City" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+        <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-end p-8 md:p-12">
+          <span class="text-white/30 text-[10px] tracking-widest uppercase mb-2">Metaverse City</span>
+          <h3 class="text-white text-3xl font-bold tracking-tight mb-3">Arcadia District</h3>
+          <p class="text-white/60 text-sm font-light max-w-md">Distrito urbano virtual con 200+ edificios interactivos, sistema economico integrado y gobernanza descentralizada.</p>
+        </div>
+      </div>
+      <!-- VR Project 3 -->
+      <div class="project-card relative overflow-hidden cursor-pointer aspect-video">
+        <img src="https://images.unsplash.com/photo-1617802690992-15d93263d3a9?w=1000&q=80" alt="Digital Twin" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+        <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-end p-8 md:p-12">
+          <span class="text-white/30 text-[10px] tracking-widest uppercase mb-2">Digital Twin</span>
+          <h3 class="text-white text-3xl font-bold tracking-tight mb-3">Industrial Complex</h3>
+          <p class="text-white/60 text-sm font-light max-w-md">Gemelo digital de complejo industrial con monitorizacion en tiempo real y simulaciones predictivas.</p>
+        </div>
+      </div>
+      <!-- VR Project 4 -->
+      <div class="project-card relative overflow-hidden cursor-pointer aspect-video">
+        <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=1000&q=80" alt="Event Space" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+        <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-end p-8 md:p-12">
+          <span class="text-white/30 text-[10px] tracking-widest uppercase mb-2">Virtual Events</span>
+          <h3 class="text-white text-3xl font-bold tracking-tight mb-3">Void Arena</h3>
+          <p class="text-white/60 text-sm font-light max-w-md">Espacio para eventos virtuales con capacidad masiva, sistema de audio espacial y streaming 4K integrado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="py-24 px-6 md:px-12 max-w-[1920px] mx-auto bg-black text-white">
+    <div class="mb-16">
+      <p class="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-4">Technology</p>
+      <h2 class="text-5xl md:text-7xl font-bold tracking-tighter">Herramientas</h2>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-0">
+      <div class="border border-white/10 p-8 md:p-12 text-center">
+        <p class="text-2xl font-bold mb-2">Unreal Engine 5</p>
+        <p class="text-xs text-white/40 uppercase tracking-widest">Real-time Rendering</p>
+      </div>
+      <div class="border border-white/10 p-8 md:p-12 text-center">
+        <p class="text-2xl font-bold mb-2">Unity</p>
+        <p class="text-xs text-white/40 uppercase tracking-widest">Cross-platform</p>
+      </div>
+      <div class="border border-white/10 p-8 md:p-12 text-center">
+        <p class="text-2xl font-bold mb-2">Blender</p>
+        <p class="text-xs text-white/40 uppercase tracking-widest">3D Modeling</p>
+      </div>
+      <div class="border border-white/10 p-8 md:p-12 text-center">
+        <p class="text-2xl font-bold mb-2">WebXR</p>
+        <p class="text-xs text-white/40 uppercase tracking-widest">Web3 Integration</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================ -->
+<!-- PAGE: MARKETING & IA -->
+<!-- ============================================ -->
+<div id="page-marketing" class="page">
+  <!-- Hero -->
+  <section class="relative h-[70vh] bg-black overflow-hidden flex items-end">
+    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&q=80" alt="Marketing IA" class="absolute inset-0 w-full h-full object-cover opacity-40"/>
+    <div class="relative z-10 px-6 md:px-12 pb-16 max-w-[1920px] mx-auto w-full">
+      <p class="text-white/50 text-[10px] tracking-[0.3em] uppercase mb-6">Artificial Intelligence & Marketing</p>
+      <h1 class="text-white text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9]">Marketing<br/>& IA</h1>
+    </div>
+  </section>
+
+  <!-- Services Detail -->
+  <section class="py-24 px-6 md:px-12 max-w-[1920px] mx-auto">
+    <div class="mb-16">
+      <p class="text-[10px] tracking-[0.2em] uppercase text-neutral-500 mb-4">Servicios Digitales</p>
+      <h2 class="text-5xl md:text-7xl font-bold tracking-tighter">Transformacion<br/>Digital Total</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+      <!-- AI Consulting -->
+      <div class="border border-neutral-100 p-8 md:p-16 group hover:bg-black hover:text-white transition-all duration-500">
+        <span class="material-symbols-outlined text-5xl mb-8 block">psychology</span>
+        <h3 class="text-3xl font-bold tracking-tight mb-4">Asesoria IA para Empresas</h3>
+        <p class="text-sm font-light text-neutral-500 group-hover:text-neutral-300 leading-relaxed mb-8">Analizamos tu negocio e identificamos oportunidades donde la inteligencia artificial puede generar valor real. Desde chatbots inteligentes hasta analisis predictivo de datos.</p>
+        <ul class="space-y-3">
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Auditoria de procesos con IA</li>
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Implementacion de chatbots</li>
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Analisis predictivo de datos</li>
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Optimizacion con machine learning</li>
+        </ul>
+      </div>
+      <!-- Automation -->
+      <div class="border border-neutral-100 p-8 md:p-16 group hover:bg-black hover:text-white transition-all duration-500">
+        <span class="material-symbols-outlined text-5xl mb-8 block">settings_suggest</span>
+        <h3 class="text-3xl font-bold tracking-tight mb-4">Automatizaciones</h3>
+        <p class="text-sm font-light text-neutral-500 group-hover:text-neutral-300 leading-relaxed mb-8">Automatizamos flujos de trabajo, procesos repetitivos y tareas operativas para que tu equipo se concentre en lo que realmente importa: crear valor.</p>
+        <ul class="space-y-3">
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Workflows automatizados</li>
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Integraciones API</li>
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>RPA (Robotic Process Automation)</li>
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Pipelines de datos</li>
+        </ul>
+      </div>
+      <!-- Custom Software -->
+      <div class="border border-neutral-100 p-8 md:p-16 group hover:bg-black hover:text-white transition-all duration-500">
+        <span class="material-symbols-outlined text-5xl mb-8 block">code</span>
+        <h3 class="text-3xl font-bold tracking-tight mb-4">Software Personalizado</h3>
+        <p class="text-sm font-light text-neutral-500 group-hover:text-neutral-300 leading-relaxed mb-8">Desarrollamos software a medida que se adapta exactamente a las necesidades de tu negocio. Aplicaciones web, plataformas SaaS y herramientas internas.</p>
+        <ul class="space-y-3">
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Aplicaciones Web & Mobile</li>
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Plataformas SaaS</li>
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Dashboards & Analytics</li>
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>E-commerce Custom</li>
+        </ul>
+      </div>
+      <!-- Marketing & Mentoring -->
+      <div class="border border-neutral-100 p-8 md:p-16 group hover:bg-black hover:text-white transition-all duration-500">
+        <span class="material-symbols-outlined text-5xl mb-8 block">campaign</span>
+        <h3 class="text-3xl font-bold tracking-tight mb-4">Marketing Total & Mentorias</h3>
+        <p class="text-sm font-light text-neutral-500 group-hover:text-neutral-300 leading-relaxed mb-8">Estrategias integrales de marketing digital y programas de mentoria para equipos que quieren dominar las herramientas del futuro.</p>
+        <ul class="space-y-3">
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Estrategia de contenido con IA</li>
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>SEO & SEM avanzado</li>
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Social Media Management</li>
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Mentorias 1:1 y grupales</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="py-24 px-6 md:px-12 max-w-[1920px] mx-auto bg-surface-container-low">
+    <div class="mb-16 text-center">
+      <p class="text-[10px] tracking-[0.2em] uppercase text-neutral-500 mb-4">Planes</p>
+      <h2 class="text-5xl md:text-7xl font-bold tracking-tighter">Nuestros Paquetes</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-0 max-w-5xl mx-auto">
+      <!-- Starter -->
+      <div class="border border-neutral-100 bg-white p-8 md:p-12 flex flex-col">
+        <p class="text-[10px] tracking-widest uppercase text-neutral-500 mb-2">Starter</p>
+        <p class="text-4xl font-bold tracking-tighter mb-2">Consulta</p>
+        <p class="text-sm text-neutral-500 font-light mb-8">Sesion de diagnostico inicial para entender tus necesidades.</p>
+        <p class="text-3xl font-bold tracking-tighter mb-8">Gratis</p>
+        <ul class="space-y-3 mb-8 flex-1">
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Llamada 30 min</li>
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Analisis basico</li>
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Propuesta personalizada</li>
+        </ul>
+        <button onclick="navigateTo('contacto')" class="w-full py-4 border border-black text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-all">Reservar</button>
+      </div>
+      <!-- Pro -->
+      <div class="border border-black bg-black text-white p-8 md:p-12 flex flex-col relative">
+        <span class="absolute top-4 right-4 text-[9px] bg-white text-black px-3 py-1 font-bold uppercase tracking-widest">Popular</span>
+        <p class="text-[10px] tracking-widest uppercase text-white/50 mb-2">Professional</p>
+        <p class="text-4xl font-bold tracking-tighter mb-2">Pro Suite</p>
+        <p class="text-sm text-white/50 font-light mb-8">Solucion integral para empresas en crecimiento.</p>
+        <p class="text-3xl font-bold tracking-tighter mb-8">Custom</p>
+        <ul class="space-y-3 mb-8 flex-1">
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Todo en Starter</li>
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Automatizaciones IA</li>
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Software a medida</li>
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Marketing digital</li>
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Soporte prioritario</li>
+        </ul>
+        <button onclick="navigateTo('contacto')" class="w-full py-4 border border-white/20 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all">Contactar</button>
+      </div>
+      <!-- Enterprise -->
+      <div class="border border-neutral-100 bg-white p-8 md:p-12 flex flex-col">
+        <p class="text-[10px] tracking-widest uppercase text-neutral-500 mb-2">Enterprise</p>
+        <p class="text-4xl font-bold tracking-tighter mb-2">Full Stack</p>
+        <p class="text-sm text-neutral-500 font-light mb-8">Transformacion digital completa para grandes empresas.</p>
+        <p class="text-3xl font-bold tracking-tighter mb-8">Custom</p>
+        <ul class="space-y-3 mb-8 flex-1">
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Todo en Pro Suite</li>
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Equipo dedicado</li>
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Mentorias exclusivas</li>
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>SLA garantizado</li>
+          <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-sm">check</span>Soporte 24/7</li>
+        </ul>
+        <button onclick="navigateTo('contacto')" class="w-full py-4 border border-black text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-all">Contactar</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================ -->
+<!-- PAGE: CLIENTES -->
+<!-- ============================================ -->
+<div id="page-clientes" class="page">
+  <main class="pt-32 pb-24 px-6 md:px-12 max-w-[1920px] mx-auto min-h-screen">
+    <!-- Header -->
+    <header class="mb-20">
+      <div class="max-w-4xl">
+        <p class="text-[10px] tracking-[0.2em] uppercase text-neutral-500 mb-4">Client Dashboard</p>
+        <h1 class="text-6xl md:text-8xl font-bold tracking-tighter text-primary leading-[0.9] mb-8">Estado de<br/>los Pedidos</h1>
+        <p class="text-lg text-on-surface-variant max-w-xl font-light">Monitorea el progreso, gestiona facturas y accede a los entregables de tus colaboraciones activas con Imhotep Studio.</p>
+      </div>
+    </header>
+
+    <!-- Project Overview Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-px overflow-hidden mb-32">
+      <!-- Left Panel -->
+      <div class="lg:col-span-8 bg-surface pr-0 md:pr-12">
+        <div class="flex flex-col space-y-12">
+          <!-- Project Card 01 -->
+          <div class="group relative bg-surface-container-low p-8 md:p-12 hover:bg-surface-container transition-colors duration-500">
+            <div class="flex flex-col md:flex-row md:items-start justify-between gap-8">
+              <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                  <span class="text-[11px] font-medium tracking-widest uppercase px-3 py-1 bg-primary text-on-primary">En Progreso</span>
+                  <span class="text-[11px] text-neutral-400 font-mono tracking-tighter">REF: IM-2024-089</span>
+                </div>
+                <h2 class="text-4xl font-bold tracking-tighter">Neo-Archival Metaverse Pavilion</h2>
+                <p class="text-sm text-neutral-600 max-w-md font-light leading-relaxed">Fase 02: Mapeo estructural y optimizacion del layout espacial. Proxima revision programada para el viernes.</p>
+                <div class="pt-4 flex gap-8 border-t border-black/5">
+                  <div>
+                    <p class="text-[9px] uppercase tracking-widest text-neutral-400 mb-1">Estado Factura</p>
+                    <p class="text-sm font-semibold">Parcial (50%) Pagado</p>
+                  </div>
+                  <div>
+                    <p class="text-[9px] uppercase tracking-widest text-neutral-400 mb-1">Finalizacion Est.</p>
+                    <p class="text-sm font-semibold">Nov 24, 2024</p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3 min-w-[200px]">
+                <button class="w-full py-4 bg-primary text-on-primary flex items-center justify-center gap-2 hover:bg-primary-container transition-all">
+                  <span class="text-[11px] font-bold uppercase tracking-widest">Descargar Factura</span>
+                  <span class="material-symbols-outlined text-sm">receipt_long</span>
+                </button>
+                <button class="w-full py-4 border border-black/10 flex items-center justify-center gap-2 hover:bg-black hover:text-white transition-all">
+                  <span class="text-[11px] font-bold uppercase tracking-widest">Subir Assets</span>
+                  <span class="material-symbols-outlined text-sm">upload</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Project Card 02 -->
+          <div class="group relative bg-white p-8 md:p-12 hover:bg-surface-container-low transition-colors duration-500 border border-neutral-100">
+            <div class="flex flex-col md:flex-row md:items-start justify-between gap-8">
+              <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                  <span class="text-[11px] font-medium tracking-widest uppercase px-3 py-1 bg-surface-container-highest text-on-surface">Completado</span>
+                  <span class="text-[11px] text-neutral-400 font-mono tracking-tighter">REF: IM-2024-042</span>
+                </div>
+                <h2 class="text-4xl font-bold tracking-tighter">Editorial Branding System</h2>
+                <p class="text-sm text-neutral-600 max-w-md font-light leading-relaxed">Todos los assets finales aprobados. El archivo del proyecto esta disponible para descarga durante los proximos 30 dias.</p>
+                <div class="pt-4 flex gap-8 border-t border-black/5">
+                  <div>
+                    <p class="text-[9px] uppercase tracking-widest text-neutral-400 mb-1">Estado Factura</p>
+                    <p class="text-sm font-semibold">Liquidado</p>
+                  </div>
+                  <div>
+                    <p class="text-[9px] uppercase tracking-widest text-neutral-400 mb-1">Fecha Completado</p>
+                    <p class="text-sm font-semibold">Oct 12, 2024</p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3 min-w-[200px]">
+                <button class="w-full py-4 bg-primary text-on-primary flex items-center justify-center gap-2 hover:bg-primary-container transition-all">
+                  <span class="text-[11px] font-bold uppercase tracking-widest">Descargar Assets</span>
+                  <span class="material-symbols-outlined text-sm">folder_zip</span>
+                </button>
+                <button class="w-full py-4 border border-black/10 flex items-center justify-center gap-2 hover:bg-black hover:text-white transition-all">
+                  <span class="text-[11px] font-bold uppercase tracking-widest">Ver Archivos</span>
+                  <span class="material-symbols-outlined text-sm">visibility</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Project Card 03 -->
+          <div class="group relative bg-white p-8 md:p-12 hover:bg-surface-container-low transition-colors duration-500 border border-neutral-100">
+            <div class="flex flex-col md:flex-row md:items-start justify-between gap-8">
+              <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                  <span class="text-[11px] font-medium tracking-widest uppercase px-3 py-1 bg-primary text-on-primary">En Progreso</span>
+                  <span class="text-[11px] text-neutral-400 font-mono tracking-tighter">REF: IM-2024-103</span>
+                </div>
+                <h2 class="text-4xl font-bold tracking-tighter">AI Marketing Automation Suite</h2>
+                <p class="text-sm text-neutral-600 max-w-md font-light leading-relaxed">Fase 01: Desarrollo de pipeline de automatizacion y configuracion de integraciones API.</p>
+                <div class="pt-4 flex gap-8 border-t border-black/5">
+                  <div>
+                    <p class="text-[9px] uppercase tracking-widest text-neutral-400 mb-1">Estado Factura</p>
+                    <p class="text-sm font-semibold">Deposito (30%) Pagado</p>
+                  </div>
+                  <div>
+                    <p class="text-[9px] uppercase tracking-widest text-neutral-400 mb-1">Finalizacion Est.</p>
+                    <p class="text-sm font-semibold">Dic 15, 2024</p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3 min-w-[200px]">
+                <button class="w-full py-4 bg-primary text-on-primary flex items-center justify-center gap-2 hover:bg-primary-container transition-all">
+                  <span class="text-[11px] font-bold uppercase tracking-widest">Descargar Factura</span>
+                  <span class="material-symbols-outlined text-sm">receipt_long</span>
+                </button>
+                <button class="w-full py-4 border border-black/10 flex items-center justify-center gap-2 hover:bg-black hover:text-white transition-all">
+                  <span class="text-[11px] font-bold uppercase tracking-widest">Ver Progreso</span>
+                  <span class="material-symbols-outlined text-sm">timeline</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Panel -->
+      <div class="lg:col-span-4 bg-surface lg:pl-12 pt-12 lg:pt-0">
+        <div class="sticky top-40 space-y-12">
+          <div class="space-y-12">
+            <div class="pb-12 border-b border-black/5">
+              <p class="text-[10px] tracking-[0.2em] uppercase text-neutral-400 mb-8">Studio Capacity</p>
+              <div class="space-y-6">
+                <div>
+                  <div class="flex justify-between mb-2">
+                    <span class="text-xs font-bold uppercase tracking-widest">Tareas Activas</span>
+                    <span class="text-xs font-mono">03</span>
+                  </div>
+                  <div class="h-1 bg-surface-container-highest w-full overflow-hidden">
+                    <div class="h-full bg-primary w-[65%]"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-2">
+                    <span class="text-xs font-bold uppercase tracking-widest">Aprobaciones Pendientes</span>
+                    <span class="text-xs font-mono">01</span>
+                  </div>
+                  <div class="h-1 bg-surface-container-highest w-full overflow-hidden">
+                    <div class="h-full bg-primary w-[20%]"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Communication Box -->
+            <div class="p-8 bg-primary text-on-primary">
+              <h3 class="text-xl font-bold tracking-tight mb-4">Solicitar Consulta</h3>
+              <p class="text-sm font-light text-on-primary-fixed-variant mb-6 leading-relaxed">Necesitas discutir cambios en el alcance del proyecto o actualizaciones urgentes? Nuestros leads estan disponibles.</p>
+              <button onclick="navigateTo('contacto')" class="w-full py-4 border border-white/20 hover:bg-white hover:text-black transition-colors text-[10px] font-bold uppercase tracking-[0.2em]">Reservar Llamada</button>
+            </div>
+            <!-- Sidebar Visual -->
+            <div class="relative h-64 w-full bg-surface-container overflow-hidden">
+              <img alt="Studio" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" class="w-full h-full object-cover mix-blend-multiply opacity-80 grayscale"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Support Section -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-24 border-t border-black/5">
+      <div>
+        <h4 class="text-xs font-bold uppercase tracking-widest mb-6">Metodos de Pago</h4>
+        <p class="text-sm text-neutral-500 font-light leading-relaxed mb-6">Aceptamos transferencias bancarias, Stripe y crypto-pagos para activos relacionados con el metaverso.</p>
+        <a class="text-xs font-bold border-b border-black pb-1 hover:opacity-50 transition-opacity cursor-pointer">Actualizar Facturacion</a>
+      </div>
+      <div>
+        <h4 class="text-xs font-bold uppercase tracking-widest mb-6">Soporte Tecnico</h4>
+        <p class="text-sm text-neutral-500 font-light leading-relaxed mb-6">Problemas con el acceso a archivos del proyecto? Nuestro equipo de soporte esta disponible 24/7.</p>
+        <a class="text-xs font-bold border-b border-black pb-1 hover:opacity-50 transition-opacity cursor-pointer">Abrir Ticket</a>
+      </div>
+      <div>
+        <h4 class="text-xs font-bold uppercase tracking-widest mb-6">Politica de Archivos</h4>
+        <p class="text-sm text-neutral-500 font-light leading-relaxed mb-6">Los proyectos permanecen activos en el dashboard durante 6 meses post-finalizacion.</p>
+        <a class="text-xs font-bold border-b border-black pb-1 hover:opacity-50 transition-opacity cursor-pointer">Leer Terminos</a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- ============================================ -->
+<!-- PAGE: CONTACTO -->
+<!-- ============================================ -->
+<div id="page-contacto" class="page">
+  <!-- Hero -->
+  <section class="relative h-[50vh] bg-black overflow-hidden flex items-end">
+    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1920&q=80" alt="Contact" class="absolute inset-0 w-full h-full object-cover opacity-30"/>
+    <div class="relative z-10 px-6 md:px-12 pb-16 max-w-[1920px] mx-auto w-full">
+      <p class="text-white/50 text-[10px] tracking-[0.3em] uppercase mb-6">Get In Touch</p>
+      <h1 class="text-white text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9]">Contacto</h1>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="py-24 px-6 md:px-12 max-w-[1920px] mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+      <!-- Form -->
+      <div class="pr-0 lg:pr-24">
+        <p class="text-[10px] tracking-[0.2em] uppercase text-neutral-500 mb-8">Formulario</p>
+        <h2 class="text-4xl md:text-6xl font-bold tracking-tighter leading-[0.95] mb-12">Hablemos de<br/>tu proyecto</h2>
+        <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <label class="text-[10px] font-bold uppercase tracking-widest block mb-3">Nombre *</label>
+              <input type="text" name="nombre" required class="w-full bg-transparent border-b border-neutral-300 py-3 text-sm font-light focus:border-black transition-colors" placeholder="Tu nombre"/>
+            </div>
+            <div>
+              <label class="text-[10px] font-bold uppercase tracking-widest block mb-3">Email *</label>
+              <input type="email" name="email" required class="w-full bg-transparent border-b border-neutral-300 py-3 text-sm font-light focus:border-black transition-colors" placeholder="tu@email.com"/>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <label class="text-[10px] font-bold uppercase tracking-widest block mb-3">Telefono</label>
+              <input type="tel" name="telefono" class="w-full bg-transparent border-b border-neutral-300 py-3 text-sm font-light focus:border-black transition-colors" placeholder="+34 600 000 000"/>
+            </div>
+            <div>
+              <label class="text-[10px] font-bold uppercase tracking-widest block mb-3">Empresa</label>
+              <input type="text" name="empresa" class="w-full bg-transparent border-b border-neutral-300 py-3 text-sm font-light focus:border-black transition-colors" placeholder="Nombre de tu empresa"/>
+            </div>
+          </div>
+          <div>
+            <label class="text-[10px] font-bold uppercase tracking-widest block mb-3">Servicio de Interes *</label>
+            <select name="servicio" required class="w-full bg-transparent border-b border-neutral-300 py-3 text-sm font-light focus:border-black transition-colors">
+              <option value="">Selecciona un servicio</option>
+              <option value="archviz">Visualizacion Arquitectonica (Archviz)</option>
+              <option value="metaverse">Mundos Virtuales / VR</option>
+              <option value="marketing">Marketing Digital</option>
+              <option value="ia">Asesoria IA para Empresas</option>
+              <option value="automation">Automatizaciones</option>
+              <option value="software">Software Personalizado</option>
+              <option value="mentoring">Mentorias</option>
+              <option value="other">Otro</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-[10px] font-bold uppercase tracking-widest block mb-3">Presupuesto Estimado</label>
+            <select name="presupuesto" class="w-full bg-transparent border-b border-neutral-300 py-3 text-sm font-light focus:border-black transition-colors">
+              <option value="">Selecciona un rango</option>
+              <option value="<5k">Menos de 5.000 EUR</option>
+              <option value="5k-15k">5.000 - 15.000 EUR</option>
+              <option value="15k-50k">15.000 - 50.000 EUR</option>
+              <option value="50k+">Mas de 50.000 EUR</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-[10px] font-bold uppercase tracking-widest block mb-3">Mensaje *</label>
+            <textarea name="mensaje" required rows="5" class="w-full bg-transparent border-b border-neutral-300 py-3 text-sm font-light focus:border-black transition-colors resize-none" placeholder="Cuentanos sobre tu proyecto..."></textarea>
+          </div>
+          <div id="formSuccess" class="hidden bg-black text-white p-6 text-center">
+            <span class="material-symbols-outlined text-3xl mb-2 block">check_circle</span>
+            <p class="text-sm font-bold uppercase tracking-widest">Mensaje enviado correctamente</p>
+            <p class="text-xs text-white/60 mt-2">Te contactaremos en las proximas 24 horas.</p>
+          </div>
+          <button type="submit" id="submitBtn" class="bg-black text-white px-12 py-4 text-xs font-bold uppercase tracking-widest hover:bg-neutral-800 transition-all flex items-center gap-3">
+            Enviar Mensaje
+            <span class="material-symbols-outlined text-sm">send</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Info -->
+      <div class="pt-16 lg:pt-0">
+        <div class="space-y-12">
+          <!-- Contact Info -->
+          <div class="space-y-8 pb-12 border-b border-black/5">
+            <div>
+              <p class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-3">Email</p>
+              <a href="mailto:hola@imhotepstudio.com" class="text-lg font-light hover:text-neutral-500 transition-colors">hola@imhotepstudio.com</a>
+            </div>
+            <div>
+              <p class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-3">Telefono</p>
+              <a href="tel:+34600000000" class="text-lg font-light hover:text-neutral-500 transition-colors">+34 600 000 000</a>
+            </div>
+            <div>
+              <p class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-3">Ubicacion</p>
+              <p class="text-lg font-light">Madrid, Espana</p>
+            </div>
+            <div>
+              <p class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-3">Horario</p>
+              <p class="text-lg font-light">Lun - Vie: 09:00 - 18:00 CET</p>
+            </div>
+          </div>
+
+          <!-- Social -->
+          <div>
+            <p class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-6">Redes Sociales</p>
+            <div class="flex flex-col space-y-4">
+              <a href="https://www.instagram.com/imhotepestudio/" target="_blank" class="flex items-center gap-4 group cursor-pointer">
+                <span class="w-12 h-12 border border-neutral-200 flex items-center justify-center group-hover:bg-black group-hover:text-white group-hover:border-black transition-all">
+                  <span class="material-symbols-outlined text-sm">photo_camera</span>
+                </span>
+                <span class="text-sm font-light group-hover:text-black transition-colors">Instagram</span>
+              </a>
+              <a class="flex items-center gap-4 group cursor-pointer">
+                <span class="w-12 h-12 border border-neutral-200 flex items-center justify-center group-hover:bg-black group-hover:text-white group-hover:border-black transition-all">
+                  <span class="material-symbols-outlined text-sm">play_circle</span>
+                </span>
+                <span class="text-sm font-light group-hover:text-black transition-colors">YouTube</span>
+              </a>
+              <a class="flex items-center gap-4 group cursor-pointer">
+                <span class="w-12 h-12 border border-neutral-200 flex items-center justify-center group-hover:bg-black group-hover:text-white group-hover:border-black transition-all">
+                  <span class="material-symbols-outlined text-sm">work</span>
+                </span>
+                <span class="text-sm font-light group-hover:text-black transition-colors">LinkedIn</span>
+              </a>
+              <a class="flex items-center gap-4 group cursor-pointer">
+                <span class="w-12 h-12 border border-neutral-200 flex items-center justify-center group-hover:bg-black group-hover:text-white group-hover:border-black transition-all">
+                  <span class="material-symbols-outlined text-sm">flutter_dash</span>
+                </span>
+                <span class="text-sm font-light group-hover:text-black transition-colors">Behance</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Map placeholder -->
+          <div class="relative h-64 bg-surface-container overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=800&q=80" alt="Madrid" class="w-full h-full object-cover grayscale opacity-60"/>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="bg-black text-white px-6 py-3 text-xs font-bold uppercase tracking-widest">
+                <span class="material-symbols-outlined text-sm mr-2">location_on</span>
+                Madrid, Spain
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================ -->
+<!-- FOOTER (Global) -->
+<!-- ============================================ -->
+<footer class="w-full py-20 px-6 md:px-12 bg-white border-t border-neutral-100">
+  <div class="flex flex-col md:flex-row justify-between items-center w-full max-w-[1920px] mx-auto">
+    <div class="mb-10 md:mb-0">
+      <div class="flex flex-col items-center md:items-start">
+        <span class="text-lg font-bold tracking-tighter uppercase text-black">IMHOTEP</span>
+        <p class="text-[11px] tracking-[0.1em] uppercase text-neutral-400 mt-2">Imhotep Studio All Rights Reserved &copy; 2024</p>
+      </div>
+    </div>
+    <div class="flex flex-wrap justify-center gap-8 md:gap-12">
+      <a class="text-[11px] tracking-[0.1em] uppercase text-neutral-400 hover:text-black transition-colors cursor-pointer">Privacy Policy</a>
+      <a class="text-[11px] tracking-[0.1em] uppercase text-neutral-400 hover:text-black transition-colors cursor-pointer">Terms of Service</a>
+      <a class="text-[11px] tracking-[0.1em] uppercase text-neutral-400 hover:text-black transition-colors cursor-pointer">Studio Archival</a>
+    </div>
+    <div class="mt-10 md:mt-0 flex space-x-6">
+      <a href="https://www.instagram.com/imhotepestudio/" target="_blank" class="text-neutral-400 hover:text-black transition-colors">
+        <span class="material-symbols-outlined text-sm">photo_camera</span>
+      </a>
+      <a class="text-neutral-400 hover:text-black transition-colors cursor-pointer">
+        <span class="material-symbols-outlined text-sm">public</span>
+      </a>
+      <a class="text-neutral-400 hover:text-black transition-colors cursor-pointer">
+        <span class="material-symbols-outlined text-sm">share</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================ -->
+<!-- JAVASCRIPT -->
+<!-- ============================================ -->
+<script>
+// ==========================================
+// NAVIGATION
+// ==========================================
+let currentPage = 'home';
+
+function navigateTo(page) {
+  // Hide all pages
+  document.querySelectorAll('.page').forEach(p => {
+    p.classList.remove('active');
+  });
+
+  // Show target page
+  const target = document.getElementById('page-' + page);
+  if (target) {
+    setTimeout(() => {
+      target.classList.add('active');
+    }, 50);
+  }
+
+  // Update nav links
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.classList.remove('active');
+    link.classList.add('text-neutral-500');
+    if (link.dataset.page === page) {
+      link.classList.add('active');
+      link.classList.remove('text-neutral-500');
+    }
+  });
+
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  currentPage = page;
+
+  // Restart animations for counters on home
+  if (page === 'home') {
+    startSlider();
+    animateCounters();
+  }
+
+  // Trigger hero animations
+  setTimeout(() => {
+    document.querySelectorAll('.hero-text-animate').forEach(el => {
+      el.classList.add('visible');
+    });
+  }, 300);
+
+  // Animate fade-up elements
+  observeFadeUp();
+}
+
+// ==========================================
+// MOBILE MENU
+// ==========================================
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('open');
+}
+
+// ==========================================
+// HERO SLIDER
+// ==========================================
+let currentSlide = 0;
+const totalSlides = 4;
+let sliderInterval;
+
+const slideData = [
+  { title: 'MONOLITHIC<br/>ARCHITECTURE', subtitle: 'Diseno arquitectonico, mundos virtuales, marketing digital e inteligencia artificial.', counter: '01 / 04' },
+  { title: 'VIRTUAL<br/>WORLDS', subtitle: 'Experiencias inmersivas en realidad virtual y aumentada para el metaverso.', counter: '02 / 04' },
+  { title: 'DIGITAL<br/>INNOVATION', subtitle: 'Soluciones de inteligencia artificial y automatizacion para empresas visionarias.', counter: '03 / 04' },
+  { title: 'CREATIVE<br/>EXCELLENCE', subtitle: 'Donde la vision se convierte en realidad. Creatividad sin limites.', counter: '04 / 04' }
+];
+
+function goToSlide(index) {
+  // Remove hero text animation
+  document.querySelectorAll('.hero-text-animate').forEach(el => {
+    el.classList.remove('visible');
+  });
+
+  // Switch slides
+  document.querySelectorAll('.slider-slide').forEach(slide => {
+    slide.classList.remove('active');
+  });
+
+  const nextSlide = document.querySelector(`[data-slide="${index}"]`);
+  if (nextSlide) nextSlide.classList.add('active');
+
+  // Update content
+  setTimeout(() => {
+    const title = document.getElementById('heroTitle');
+    const subtitle = document.getElementById('heroSubtitle');
+    const counter = document.getElementById('heroCounter');
+    if (title) title.innerHTML = slideData[index].title;
+    if (subtitle) subtitle.textContent = slideData[index].subtitle;
+    if (counter) counter.textContent = slideData[index].counter;
+
+    // Animate text back in
+    document.querySelectorAll('.hero-text-animate').forEach(el => {
+      el.classList.add('visible');
+    });
+  }, 300);
+
+  // Update progress
+  const progress = document.getElementById('sliderProgress');
+  if (progress) progress.style.width = ((index + 1) / totalSlides * 100) + '%';
+
+  currentSlide = index;
+}
+
+function nextSlide() {
+  goToSlide((currentSlide + 1) % totalSlides);
+  resetSliderInterval();
+}
+
+function prevSlide() {
+  goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
+  resetSliderInterval();
+}
+
+function startSlider() {
+  clearInterval(sliderInterval);
+  sliderInterval = setInterval(() => {
+    goToSlide((currentSlide + 1) % totalSlides);
+  }, 5000);
+}
+
+function resetSliderInterval() {
+  clearInterval(sliderInterval);
+  startSlider();
+}
+
+// ==========================================
+// COUNTER ANIMATION
+// ==========================================
+function animateCounters() {
+  const counters = document.querySelectorAll('.counter');
+  counters.forEach(counter => {
+    const target = parseInt(counter.dataset.target);
+    const duration = 2000;
+    const start = Date.now();
+
+    function update() {
+      const elapsed = Date.now() - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      counter.textContent = Math.floor(eased * target) + (progress >= 1 ? '+' : '');
+
+      if (progress < 1) requestAnimationFrame(update);
+    }
+
+    update();
+  });
+}
+
+// ==========================================
+// ARCHVIZ FILTER
+// ==========================================
+function filterArchviz(category) {
+  const items = document.querySelectorAll('.archviz-item');
+  const buttons = document.querySelectorAll('.archviz-filter');
+
+  buttons.forEach(btn => {
+    btn.classList.remove('font-bold', 'border-black');
+    btn.classList.add('text-neutral-400', 'border-transparent');
+    if (btn.dataset.filter === category) {
+      btn.classList.add('font-bold', 'border-black');
+      btn.classList.remove('text-neutral-400', 'border-transparent');
+    }
+  });
+
+  items.forEach(item => {
+    if (category === 'all' || item.dataset.category === category) {
+      item.style.display = 'block';
+      item.style.opacity = '0';
+      setTimeout(() => { item.style.opacity = '1'; item.style.transition = 'opacity 0.5s ease'; }, 50);
+    } else {
+      item.style.opacity = '0';
+      setTimeout(() => { item.style.display = 'none'; }, 300);
+    }
+  });
+}
+
+// ==========================================
+// CONTACT FORM
+// ==========================================
+function handleContactSubmit(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData);
+
+  // Validate
+  if (!data.nombre || !data.email || !data.servicio || !data.mensaje) {
+    return;
+  }
+
+  // Show success
+  const btn = document.getElementById('submitBtn');
+  const success = document.getElementById('formSuccess');
+
+  btn.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin">progress_activity</span> Enviando...';
+  btn.disabled = true;
+
+  setTimeout(() => {
+    btn.style.display = 'none';
+    success.classList.remove('hidden');
+    form.reset();
+
+    // Log data (replace with actual API call)
+    console.log('Contact form data:', data);
+
+    // Reset after 5 seconds
+    setTimeout(() => {
+      btn.style.display = 'flex';
+      btn.innerHTML = 'Enviar Mensaje <span class="material-symbols-outlined text-sm">send</span>';
+      btn.disabled = false;
+      success.classList.add('hidden');
+    }, 5000);
+  }, 1500);
+}
+
+// ==========================================
+// FADE-UP OBSERVER
+// ==========================================
+function observeFadeUp() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+}
+
+// ==========================================
+// NAV SCROLL EFFECT
+// ==========================================
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('mainNav');
+  if (window.scrollY > 100) {
+    nav.classList.add('py-2');
+    nav.classList.remove('py-6');
+    nav.style.boxShadow = '0 1px 0 rgba(0,0,0,0.05)';
+  } else {
+    nav.classList.remove('py-2');
+    nav.classList.add('py-6');
+    nav.style.boxShadow = 'none';
+  }
+});
+
+// ==========================================
+// INIT
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+  startSlider();
+  animateCounters();
+  observeFadeUp();
+
+  // Trigger initial hero animation
+  setTimeout(() => {
+    document.querySelectorAll('.hero-text-animate').forEach(el => {
+      el.classList.add('visible');
+    });
+  }, 500);
+});
+</script>
+
+</body>
+</html>
