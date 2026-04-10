@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<!-- Social Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 <script>
 tailwind.config={darkMode:"class",theme:{extend:{fontFamily:{sans:["Inter"],headline:["Inter"],body:["Inter"]},colors:{d:{900:"#0a0a0a",800:"#111",700:"#1a1a1a",600:"#222",500:"#2a2a2a",400:"#333",300:"#555",200:"#888",100:"#aaa"},l:{900:"#fff",800:"#fafafa",700:"#f3f3f3",600:"#e8e8e8",500:"#d4d4d4",400:"#a3a3a3",300:"#737373",200:"#525252",100:"#262626"}}}}}
@@ -18,52 +17,68 @@ tailwind.config={darkMode:"class",theme:{extend:{fontFamily:{sans:["Inter"],head
 body{font-family:'Inter',sans-serif;overflow-x:hidden;transition:background .4s,color .4s}
 html.dark{background:#0a0a0a;color:#e8e8e8}
 html.light{background:#fafafa;color:#111}
-.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 200,'GRAD' 0,'opsz' 24;vertical-align:middle}
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 100,'GRAD' 0,'opsz' 24;vertical-align:middle}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:#444;border-radius:2px}
 html.light ::-webkit-scrollbar-thumb{background:#ccc}
-
-.page{display:none;opacity:0;transition:opacity .5s ease}.page.active{display:block;opacity:1}
-.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease}.slide.active{opacity:1}
-.slide img{transition:transform 14s ease}.slide.active img{transform:scale(1.06)}
-
+.page{display:none;opacity:0;transition:opacity .6s ease}.page.active{display:block;opacity:1}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.8s ease}.slide.active{opacity:1}
+.slide img{transition:transform 16s ease}.slide.active img{transform:scale(1.08)}
 .g2{gap:2px}
-.ch:hover{transform:translateY(-2px)}.ch{transition:all .4s cubic-bezier(.16,1,.3,1)}
-.ch:hover .co{opacity:1}.co{opacity:0;transition:opacity .35s ease}
-
+.ch{transition:all .45s cubic-bezier(.16,1,.3,1)}.ch:hover{transform:translateY(-1px)}
+.co{opacity:0;transition:opacity .35s ease}.ch:hover .co{opacity:1}
+.gi{transition:box-shadow .5s cubic-bezier(.16,1,.3,1)}
+.gi:hover{box-shadow:0 0 22px 3px rgba(198,198,198,.15)}
+html.light .gi:hover{box-shadow:0 0 22px 3px rgba(0,0,0,.07)}
 .nl{position:relative;font-size:10px;letter-spacing:.15em;text-transform:uppercase;transition:color .3s}
 .nl::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1.5px;background:currentColor;transition:width .3s}
-.nl:hover::after,.nl.act::after{width:100%}
-.nl.act{font-weight:600}
-
+.nl:hover::after,.nl.act::after{width:100%}.nl.act{font-weight:600}
 .mm{transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1)}.mm.open{transform:translateX(0)}
-.uz{border:1px dashed;transition:all .3s}
+.uz{border:1.5px dashed;transition:all .35s}
 html.dark .uz{border-color:#333}html.light .uz{border-color:#ccc}
-.uz:hover{border-color:currentColor}
-
-/* Chat widget */
-.chat-bubble{position:fixed;bottom:24px;right:24px;z-index:100;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .3s;box-shadow:0 4px 20px rgba(0,0,0,.3)}
-.chat-bubble:hover{transform:scale(1.1)}
-.chat-panel{position:fixed;bottom:80px;right:24px;z-index:100;width:340px;height:440px;display:none;flex-direction:column;border-radius:8px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.25)}
+.uz:hover,.uz.dg{border-color:currentColor}
+.uz.dg{box-shadow:0 0 20px 2px rgba(198,198,198,.12)}
+html.light .uz.dg{box-shadow:0 0 20px 2px rgba(0,0,0,.06)}
+.tln{width:11px;height:11px;border-radius:50%;border:1.5px solid currentColor;flex-shrink:0;transition:all .3s}
+.tln.done{background:currentColor}.tln.active{background:currentColor;animation:tlP 2s infinite}
+@keyframes tlP{0%,100%{box-shadow:0 0 0 0 rgba(198,198,198,.5)}50%{box-shadow:0 0 0 6px rgba(198,198,198,0)}}
+html.light .tln.active{animation:tlPL 2s infinite}
+@keyframes tlPL{0%,100%{box-shadow:0 0 0 0 rgba(0,0,0,.3)}50%{box-shadow:0 0 0 6px rgba(0,0,0,0)}}
+.pill{border-radius:9999px;padding:6px 18px;font-size:9px;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:all .25s;border:1px solid}
+html.dark .pill{border-color:#333;color:#888}html.light .pill{border-color:#d4d4d4;color:#737373}
+html.dark .pill.sel{background:#fff;color:#000;border-color:#fff}
+html.light .pill.sel{background:#000;color:#fff;border-color:#000}
+.cs{display:none;opacity:0;transition:opacity .45s ease}.cs.act{display:block;opacity:1}
+#logoOverlay{transition:opacity .35s cubic-bezier(.16,1,.3,1)}
+#logoOvImg{transition:transform .65s cubic-bezier(.16,1,.3,1),opacity .45s}
+html.light .logo-nav{filter:invert(1)}html.dark .logo-nav{filter:none}
+#homeLogo{mix-blend-mode:screen;filter:none!important}
+html.light #logoOvImg{filter:invert(1)}html.dark #logoOvImg{filter:none}
+.af{transition:all .25s;cursor:pointer}
+.chat-bubble{position:fixed;bottom:24px;right:24px;z-index:100;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.chat-bubble:hover{transform:scale(1.08);box-shadow:0 0 22px 3px rgba(198,198,198,.15)}
+.chat-panel{position:fixed;bottom:76px;right:24px;z-index:100;width:320px;height:400px;display:none;flex-direction:column;border-radius:4px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.25);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
 .chat-panel.open{display:flex}
-
-/* Print */
 @media print{nav,.chat-bubble,.chat-panel,footer,button{display:none!important}.page{display:block!important;opacity:1!important}body{background:#fff!important;color:#000!important}}
 </style>
 </head>
 <body>
 
-<!-- ===== NAVBAR 40px ===== -->
-<nav id="mainNav" class="fixed top-0 w-full z-50 transition-all duration-300 h-[40px]">
-<div class="h-full flex items-center justify-between px-4 md:px-8 max-w-[1920px] mx-auto backdrop-blur-xl dark:bg-d-900/90 bg-white/90 border-b dark:border-d-700/50 border-neutral-200/50">
-  <!-- Logo -->
-  <a href="#" onclick="nav('home')" class="flex items-center gap-2 cursor-pointer select-none">
+<!-- LOGO TRANSITION OVERLAY -->
+<div id="logoOverlay" class="fixed inset-0 z-[9999] flex items-center justify-center" style="opacity:0;pointer-events:none;backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);background:rgba(250,250,250,.96)">
+<img id="logoOvImg" alt="IMHOTEP" style="width:80px;height:80px;object-fit:contain;transform:scale(.4);opacity:0"/>
+</div>
+
+<!-- NAVBAR 90px -->
+<nav id="mainNav" class="fixed top-0 w-full z-50 h-[90px]">
+<div class="h-full flex items-center justify-between px-6 md:px-10 max-w-[1920px] mx-auto backdrop-blur-xl dark:bg-d-900/90 bg-white/90">
+  <a href="#" onclick="nav('home')" class="flex items-center gap-3 cursor-pointer select-none">
+    <img id="navLogo" class="logo-nav h-[50px] w-auto object-contain" alt="IMHOTEP"/>
     <div class="flex flex-col leading-none">
-      <span class="text-[11px] font-bold tracking-[.04em] uppercase dark:text-white text-black">IMHOTEP</span>
-      <span class="text-[6.5px] tracking-[.25em] uppercase dark:text-d-200 text-l-400 font-light mt-[1px]">creative studio</span>
+      <span class="text-[13px] font-bold tracking-[.06em] uppercase dark:text-white text-black">IMHOTEP</span>
+      <span class="text-[7px] tracking-[.3em] uppercase dark:text-d-200 text-l-400 font-light mt-[2px]">creative studio</span>
     </div>
   </a>
-  <!-- Links -->
-  <div class="hidden lg:flex items-center gap-7">
+  <div class="hidden lg:flex items-center gap-8">
     <a class="nl act dark:text-white text-black cursor-pointer" data-p="home" onclick="nav('home')">Home</a>
     <a class="nl dark:text-d-200 text-l-300 cursor-pointer" data-p="nosotros" onclick="nav('nosotros')" data-es="Nosotros" data-en="About">Nosotros</a>
     <a class="nl dark:text-d-200 text-l-300 cursor-pointer" data-p="archviz" onclick="nav('archviz')">Archviz</a>
@@ -72,122 +87,110 @@ html.dark .uz{border-color:#333}html.light .uz{border-color:#ccc}
     <a class="nl dark:text-d-200 text-l-300 cursor-pointer" data-p="clientes" onclick="nav('clientes')" data-es="Clientes" data-en="Clients">Clientes</a>
     <a class="nl dark:text-d-200 text-l-300 cursor-pointer" data-p="contacto" onclick="nav('contacto')" data-es="Contacto" data-en="Contact">Contacto</a>
   </div>
-  <!-- Right -->
-  <div class="flex items-center gap-3">
-    <button onclick="toggleLang()" id="langBtn" class="text-[8px] font-bold tracking-widest uppercase dark:text-d-200 text-l-300 hover:dark:text-white hover:text-black transition-colors">EN</button>
-    <button onclick="toggleTheme()" class="hover:opacity-70 transition-opacity"><span class="material-symbols-outlined text-[16px]" id="themeIcon">dark_mode</span></button>
-    <a href="https://www.instagram.com/imhotepestudio/" target="_blank" class="hover:opacity-70 transition-opacity"><i class="fa-brands fa-instagram text-[13px]"></i></a>
-    <a href="#" class="hover:opacity-70 transition-opacity hidden md:block"><i class="fa-brands fa-linkedin-in text-[12px]"></i></a>
-    <a href="#" class="hover:opacity-70 transition-opacity hidden md:block"><i class="fa-brands fa-behance text-[13px]"></i></a>
-    <button class="hover:opacity-70 transition-opacity" onclick="nav('clientes')"><span class="material-symbols-outlined text-[16px]">person</span></button>
-    <button class="hover:opacity-70 transition-opacity"><span class="material-symbols-outlined text-[16px]">shopping_bag</span></button>
-    <button class="lg:hidden" onclick="toggleMob()"><span class="material-symbols-outlined text-[16px]">menu</span></button>
+  <div class="flex items-center gap-4">
+    <button onclick="toggleLang()" id="langBtn" class="text-[9px] font-bold tracking-widest uppercase dark:text-d-200 text-l-300 hover:dark:text-white hover:text-black transition-colors gi px-2 py-1">EN</button>
+    <button onclick="toggleTheme()" class="hover:opacity-70 transition-opacity gi p-1"><span class="material-symbols-outlined text-[18px]" id="themeIcon">dark_mode</span></button>
+    <a href="https://www.instagram.com/imhotepestudio/" target="_blank" class="hover:opacity-70 transition-opacity gi p-1"><i class="fa-brands fa-instagram text-[14px]"></i></a>
+    <a href="#" class="hover:opacity-70 transition-opacity hidden md:block gi p-1"><i class="fa-brands fa-linkedin-in text-[13px]"></i></a>
+    <a href="#" class="hover:opacity-70 transition-opacity hidden md:block gi p-1"><i class="fa-brands fa-behance text-[14px]"></i></a>
+    <button class="hover:opacity-70 transition-opacity gi p-1" onclick="nav('clientes')"><span class="material-symbols-outlined text-[18px]">person</span></button>
+    <button class="hover:opacity-70 transition-opacity gi p-1"><span class="material-symbols-outlined text-[18px]">shopping_bag</span></button>
+    <button class="lg:hidden gi p-1" onclick="toggleMob()"><span class="material-symbols-outlined text-[18px]">menu</span></button>
   </div>
 </div>
 </nav>
 
-<!-- Mobile Menu -->
-<div id="mob" class="mm fixed inset-0 z-[60] dark:bg-d-900 bg-white flex flex-col items-center justify-center gap-5">
-<button class="absolute top-2 right-4" onclick="toggleMob()"><span class="material-symbols-outlined">close</span></button>
-<a class="text-base font-light uppercase tracking-[.2em] cursor-pointer" onclick="nav('home');toggleMob()">Home</a>
-<a class="text-base font-light uppercase tracking-[.2em] cursor-pointer dark:text-d-200 text-l-300" onclick="nav('nosotros');toggleMob()">Nosotros</a>
-<a class="text-base font-light uppercase tracking-[.2em] cursor-pointer dark:text-d-200 text-l-300" onclick="nav('archviz');toggleMob()">Archviz</a>
-<a class="text-base font-light uppercase tracking-[.2em] cursor-pointer dark:text-d-200 text-l-300" onclick="nav('metaverse');toggleMob()">Metaverse</a>
-<a class="text-base font-light uppercase tracking-[.2em] cursor-pointer dark:text-d-200 text-l-300" onclick="nav('marketing');toggleMob()">Marketing & IA</a>
-<a class="text-base font-light uppercase tracking-[.2em] cursor-pointer dark:text-d-200 text-l-300" onclick="nav('clientes');toggleMob()">Clientes</a>
-<a class="text-base font-light uppercase tracking-[.2em] cursor-pointer dark:text-d-200 text-l-300" onclick="nav('contacto');toggleMob()">Contacto</a>
-<div class="flex gap-4 mt-6">
-  <a href="https://www.instagram.com/imhotepestudio/" target="_blank"><i class="fa-brands fa-instagram text-lg"></i></a>
-  <a href="#"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
-  <a href="#"><i class="fa-brands fa-behance text-lg"></i></a>
-  <a href="#"><i class="fa-brands fa-youtube text-lg"></i></a>
+<!-- MOBILE MENU -->
+<div id="mob" class="mm fixed inset-0 z-[60] backdrop-blur-xl dark:bg-d-900/95 bg-white/95 flex flex-col items-center justify-center gap-6">
+<button class="absolute top-4 right-6" onclick="toggleMob()"><span class="material-symbols-outlined text-[20px]">close</span></button>
+<a class="text-lg font-light uppercase tracking-[.25em] cursor-pointer" onclick="nav('home');toggleMob()">Home</a>
+<a class="text-lg font-light uppercase tracking-[.25em] cursor-pointer dark:text-d-200 text-l-300" onclick="nav('nosotros');toggleMob()">Nosotros</a>
+<a class="text-lg font-light uppercase tracking-[.25em] cursor-pointer dark:text-d-200 text-l-300" onclick="nav('archviz');toggleMob()">Archviz</a>
+<a class="text-lg font-light uppercase tracking-[.25em] cursor-pointer dark:text-d-200 text-l-300" onclick="nav('metaverse');toggleMob()">Metaverse</a>
+<a class="text-lg font-light uppercase tracking-[.25em] cursor-pointer dark:text-d-200 text-l-300" onclick="nav('marketing');toggleMob()">Marketing & IA</a>
+<a class="text-lg font-light uppercase tracking-[.25em] cursor-pointer dark:text-d-200 text-l-300" onclick="nav('clientes');toggleMob()">Clientes</a>
+<a class="text-lg font-light uppercase tracking-[.25em] cursor-pointer dark:text-d-200 text-l-300" onclick="nav('contacto');toggleMob()">Contacto</a>
+<div class="flex gap-5 mt-8">
+  <a href="https://www.instagram.com/imhotepestudio/" target="_blank"><i class="fa-brands fa-instagram text-xl"></i></a>
+  <a href="#"><i class="fa-brands fa-linkedin-in text-xl"></i></a>
+  <a href="#"><i class="fa-brands fa-behance text-xl"></i></a>
+  <a href="#"><i class="fa-brands fa-youtube text-xl"></i></a>
 </div>
 </div>
 
-<!-- ████████████████████████████████████████████████ -->
-<!-- HOME — Fullscreen only, no scroll -->
-<!-- ████████████████████████████████████████████████ -->
+<!-- ===== HOME ===== -->
 <div id="page-home" class="page active">
-<section class="relative w-full bg-black" style="height:100vh">
+<section class="relative w-full overflow-hidden bg-black" style="height:100vh">
   <div id="heroSlider" class="absolute inset-0">
     <div class="slide active" data-slide="0"><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=3840&q=90" class="w-full h-full object-cover opacity-40 scale-100" alt=""/></div>
     <div class="slide" data-slide="1"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=3840&q=90" class="w-full h-full object-cover opacity-35 scale-100" alt=""/></div>
     <div class="slide" data-slide="2"><img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=3840&q=90" class="w-full h-full object-cover opacity-35 scale-100" alt=""/></div>
     <div class="slide" data-slide="3"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=3840&q=90" class="w-full h-full object-cover opacity-30 scale-100" alt=""/></div>
   </div>
-  <!-- Logo Center -->
   <div class="absolute inset-0 z-10 flex flex-col items-center justify-center select-none">
-    <svg width="90" height="110" viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="mb-4 opacity-90 drop-shadow-2xl">
-      <rect x="4" y="4" width="192" height="232" stroke="white" stroke-width="1.5" rx="2"/>
-      <!-- Stylized IS monogram -->
-      <path d="M70 50h60v12H106v116h24v-40h-16v-12h28v64H82v-12h12V62H70V50z" fill="white"/>
-      <path d="M82 70h12v96H82V70z" fill="white" opacity="0.3"/>
-      <text x="100" y="215" text-anchor="middle" fill="white" font-family="Inter" font-weight="100" font-size="11" letter-spacing="8">IMHOTEP</text>
-    </svg>
-    <p class="text-white/25 text-[7px] tracking-[.5em] uppercase mt-1" data-es="Estudio Creativo" data-en="Creative Studio">Estudio Creativo</p>
+    <img id="homeLogo" alt="" class="w-[90px] h-[90px] object-contain opacity-80 drop-shadow-2xl"/>
+    <p class="text-white/20 text-[7px] tracking-[.5em] uppercase mt-2" data-es="Estudio Creativo" data-en="Creative Studio">Estudio Creativo</p>
   </div>
-  <!-- Slide text -->
-  <div class="absolute bottom-16 left-6 md:left-10 z-10">
-    <p class="text-white/30 text-[8px] tracking-[.4em] uppercase mb-2">Established MMXXIV</p>
-    <h2 id="heroTitle" class="text-white text-3xl md:text-6xl font-bold tracking-tighter leading-[.9]">MONOLITHIC<br>ARCHITECTURE</h2>
-    <p id="heroSub" class="text-white/30 text-[10px] font-light mt-3 max-w-md" data-es="Visualización arquitectónica, mundos virtuales e inteligencia artificial." data-en="Architectural visualization, virtual worlds and artificial intelligence.">Visualización arquitectónica, mundos virtuales e inteligencia artificial.</p>
+  <div class="absolute bottom-20 left-6 md:left-12 z-10 max-w-2xl">
+    <p class="text-white/25 text-[8px] tracking-[.5em] uppercase mb-3">Established MMXXIV</p>
+    <h2 id="heroTitle" class="text-white text-4xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[.85]">MONOLITHIC<br>ARCHITECTURE</h2>
+    <p id="heroSub" class="text-white/30 text-[10px] font-light mt-4 max-w-md" data-es="Visualización arquitectónica de alto nivel." data-en="Architectural visualization at the highest level.">Visualización arquitectónica de alto nivel.</p>
   </div>
-  <!-- Controls -->
-  <div class="absolute bottom-6 right-6 md:right-10 z-20 flex items-center gap-3">
-    <span id="heroCount" class="text-white/20 text-[8px] tracking-[.3em] font-light mr-2">01 / 04</span>
-    <button onclick="prevSlide()" class="w-8 h-8 flex items-center justify-center border border-white/10 text-white/30 hover:text-white hover:border-white/30 transition-all"><span class="material-symbols-outlined text-[13px]">arrow_back</span></button>
-    <button onclick="nextSlide()" class="w-8 h-8 flex items-center justify-center border border-white/10 text-white/30 hover:text-white hover:border-white/30 transition-all"><span class="material-symbols-outlined text-[13px]">arrow_forward</span></button>
+  <div id="heroBadge" class="absolute bottom-20 left-1/2 -translate-x-1/2 z-10 hidden md:flex items-center gap-3">
+    <span class="w-10 h-[0.5px] bg-white/15"></span>
+    <span id="heroService" class="text-white/25 text-[8px] tracking-[.3em] uppercase">Archviz</span>
+    <span class="w-10 h-[0.5px] bg-white/15"></span>
   </div>
-  <div class="absolute bottom-0 left-0 w-full h-[1px] bg-white/5 z-20"><div id="sliderBar" class="h-full bg-white/20 transition-all duration-[5000ms] ease-linear" style="width:25%"></div></div>
+  <div class="absolute bottom-8 right-6 md:right-12 z-20 flex items-center gap-3">
+    <span id="heroCount" class="text-white/20 text-[8px] tracking-[.3em] font-light">01 / 04</span>
+    <button onclick="prevSlide()" class="w-9 h-9 flex items-center justify-center border border-white/10 text-white/30 hover:text-white hover:border-white/30 transition-all gi"><span class="material-symbols-outlined text-[14px]">arrow_back</span></button>
+    <button onclick="nextSlide()" class="w-9 h-9 flex items-center justify-center border border-white/10 text-white/30 hover:text-white hover:border-white/30 transition-all gi"><span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+  </div>
+  <div class="absolute bottom-0 left-0 w-full h-[2px] bg-white/5 z-20"><div id="sliderBar" class="h-full bg-white/25 transition-all duration-[5000ms] ease-linear" style="width:25%"></div></div>
 </section>
 </div>
 
-<!-- ████████████████████████████████████████████████ -->
-<!-- NOSOTROS -->
-<!-- ████████████████████████████████████████████████ -->
+<!-- ===== NOSOTROS ===== -->
 <div id="page-nosotros" class="page">
-<!-- Hero Banner -->
-<div class="relative h-[50vh] mt-[40px] overflow-hidden">
-  <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=3840&q=90" class="absolute inset-0 w-full h-full object-cover" style="filter:brightness(.25)" alt=""/>
+<div class="relative h-[50vh] mt-[90px] overflow-hidden">
+  <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=3840&q=90" class="absolute inset-0 w-full h-full object-cover" style="filter:brightness(.2)" alt="" loading="lazy"/>
   <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
-  <div class="absolute inset-0 flex items-end p-6 md:p-10 z-10 max-w-[1920px] mx-auto">
-    <div>
-      <p class="text-white/30 text-[8px] tracking-[.3em] uppercase mb-2" data-es="Sobre Nosotros" data-en="About Us">Sobre Nosotros</p>
-      <h1 class="text-white text-4xl md:text-7xl font-bold tracking-tighter leading-[.9]" data-es="Quiénes Somos" data-en="Who We Are">Quiénes Somos</h1>
-    </div>
-  </div>
+  <div class="absolute inset-0 flex items-end p-6 md:p-10 z-10"><div>
+    <p class="text-white/30 text-[8px] tracking-[.3em] uppercase mb-2"><span class="material-symbols-outlined text-[10px] mr-1">info</span> <span data-es="Sobre Nosotros" data-en="About Us">Sobre Nosotros</span></p>
+    <h1 class="text-white text-4xl md:text-7xl font-bold tracking-tighter leading-[.9]" data-es="Quiénes Somos" data-en="Who We Are">Quiénes Somos</h1>
+  </div></div>
 </div>
-<!-- Intro + Image -->
 <div class="max-w-[1920px] mx-auto grid grid-cols-1 lg:grid-cols-2 g2">
-  <div class="p-6 md:p-12 flex flex-col justify-center dark:bg-d-800 bg-l-700">
-    <p class="text-[8px] tracking-[.2em] uppercase dark:text-d-200 text-l-400 mb-4" data-es="El Estudio" data-en="The Studio">El Estudio</p>
+  <div class="p-8 md:p-14 flex flex-col justify-center dark:bg-d-800 bg-l-700">
+    <p class="text-[8px] tracking-[.2em] uppercase dark:text-d-200 text-l-400 mb-4 flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">apartment</span> <span data-es="El Estudio" data-en="The Studio">El Estudio</span></p>
     <p class="text-sm font-light leading-relaxed dark:text-d-100 text-l-200" data-es="IMHOTEP Creative Studio es un estudio multidisciplinar especializado en visualización arquitectónica, mundos virtuales, marketing digital e inteligencia artificial. Nuestro nombre rinde homenaje al primer arquitecto de la historia. Transformamos ideas en experiencias visuales extraordinarias que conectan el mundo físico con el digital." data-en="IMHOTEP Creative Studio is a multidisciplinary studio specializing in architectural visualization, virtual worlds, digital marketing and AI. Named after history's first architect, we transform ideas into extraordinary visual experiences connecting the physical and digital worlds.">IMHOTEP Creative Studio es un estudio multidisciplinar especializado en visualización arquitectónica, mundos virtuales, marketing digital e inteligencia artificial. Nuestro nombre rinde homenaje al primer arquitecto de la historia. Transformamos ideas en experiencias visuales extraordinarias que conectan el mundo físico con el digital.</p>
-    <div class="flex gap-6 mt-8">
-      <div><p class="text-2xl font-bold tracking-tighter">150+</p><p class="text-[8px] tracking-[.15em] uppercase dark:text-d-200 text-l-400 mt-1" data-es="Proyectos" data-en="Projects">Proyectos</p></div>
-      <div><p class="text-2xl font-bold tracking-tighter">45</p><p class="text-[8px] tracking-[.15em] uppercase dark:text-d-200 text-l-400 mt-1" data-es="Clientes" data-en="Clients">Clientes</p></div>
-      <div><p class="text-2xl font-bold tracking-tighter">12</p><p class="text-[8px] tracking-[.15em] uppercase dark:text-d-200 text-l-400 mt-1" data-es="Países" data-en="Countries">Países</p></div>
+    <div class="flex gap-8 mt-8">
+      <div><p class="text-3xl font-bold tracking-tighter">150+</p><p class="text-[8px] tracking-[.15em] uppercase dark:text-d-200 text-l-400 mt-1" data-es="Proyectos" data-en="Projects">Proyectos</p></div>
+      <div><p class="text-3xl font-bold tracking-tighter">45</p><p class="text-[8px] tracking-[.15em] uppercase dark:text-d-200 text-l-400 mt-1" data-es="Clientes" data-en="Clients">Clientes</p></div>
+      <div><p class="text-3xl font-bold tracking-tighter">12</p><p class="text-[8px] tracking-[.15em] uppercase dark:text-d-200 text-l-400 mt-1" data-es="Países" data-en="Countries">Países</p></div>
     </div>
   </div>
-  <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=90" class="w-full h-full object-cover min-h-[300px]" style="filter:brightness(.6)" alt=""/></div>
+  <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=3840&q=90" class="w-full h-full object-cover min-h-[300px]" style="filter:brightness(.55)" alt="" loading="lazy"/></div>
 </div>
-<!-- Team -->
-<div class="max-w-[1920px] mx-auto p-6 md:p-10 dark:bg-d-900 bg-l-800">
-  <p class="text-[8px] tracking-[.2em] uppercase dark:text-d-200 text-l-400 mb-6" data-es="El Equipo" data-en="The Team">El Equipo</p>
-  <div class="grid grid-cols-1 md:grid-cols-3 g2">
-    <div class="group relative overflow-hidden"><div class="aspect-[3/4] overflow-hidden"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=90" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-[1.03]" style="filter:grayscale(1) brightness(.55)" onmouseover="this.style.filter='brightness(.7)'" onmouseout="this.style.filter='grayscale(1) brightness(.55)'" alt=""/></div><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-5"><h3 class="text-white text-sm font-semibold">Adrián Morales</h3><p class="text-white/30 text-[8px] tracking-[.15em] uppercase mt-1" data-es="Director Creativo & CEO" data-en="Creative Director & CEO">Director Creativo & CEO</p></div></div>
-    <div class="group relative overflow-hidden"><div class="aspect-[3/4] overflow-hidden"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&q=90" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-[1.03]" style="filter:grayscale(1) brightness(.55)" onmouseover="this.style.filter='brightness(.7)'" onmouseout="this.style.filter='grayscale(1) brightness(.55)'" alt=""/></div><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-5"><h3 class="text-white text-sm font-semibold">Laura Fernández</h3><p class="text-white/30 text-[8px] tracking-[.15em] uppercase mt-1" data-es="Directora de Arte" data-en="Art Director">Directora de Arte</p></div></div>
-    <div class="group relative overflow-hidden"><div class="aspect-[3/4] overflow-hidden"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=1200&q=90" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-[1.03]" style="filter:grayscale(1) brightness(.55)" onmouseover="this.style.filter='brightness(.7)'" onmouseout="this.style.filter='grayscale(1) brightness(.55)'" alt=""/></div><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-5"><h3 class="text-white text-sm font-semibold">Carlos Rivera</h3><p class="text-white/30 text-[8px] tracking-[.15em] uppercase mt-1" data-es="Lead Developer & VR" data-en="Lead Developer & VR">Lead Developer & VR</p></div></div>
-  </div>
+<!-- Team label -->
+<div class="max-w-[1920px] mx-auto dark:bg-d-900 bg-l-800 px-6 md:px-10 pt-6 pb-3">
+  <p class="text-[8px] tracking-[.2em] uppercase dark:text-d-200 text-l-400 flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">groups</span> <span data-es="El Equipo" data-en="The Team">El Equipo</span></p>
 </div>
-<!-- Values Banner -->
+<!-- Team grid - FULL BLEED edge to edge -->
 <div class="max-w-[1920px] mx-auto grid grid-cols-1 md:grid-cols-3 g2">
-  <div class="dark:bg-d-700 bg-l-600 p-8 md:p-12"><span class="text-[40px] font-bold dark:text-d-500 text-l-500 block mb-3">01</span><h3 class="text-xs font-semibold mb-2" data-es="Excelencia" data-en="Excellence">Excelencia</h3><p class="text-[10px] font-light dark:text-d-200 text-l-300 leading-relaxed" data-es="Cada pixel importa. No entregamos hasta que la calidad sea impecable." data-en="Every pixel matters. We don't deliver until quality is impeccable.">Cada pixel importa. No entregamos hasta que la calidad sea impecable.</p></div>
-  <div class="dark:bg-d-800 bg-l-700 p-8 md:p-12"><span class="text-[40px] font-bold dark:text-d-500 text-l-500 block mb-3">02</span><h3 class="text-xs font-semibold mb-2" data-es="Innovación" data-en="Innovation">Innovación</h3><p class="text-[10px] font-light dark:text-d-200 text-l-300 leading-relaxed" data-es="Tecnologías de vanguardia para soluciones sin precedentes." data-en="Cutting-edge technologies for unprecedented solutions.">Tecnologías de vanguardia para soluciones sin precedentes.</p></div>
-  <div class="dark:bg-d-700 bg-l-600 p-8 md:p-12"><span class="text-[40px] font-bold dark:text-d-500 text-l-500 block mb-3">03</span><h3 class="text-xs font-semibold mb-2" data-es="Colaboración" data-en="Collaboration">Colaboración</h3><p class="text-[10px] font-light dark:text-d-200 text-l-300 leading-relaxed" data-es="Trabajamos codo a codo superando la visión del cliente." data-en="We work hand in hand exceeding the client's vision.">Trabajamos codo a codo superando la visión del cliente.</p></div>
+  <div class="group relative overflow-hidden"><div class="aspect-[3/4] w-full overflow-hidden"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1600&q=90" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-[1.03]" style="filter:grayscale(1) brightness(.5)" onmouseover="this.style.filter='brightness(.65)'" onmouseout="this.style.filter='grayscale(1) brightness(.5)'" alt="" loading="lazy"/></div><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-5"><h3 class="text-white text-sm font-semibold">Adrián Morales</h3><p class="text-white/30 text-[8px] tracking-[.15em] uppercase mt-1" data-es="Director Creativo & CEO" data-en="Creative Director & CEO">Director Creativo & CEO</p></div></div>
+  <div class="group relative overflow-hidden"><div class="aspect-[3/4] w-full overflow-hidden"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1600&q=90" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-[1.03]" style="filter:grayscale(1) brightness(.5)" onmouseover="this.style.filter='brightness(.65)'" onmouseout="this.style.filter='grayscale(1) brightness(.5)'" alt="" loading="lazy"/></div><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-5"><h3 class="text-white text-sm font-semibold">Laura Fernández</h3><p class="text-white/30 text-[8px] tracking-[.15em] uppercase mt-1" data-es="Directora de Arte" data-en="Art Director">Directora de Arte</p></div></div>
+  <div class="group relative overflow-hidden"><div class="aspect-[3/4] w-full overflow-hidden"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=1600&q=90" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-[1.03]" style="filter:grayscale(1) brightness(.5)" onmouseover="this.style.filter='brightness(.65)'" onmouseout="this.style.filter='grayscale(1) brightness(.5)'" alt="" loading="lazy"/></div><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-5"><h3 class="text-white text-sm font-semibold">Carlos Rivera</h3><p class="text-white/30 text-[8px] tracking-[.15em] uppercase mt-1">Lead Developer & VR</p></div></div>
+</div>
+<!-- Values -->
+<div class="max-w-[1920px] mx-auto grid grid-cols-1 md:grid-cols-3 g2 mt-[2px]">
+  <div class="dark:bg-d-700 bg-l-600 p-8 md:p-12"><span class="material-symbols-outlined text-2xl mb-3 block">diamond</span><span class="text-[40px] font-bold dark:text-d-500 text-l-500 block mb-3">01</span><h3 class="text-xs font-semibold mb-2" data-es="Excelencia" data-en="Excellence">Excelencia</h3><p class="text-[10px] font-light dark:text-d-200 text-l-300 leading-relaxed" data-es="Cada pixel importa. No entregamos hasta que la calidad sea impecable." data-en="Every pixel matters. We don't deliver until quality is impeccable.">Cada pixel importa. No entregamos hasta que la calidad sea impecable.</p></div>
+  <div class="dark:bg-d-800 bg-l-700 p-8 md:p-12"><span class="material-symbols-outlined text-2xl mb-3 block">rocket_launch</span><span class="text-[40px] font-bold dark:text-d-500 text-l-500 block mb-3">02</span><h3 class="text-xs font-semibold mb-2" data-es="Innovación" data-en="Innovation">Innovación</h3><p class="text-[10px] font-light dark:text-d-200 text-l-300 leading-relaxed" data-es="Tecnologías de vanguardia para soluciones sin precedentes." data-en="Cutting-edge technologies for unprecedented solutions.">Tecnologías de vanguardia para soluciones sin precedentes.</p></div>
+  <div class="dark:bg-d-700 bg-l-600 p-8 md:p-12"><span class="material-symbols-outlined text-2xl mb-3 block">handshake</span><span class="text-[40px] font-bold dark:text-d-500 text-l-500 block mb-3">03</span><h3 class="text-xs font-semibold mb-2" data-es="Colaboración" data-en="Collaboration">Colaboración</h3><p class="text-[10px] font-light dark:text-d-200 text-l-300 leading-relaxed" data-es="Trabajamos codo a codo superando la visión del cliente." data-en="We work hand in hand exceeding the client's vision.">Trabajamos codo a codo superando la visión del cliente.</p></div>
 </div>
 <!-- IG Banner -->
-<div class="max-w-[1920px] mx-auto relative overflow-hidden">
-  <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=3840&q=90" class="w-full h-48 object-cover" style="filter:brightness(.2)" alt=""/>
+<div class="max-w-[1920px] mx-auto relative overflow-hidden mt-[2px]">
+  <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=3840&q=90" class="w-full h-48 object-cover" style="filter:brightness(.15)" alt="" loading="lazy"/>
   <div class="absolute inset-0 flex items-center justify-center gap-4">
     <i class="fa-brands fa-instagram text-white/60 text-xl"></i>
     <a href="https://www.instagram.com/imhotepestudio/" target="_blank" class="text-white text-sm font-semibold tracking-tight hover:opacity-70 transition-opacity">@imhotepestudio</a>
@@ -195,42 +198,40 @@ html.dark .uz{border-color:#333}html.light .uz{border-color:#ccc}
 </div>
 </div>
 
-<!-- ████████████████████████████████████████████████ -->
-<!-- ARCHVIZ -->
-<!-- ████████████████████████████████████████████████ -->
+<!-- ===== ARCHVIZ ===== -->
 <div id="page-archviz" class="page">
-<div class="relative h-[45vh] mt-[40px] overflow-hidden">
-  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=3840&q=90" class="absolute inset-0 w-full h-full object-cover" style="filter:brightness(.2)" alt=""/>
+<div class="relative h-[45vh] mt-[90px] overflow-hidden">
+  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=3840&q=90" class="absolute inset-0 w-full h-full object-cover" style="filter:brightness(.2)" alt="" loading="lazy"/>
   <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
   <div class="absolute inset-0 flex items-end p-6 md:p-10 z-10"><div>
-    <p class="text-white/30 text-[8px] tracking-[.3em] uppercase mb-2">Architectural Visualization</p>
+    <p class="text-white/30 text-[8px] tracking-[.3em] uppercase mb-2"><span class="material-symbols-outlined text-[10px] mr-1">view_in_ar</span> Architectural Visualization</p>
     <h1 class="text-white text-4xl md:text-7xl font-bold tracking-tighter leading-[.9]">Archviz</h1>
   </div></div>
 </div>
 <!-- Filters -->
-<div class="max-w-[1920px] mx-auto px-6 md:px-10 py-4 flex flex-wrap gap-5 border-b dark:border-d-700 border-l-600">
-  <button class="af text-[9px] font-semibold tracking-[.12em] uppercase dark:text-white text-black" style="border-bottom:1.5px solid currentColor;padding-bottom:2px" data-f="all" onclick="fGrid('all')">Todos</button>
-  <button class="af text-[9px] tracking-[.12em] uppercase dark:text-d-200 text-l-400" data-f="res" onclick="fGrid('res')">Residencial</button>
-  <button class="af text-[9px] tracking-[.12em] uppercase dark:text-d-200 text-l-400" data-f="com" onclick="fGrid('com')">Comercial</button>
-  <button class="af text-[9px] tracking-[.12em] uppercase dark:text-d-200 text-l-400" data-f="cul" onclick="fGrid('cul')">Cultural</button>
-  <button class="af text-[9px] tracking-[.12em] uppercase dark:text-d-200 text-l-400" data-f="int" onclick="fGrid('int')">Interior</button>
+<div class="max-w-[1920px] mx-auto px-6 md:px-10 py-4 dark:bg-d-800 bg-l-700 flex flex-wrap gap-5 mt-[2px]">
+  <button class="af text-[9px] font-semibold tracking-[.12em] uppercase dark:text-white text-black" style="border-bottom:1.5px solid currentColor;padding-bottom:2px" data-f="all" onclick="fGrid('all')"><span class="material-symbols-outlined text-[10px] mr-1">grid_view</span>Todos</button>
+  <button class="af text-[9px] tracking-[.12em] uppercase dark:text-d-200 text-l-400" data-f="res" onclick="fGrid('res')"><span class="material-symbols-outlined text-[10px] mr-1">home</span>Residencial</button>
+  <button class="af text-[9px] tracking-[.12em] uppercase dark:text-d-200 text-l-400" data-f="com" onclick="fGrid('com')"><span class="material-symbols-outlined text-[10px] mr-1">business</span>Comercial</button>
+  <button class="af text-[9px] tracking-[.12em] uppercase dark:text-d-200 text-l-400" data-f="cul" onclick="fGrid('cul')"><span class="material-symbols-outlined text-[10px] mr-1">museum</span>Cultural</button>
+  <button class="af text-[9px] tracking-[.12em] uppercase dark:text-d-200 text-l-400" data-f="int" onclick="fGrid('int')"><span class="material-symbols-outlined text-[10px] mr-1">chair</span>Interior</button>
 </div>
 <!-- Grid -->
-<div class="max-w-[1920px] mx-auto grid grid-cols-2 md:grid-cols-3 g2">
-  <div class="ai ch relative overflow-hidden cursor-pointer aspect-square" data-c="res"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.45)" alt=""/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-4"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase">Residencial</p><h3 class="text-white text-xs font-semibold mt-1">Villa Monolith</h3><p class="text-white/40 text-[8px] font-light mt-1">Render fotorrealista, hormigón visto</p></div></div>
-  <div class="ai ch relative overflow-hidden cursor-pointer aspect-square" data-c="com"><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.4)" alt=""/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-4"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase">Comercial</p><h3 class="text-white text-xs font-semibold mt-1">Torre Axiom</h3><p class="text-white/40 text-[8px] font-light mt-1">Fachada paramétrica</p></div></div>
-  <div class="ai ch relative overflow-hidden cursor-pointer aspect-square" data-c="cul"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.4)" alt=""/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-4"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase">Cultural</p><h3 class="text-white text-xs font-semibold mt-1">Museo Horizon</h3><p class="text-white/40 text-[8px] font-light mt-1">Volumetría escultórica</p></div></div>
-  <div class="ai ch relative overflow-hidden cursor-pointer aspect-square" data-c="int"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.4)" alt=""/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-4"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase">Interior</p><h3 class="text-white text-xs font-semibold mt-1">Loft Brutalist</h3><p class="text-white/40 text-[8px] font-light mt-1">Hormigón y madera noble</p></div></div>
-  <div class="ai ch relative overflow-hidden cursor-pointer aspect-square" data-c="res"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.45)" alt=""/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-4"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase">Residencial</p><h3 class="text-white text-xs font-semibold mt-1">Casa Nexus</h3><p class="text-white/40 text-[8px] font-light mt-1">Piscina infinity</p></div></div>
-  <div class="ai ch relative overflow-hidden cursor-pointer aspect-square" data-c="com"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.4)" alt=""/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-4"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase">Comercial</p><h3 class="text-white text-xs font-semibold mt-1">Hub Central</h3><p class="text-white/40 text-[8px] font-light mt-1">Coworking biofílico</p></div></div>
-  <div class="ai ch relative overflow-hidden cursor-pointer aspect-square" data-c="cul"><img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.4)" alt=""/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-4"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase">Cultural</p><h3 class="text-white text-xs font-semibold mt-1">Galería Prism</h3><p class="text-white/40 text-[8px] font-light mt-1">Iluminación zenital</p></div></div>
-  <div class="ai ch relative overflow-hidden cursor-pointer aspect-square" data-c="int"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.4)" alt=""/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-4"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase">Interior</p><h3 class="text-white text-xs font-semibold mt-1">Suite Noir</h3><p class="text-white/40 text-[8px] font-light mt-1">Acabados oscuros premium</p></div></div>
-  <div class="ai ch relative overflow-hidden cursor-pointer aspect-square" data-c="res"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.4)" alt=""/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-4"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase">Residencial</p><h3 class="text-white text-xs font-semibold mt-1">Penthouse Vertex</h3><p class="text-white/40 text-[8px] font-light mt-1">Terraza panorámica</p></div></div>
+<div class="max-w-[1920px] mx-auto grid grid-cols-2 md:grid-cols-3 g2 mt-[2px]">
+  <div class="ai ch gi relative overflow-hidden cursor-pointer aspect-square" data-c="res"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.4)" alt="" loading="lazy"/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-4"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase">Residencial</p><h3 class="text-white text-xs font-semibold mt-1">Villa Monolith</h3><p class="text-white/40 text-[8px] font-light mt-1">Render fotorrealista, hormigón visto</p></div></div>
+  <div class="ai ch gi relative overflow-hidden cursor-pointer aspect-square" data-c="com"><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.35)" alt="" loading="lazy"/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-4"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase">Comercial</p><h3 class="text-white text-xs font-semibold mt-1">Torre Axiom</h3><p class="text-white/40 text-[8px] font-light mt-1">Fachada paramétrica</p></div></div>
+  <div class="ai ch gi relative overflow-hidden cursor-pointer aspect-square" data-c="cul"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.35)" alt="" loading="lazy"/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-4"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase">Cultural</p><h3 class="text-white text-xs font-semibold mt-1">Museo Horizon</h3><p class="text-white/40 text-[8px] font-light mt-1">Volumetría escultórica</p></div></div>
+  <div class="ai ch gi relative overflow-hidden cursor-pointer aspect-square" data-c="int"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.35)" alt="" loading="lazy"/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-4"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase">Interior</p><h3 class="text-white text-xs font-semibold mt-1">Loft Brutalist</h3><p class="text-white/40 text-[8px] font-light mt-1">Hormigón y madera noble</p></div></div>
+  <div class="ai ch gi relative overflow-hidden cursor-pointer aspect-square" data-c="res"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.4)" alt="" loading="lazy"/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-4"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase">Residencial</p><h3 class="text-white text-xs font-semibold mt-1">Casa Nexus</h3><p class="text-white/40 text-[8px] font-light mt-1">Piscina infinity</p></div></div>
+  <div class="ai ch gi relative overflow-hidden cursor-pointer aspect-square" data-c="com"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.35)" alt="" loading="lazy"/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-4"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase">Comercial</p><h3 class="text-white text-xs font-semibold mt-1">Hub Central</h3><p class="text-white/40 text-[8px] font-light mt-1">Coworking biofílico</p></div></div>
+  <div class="ai ch gi relative overflow-hidden cursor-pointer aspect-square" data-c="cul"><img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.35)" alt="" loading="lazy"/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-4"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase">Cultural</p><h3 class="text-white text-xs font-semibold mt-1">Galería Prism</h3><p class="text-white/40 text-[8px] font-light mt-1">Iluminación zenital</p></div></div>
+  <div class="ai ch gi relative overflow-hidden cursor-pointer aspect-square" data-c="int"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.35)" alt="" loading="lazy"/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-4"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase">Interior</p><h3 class="text-white text-xs font-semibold mt-1">Suite Noir</h3><p class="text-white/40 text-[8px] font-light mt-1">Acabados oscuros premium</p></div></div>
+  <div class="ai ch gi relative overflow-hidden cursor-pointer aspect-square" data-c="res"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.35)" alt="" loading="lazy"/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-4"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase">Residencial</p><h3 class="text-white text-xs font-semibold mt-1">Penthouse Vertex</h3><p class="text-white/40 text-[8px] font-light mt-1">Terraza panorámica</p></div></div>
 </div>
 <!-- Process Banner -->
-<div class="max-w-[1920px] mx-auto relative overflow-hidden"><img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=3840&q=90" class="w-full h-32 object-cover" style="filter:brightness(.15)" alt=""/><div class="absolute inset-0 flex items-center justify-center"><p class="text-white/40 text-[9px] tracking-[.3em] uppercase" data-es="Nuestro Proceso Creativo" data-en="Our Creative Process">Nuestro Proceso Creativo</p></div></div>
+<div class="max-w-[1920px] mx-auto relative overflow-hidden mt-[2px]"><img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=3840&q=90" class="w-full h-32 object-cover" style="filter:brightness(.12)" alt="" loading="lazy"/><div class="absolute inset-0 flex items-center justify-center"><p class="text-white/40 text-[9px] tracking-[.3em] uppercase flex items-center gap-2"><span class="material-symbols-outlined text-[12px]">auto_awesome</span> <span data-es="Nuestro Proceso Creativo" data-en="Our Creative Process">Nuestro Proceso Creativo</span></p></div></div>
 <!-- Process -->
-<div class="max-w-[1920px] mx-auto grid grid-cols-2 md:grid-cols-4 g2">
+<div class="max-w-[1920px] mx-auto grid grid-cols-2 md:grid-cols-4 g2 mt-[2px]">
   <div class="dark:bg-d-800 bg-l-700 p-6 md:p-10"><span class="material-symbols-outlined text-xl mb-3 block">description</span><span class="text-[32px] font-bold dark:text-d-500 text-l-500 block mb-2">01</span><h3 class="text-xs font-semibold mb-1">Briefing</h3><p class="text-[9px] font-light dark:text-d-200 text-l-300 leading-relaxed" data-es="Análisis del proyecto y objetivos visuales." data-en="Project analysis and visual goals.">Análisis del proyecto y objetivos visuales.</p></div>
   <div class="dark:bg-d-700 bg-l-600 p-6 md:p-10"><span class="material-symbols-outlined text-xl mb-3 block">view_in_ar</span><span class="text-[32px] font-bold dark:text-d-500 text-l-500 block mb-2">02</span><h3 class="text-xs font-semibold mb-1" data-es="Modelado 3D" data-en="3D Modeling">Modelado 3D</h3><p class="text-[9px] font-light dark:text-d-200 text-l-300 leading-relaxed" data-es="Modelo tridimensional de precisión milimétrica." data-en="Millimetric precision 3D model.">Modelo tridimensional de precisión milimétrica.</p></div>
   <div class="dark:bg-d-800 bg-l-700 p-6 md:p-10"><span class="material-symbols-outlined text-xl mb-3 block">light_mode</span><span class="text-[32px] font-bold dark:text-d-500 text-l-500 block mb-2">03</span><h3 class="text-xs font-semibold mb-1" data-es="Iluminación" data-en="Lighting">Iluminación</h3><p class="text-[9px] font-light dark:text-d-200 text-l-300 leading-relaxed" data-es="Materiales PBR e iluminación fotorrealista." data-en="PBR materials and photorealistic lighting.">Materiales PBR e iluminación fotorrealista.</p></div>
@@ -238,110 +239,137 @@ html.dark .uz{border-color:#333}html.light .uz{border-color:#ccc}
 </div>
 </div>
 
-<!-- ████████████████████████████████████████████████ -->
-<!-- METAVERSE -->
-<!-- ████████████████████████████████████████████████ -->
+<!-- ===== METAVERSE ===== -->
 <div id="page-metaverse" class="page">
-<div class="relative h-[45vh] mt-[40px] overflow-hidden">
-  <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=3840&q=90" class="absolute inset-0 w-full h-full object-cover" style="filter:brightness(.2)" alt=""/>
+<div class="relative h-[45vh] mt-[90px] overflow-hidden">
+  <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=3840&q=90" class="absolute inset-0 w-full h-full object-cover" style="filter:brightness(.2)" alt="" loading="lazy"/>
   <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
   <div class="absolute inset-0 flex items-end p-6 md:p-10 z-10"><div>
-    <p class="text-white/30 text-[8px] tracking-[.3em] uppercase mb-2">Virtual Worlds & VR</p>
+    <p class="text-white/30 text-[8px] tracking-[.3em] uppercase mb-2"><span class="material-symbols-outlined text-[10px] mr-1">public</span> Virtual Worlds & VR</p>
     <h1 class="text-white text-4xl md:text-7xl font-bold tracking-tighter leading-[.9]" data-es="Mundos Virtuales" data-en="Virtual Worlds">Mundos Virtuales</h1>
   </div></div>
 </div>
 <!-- Capabilities -->
-<div class="max-w-[1920px] mx-auto grid grid-cols-2 md:grid-cols-4 g2">
-  <div class="dark:bg-d-800 bg-l-700 p-6 aspect-square flex flex-col justify-between"><span class="material-symbols-outlined text-2xl">view_in_ar</span><div><h3 class="text-sm font-semibold">VR / AR</h3><p class="text-[8px] dark:text-d-200 text-l-400 mt-1" data-es="Realidad Virtual y Aumentada" data-en="Virtual & Augmented Reality">Realidad Virtual y Aumentada</p></div></div>
-  <div class="dark:bg-d-700 bg-l-600 p-6 aspect-square flex flex-col justify-between"><span class="material-symbols-outlined text-2xl">language</span><div><h3 class="text-sm font-semibold">Web3</h3><p class="text-[8px] dark:text-d-200 text-l-400 mt-1">Metaverso & Blockchain</p></div></div>
-  <div class="dark:bg-d-700 bg-l-600 p-6 aspect-square flex flex-col justify-between"><span class="material-symbols-outlined text-2xl">sports_esports</span><div><h3 class="text-sm font-semibold">Gaming</h3><p class="text-[8px] dark:text-d-200 text-l-400 mt-1" data-es="Entornos Interactivos" data-en="Interactive Environments">Entornos Interactivos</p></div></div>
-  <div class="dark:bg-d-800 bg-l-700 p-6 aspect-square flex flex-col justify-between"><span class="material-symbols-outlined text-2xl">hub</span><div><h3 class="text-sm font-semibold">Digital Twin</h3><p class="text-[8px] dark:text-d-200 text-l-400 mt-1" data-es="Gemelos Digitales" data-en="Digital Twins">Gemelos Digitales</p></div></div>
+<div class="max-w-[1920px] mx-auto grid grid-cols-2 md:grid-cols-4 g2 mt-[2px]">
+  <div class="dark:bg-d-800 bg-l-700 p-6 aspect-square flex flex-col justify-between gi"><span class="material-symbols-outlined text-3xl">view_in_ar</span><div><h3 class="text-sm font-semibold">VR / AR</h3><p class="text-[8px] dark:text-d-200 text-l-400 mt-1" data-es="Realidad Virtual y Aumentada" data-en="Virtual & Augmented Reality">Realidad Virtual y Aumentada</p></div></div>
+  <div class="dark:bg-d-700 bg-l-600 p-6 aspect-square flex flex-col justify-between gi"><span class="material-symbols-outlined text-3xl">language</span><div><h3 class="text-sm font-semibold">Web3</h3><p class="text-[8px] dark:text-d-200 text-l-400 mt-1">Metaverso & Blockchain</p></div></div>
+  <div class="dark:bg-d-700 bg-l-600 p-6 aspect-square flex flex-col justify-between gi"><span class="material-symbols-outlined text-3xl">sports_esports</span><div><h3 class="text-sm font-semibold">Gaming</h3><p class="text-[8px] dark:text-d-200 text-l-400 mt-1" data-es="Entornos Interactivos" data-en="Interactive Environments">Entornos Interactivos</p></div></div>
+  <div class="dark:bg-d-800 bg-l-700 p-6 aspect-square flex flex-col justify-between gi"><span class="material-symbols-outlined text-3xl">hub</span><div><h3 class="text-sm font-semibold">Digital Twin</h3><p class="text-[8px] dark:text-d-200 text-l-400 mt-1" data-es="Gemelos Digitales" data-en="Digital Twins">Gemelos Digitales</p></div></div>
 </div>
 <!-- Projects -->
-<div class="max-w-[1920px] mx-auto grid grid-cols-1 md:grid-cols-2 g2">
-  <div class="ch relative overflow-hidden cursor-pointer aspect-video"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=2400&q=90" class="w-full h-full object-cover" style="filter:brightness(.35)" alt=""/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-6"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase mb-1" data-es="Galería Virtual" data-en="Virtual Gallery">Galería Virtual</p><h3 class="text-white text-lg font-semibold tracking-tight">Neo Digital Pavilion</h3><p class="text-white/40 text-[9px] font-light mt-1">500 visitantes simultáneos · Meta Quest + HTC Vive</p></div></div>
-  <div class="ch relative overflow-hidden cursor-pointer aspect-video"><img src="https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?w=2400&q=90" class="w-full h-full object-cover" style="filter:brightness(.35)" alt=""/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-6"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase mb-1">Metaverse City</p><h3 class="text-white text-lg font-semibold tracking-tight">Arcadia District</h3><p class="text-white/40 text-[9px] font-light mt-1">200+ edificios · Economía integrada</p></div></div>
-  <div class="ch relative overflow-hidden cursor-pointer aspect-video"><img src="https://images.unsplash.com/photo-1617802690992-15d93263d3a9?w=2400&q=90" class="w-full h-full object-cover" style="filter:brightness(.3)" alt=""/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-6"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase mb-1">Digital Twin</p><h3 class="text-white text-lg font-semibold tracking-tight">Industrial Complex</h3><p class="text-white/40 text-[9px] font-light mt-1">Monitorización en tiempo real</p></div></div>
-  <div class="ch relative overflow-hidden cursor-pointer aspect-video"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=2400&q=90" class="w-full h-full object-cover" style="filter:brightness(.3)" alt=""/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-6"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase mb-1" data-es="Eventos Virtuales" data-en="Virtual Events">Eventos Virtuales</p><h3 class="text-white text-lg font-semibold tracking-tight">Void Arena</h3><p class="text-white/40 text-[9px] font-light mt-1">Audio espacial · Streaming 4K</p></div></div>
+<div class="max-w-[1920px] mx-auto grid grid-cols-1 md:grid-cols-2 g2 mt-[2px]">
+  <div class="ch gi relative overflow-hidden cursor-pointer aspect-video"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=2400&q=90" class="w-full h-full object-cover" style="filter:brightness(.3)" alt="" loading="lazy"/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-6"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase mb-1"><span class="material-symbols-outlined text-[9px] mr-1">visibility</span> <span data-es="Galería Virtual" data-en="Virtual Gallery">Galería Virtual</span></p><h3 class="text-white text-lg font-semibold tracking-tight">Neo Digital Pavilion</h3><p class="text-white/40 text-[9px] font-light mt-1">500 visitantes simultáneos · Meta Quest + HTC Vive</p></div></div>
+  <div class="ch gi relative overflow-hidden cursor-pointer aspect-video"><img src="https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?w=2400&q=90" class="w-full h-full object-cover" style="filter:brightness(.3)" alt="" loading="lazy"/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-6"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase mb-1"><span class="material-symbols-outlined text-[9px] mr-1">location_city</span> Metaverse City</p><h3 class="text-white text-lg font-semibold tracking-tight">Arcadia District</h3><p class="text-white/40 text-[9px] font-light mt-1">200+ edificios · Economía integrada</p></div></div>
+  <div class="ch gi relative overflow-hidden cursor-pointer aspect-video"><img src="https://images.unsplash.com/photo-1617802690992-15d93263d3a9?w=2400&q=90" class="w-full h-full object-cover" style="filter:brightness(.25)" alt="" loading="lazy"/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-6"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase mb-1"><span class="material-symbols-outlined text-[9px] mr-1">hub</span> Digital Twin</p><h3 class="text-white text-lg font-semibold tracking-tight">Industrial Complex</h3><p class="text-white/40 text-[9px] font-light mt-1">Monitorización en tiempo real</p></div></div>
+  <div class="ch gi relative overflow-hidden cursor-pointer aspect-video"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=2400&q=90" class="w-full h-full object-cover" style="filter:brightness(.25)" alt="" loading="lazy"/><div class="co absolute inset-0 bg-black/50 flex flex-col justify-end p-6"><p class="text-white/30 text-[7px] tracking-[.2em] uppercase mb-1"><span class="material-symbols-outlined text-[9px] mr-1">celebration</span> <span data-es="Eventos Virtuales" data-en="Virtual Events">Eventos Virtuales</span></p><h3 class="text-white text-lg font-semibold tracking-tight">Void Arena</h3><p class="text-white/40 text-[9px] font-light mt-1">Audio espacial · Streaming 4K</p></div></div>
+</div>
+<!-- Image Mosaic -->
+<div class="max-w-[1920px] mx-auto grid grid-cols-2 md:grid-cols-3 g2 mt-[2px]">
+  <div class="overflow-hidden aspect-video"><img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.25)" alt="" loading="lazy"/></div>
+  <div class="overflow-hidden aspect-video"><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.2)" alt="" loading="lazy"/></div>
+  <div class="overflow-hidden aspect-video"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.25)" alt="" loading="lazy"/></div>
+</div>
+<!-- Stats -->
+<div class="max-w-[1920px] mx-auto grid grid-cols-3 g2 mt-[2px]">
+  <div class="dark:bg-d-800 bg-l-700 p-6 md:p-10 text-center gi"><p class="text-3xl md:text-4xl font-bold tracking-tighter">50+</p><p class="text-[8px] dark:text-d-200 text-l-400 tracking-[.15em] uppercase mt-2" data-es="Experiencias VR" data-en="VR Experiences">Experiencias VR</p></div>
+  <div class="dark:bg-d-700 bg-l-600 p-6 md:p-10 text-center gi"><p class="text-3xl md:text-4xl font-bold tracking-tighter">200K+</p><p class="text-[8px] dark:text-d-200 text-l-400 tracking-[.15em] uppercase mt-2" data-es="Usuarios" data-en="Users">Usuarios</p></div>
+  <div class="dark:bg-d-800 bg-l-700 p-6 md:p-10 text-center gi"><p class="text-3xl md:text-4xl font-bold tracking-tighter">15+</p><p class="text-[8px] dark:text-d-200 text-l-400 tracking-[.15em] uppercase mt-2" data-es="Plataformas" data-en="Platforms">Plataformas</p></div>
 </div>
 <!-- Tech Banner -->
-<div class="max-w-[1920px] mx-auto relative overflow-hidden"><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=3840&q=90" class="w-full h-28 object-cover" style="filter:brightness(.12)" alt=""/><div class="absolute inset-0 flex items-center justify-center"><p class="text-white/30 text-[9px] tracking-[.3em] uppercase">Technology Stack</p></div></div>
-<div class="max-w-[1920px] mx-auto grid grid-cols-2 md:grid-cols-4 g2">
-  <div class="dark:bg-d-800 bg-l-700 p-6 text-center"><p class="text-sm font-semibold">Unreal Engine 5</p><p class="text-[7px] dark:text-d-200 text-l-400 tracking-[.15em] uppercase mt-1">Real-time</p></div>
-  <div class="dark:bg-d-700 bg-l-600 p-6 text-center"><p class="text-sm font-semibold">Unity</p><p class="text-[7px] dark:text-d-200 text-l-400 tracking-[.15em] uppercase mt-1">Cross-platform</p></div>
-  <div class="dark:bg-d-700 bg-l-600 p-6 text-center"><p class="text-sm font-semibold">Blender</p><p class="text-[7px] dark:text-d-200 text-l-400 tracking-[.15em] uppercase mt-1">3D Modeling</p></div>
-  <div class="dark:bg-d-800 bg-l-700 p-6 text-center"><p class="text-sm font-semibold">WebXR</p><p class="text-[7px] dark:text-d-200 text-l-400 tracking-[.15em] uppercase mt-1">Web3</p></div>
+<div class="max-w-[1920px] mx-auto relative overflow-hidden mt-[2px]"><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=3840&q=90" class="w-full h-28 object-cover" style="filter:brightness(.1)" alt="" loading="lazy"/><div class="absolute inset-0 flex items-center justify-center"><p class="text-white/30 text-[9px] tracking-[.3em] uppercase flex items-center gap-2"><span class="material-symbols-outlined text-[12px]">memory</span> Technology Stack</p></div></div>
+<div class="max-w-[1920px] mx-auto grid grid-cols-2 md:grid-cols-4 g2 mt-[2px]">
+  <div class="dark:bg-d-800 bg-l-700 p-6 text-center gi"><span class="material-symbols-outlined text-xl mb-2 block">videogame_asset</span><p class="text-sm font-semibold">Unreal Engine 5</p><p class="text-[7px] dark:text-d-200 text-l-400 tracking-[.15em] uppercase mt-1">Real-time</p></div>
+  <div class="dark:bg-d-700 bg-l-600 p-6 text-center gi"><span class="material-symbols-outlined text-xl mb-2 block">deployed_code</span><p class="text-sm font-semibold">Unity</p><p class="text-[7px] dark:text-d-200 text-l-400 tracking-[.15em] uppercase mt-1">Cross-platform</p></div>
+  <div class="dark:bg-d-700 bg-l-600 p-6 text-center gi"><span class="material-symbols-outlined text-xl mb-2 block">brush</span><p class="text-sm font-semibold">Blender</p><p class="text-[7px] dark:text-d-200 text-l-400 tracking-[.15em] uppercase mt-1">3D Modeling</p></div>
+  <div class="dark:bg-d-800 bg-l-700 p-6 text-center gi"><span class="material-symbols-outlined text-xl mb-2 block">web</span><p class="text-sm font-semibold">WebXR</p><p class="text-[7px] dark:text-d-200 text-l-400 tracking-[.15em] uppercase mt-1">Web3</p></div>
 </div>
+<!-- CTA -->
+<div class="max-w-[1920px] mx-auto relative overflow-hidden mt-[2px]"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=3840&q=90" class="w-full h-40 object-cover" style="filter:brightness(.12)" alt="" loading="lazy"/><div class="absolute inset-0 flex items-center justify-center"><button onclick="nav('contacto')" class="border border-white/20 text-white px-8 py-3 text-[9px] font-semibold uppercase tracking-[.15em] hover:bg-white hover:text-black transition-all gi flex items-center gap-2"><span class="material-symbols-outlined text-[12px]">send</span> <span data-es="Iniciar Proyecto VR" data-en="Start VR Project">Iniciar Proyecto VR</span></button></div></div>
 </div>
 
-<!-- ████████████████████████████████████████████████ -->
-<!-- MARKETING & IA -->
-<!-- ████████████████████████████████████████████████ -->
+<!-- ===== MARKETING & IA ===== -->
 <div id="page-marketing" class="page">
-<div class="relative h-[45vh] mt-[40px] overflow-hidden">
-  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=3840&q=90" class="absolute inset-0 w-full h-full object-cover" style="filter:brightness(.15)" alt=""/>
+<div class="relative h-[45vh] mt-[90px] overflow-hidden">
+  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=3840&q=90" class="absolute inset-0 w-full h-full object-cover" style="filter:brightness(.15)" alt="" loading="lazy"/>
   <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
   <div class="absolute inset-0 flex items-end p-6 md:p-10 z-10"><div>
-    <p class="text-white/30 text-[8px] tracking-[.3em] uppercase mb-2">AI & Digital Marketing</p>
+    <p class="text-white/30 text-[8px] tracking-[.3em] uppercase mb-2"><span class="material-symbols-outlined text-[10px] mr-1">psychology</span> AI & Digital Marketing</p>
     <h1 class="text-white text-4xl md:text-7xl font-bold tracking-tighter leading-[.9]">Marketing & IA</h1>
   </div></div>
 </div>
 <!-- Banner -->
-<div class="max-w-[1920px] mx-auto relative overflow-hidden"><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=3840&q=90" class="w-full h-24 object-cover" style="filter:brightness(.12)" alt=""/><div class="absolute inset-0 flex items-center justify-center"><p class="text-white/30 text-[9px] tracking-[.3em] uppercase" data-es="Transformación Digital Total" data-en="Total Digital Transformation">Transformación Digital Total</p></div></div>
+<div class="max-w-[1920px] mx-auto relative overflow-hidden mt-[2px]"><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=3840&q=90" class="w-full h-24 object-cover" style="filter:brightness(.1)" alt="" loading="lazy"/><div class="absolute inset-0 flex items-center justify-center"><p class="text-white/30 text-[9px] tracking-[.3em] uppercase flex items-center gap-2"><span class="material-symbols-outlined text-[12px]">trending_up</span> <span data-es="Transformación Digital Total" data-en="Total Digital Transformation">Transformación Digital Total</span></p></div></div>
 <!-- Services -->
-<div class="max-w-[1920px] mx-auto grid grid-cols-1 md:grid-cols-2 g2">
-  <div class="dark:bg-d-800 bg-l-700 p-8 md:p-14 group hover:dark:bg-white hover:bg-black transition-all duration-500 cursor-pointer">
+<div class="max-w-[1920px] mx-auto grid grid-cols-1 md:grid-cols-2 g2 mt-[2px]">
+  <div class="dark:bg-d-800 bg-l-700 p-8 md:p-14 group hover:dark:bg-white hover:bg-black transition-all duration-500 cursor-pointer gi">
     <span class="material-symbols-outlined text-2xl mb-5 block group-hover:dark:text-black group-hover:text-white transition-colors">psychology</span>
     <h3 class="text-lg font-semibold tracking-tight mb-2 group-hover:dark:text-black group-hover:text-white transition-colors" data-es="Asesoría IA" data-en="AI Consulting">Asesoría IA</h3>
     <p class="text-[10px] font-light dark:text-d-200 text-l-300 leading-relaxed mb-5 group-hover:dark:text-d-400 group-hover:text-l-400 transition-colors" data-es="Chatbots, análisis predictivo, machine learning aplicado a tu negocio." data-en="Chatbots, predictive analysis, machine learning applied to your business.">Chatbots, análisis predictivo, machine learning aplicado a tu negocio.</p>
     <div class="space-y-1.5"><p class="text-[8px] flex items-center gap-2 group-hover:dark:text-d-400 group-hover:text-l-400 transition-colors"><span class="material-symbols-outlined text-[11px]">check</span><span data-es="Auditoría de procesos" data-en="Process audit">Auditoría de procesos</span></p><p class="text-[8px] flex items-center gap-2 group-hover:dark:text-d-400 group-hover:text-l-400 transition-colors"><span class="material-symbols-outlined text-[11px]">check</span><span data-es="Chatbots inteligentes" data-en="Smart chatbots">Chatbots inteligentes</span></p><p class="text-[8px] flex items-center gap-2 group-hover:dark:text-d-400 group-hover:text-l-400 transition-colors"><span class="material-symbols-outlined text-[11px]">check</span>Machine Learning</p></div>
   </div>
-  <div class="dark:bg-d-700 bg-l-600 p-8 md:p-14 group hover:dark:bg-white hover:bg-black transition-all duration-500 cursor-pointer">
+  <div class="dark:bg-d-700 bg-l-600 p-8 md:p-14 group hover:dark:bg-white hover:bg-black transition-all duration-500 cursor-pointer gi">
     <span class="material-symbols-outlined text-2xl mb-5 block group-hover:dark:text-black group-hover:text-white transition-colors">settings_suggest</span>
     <h3 class="text-lg font-semibold tracking-tight mb-2 group-hover:dark:text-black group-hover:text-white transition-colors" data-es="Automatizaciones" data-en="Automations">Automatizaciones</h3>
     <p class="text-[10px] font-light dark:text-d-200 text-l-300 leading-relaxed mb-5 group-hover:dark:text-d-400 group-hover:text-l-400 transition-colors" data-es="Workflows, integraciones API, RPA y pipelines de datos." data-en="Workflows, API integrations, RPA and data pipelines.">Workflows, integraciones API, RPA y pipelines de datos.</p>
     <div class="space-y-1.5"><p class="text-[8px] flex items-center gap-2 group-hover:dark:text-d-400 group-hover:text-l-400 transition-colors"><span class="material-symbols-outlined text-[11px]">check</span>Workflows</p><p class="text-[8px] flex items-center gap-2 group-hover:dark:text-d-400 group-hover:text-l-400 transition-colors"><span class="material-symbols-outlined text-[11px]">check</span><span data-es="Integraciones API" data-en="API Integrations">Integraciones API</span></p><p class="text-[8px] flex items-center gap-2 group-hover:dark:text-d-400 group-hover:text-l-400 transition-colors"><span class="material-symbols-outlined text-[11px]">check</span>RPA</p></div>
   </div>
-  <div class="dark:bg-d-700 bg-l-600 p-8 md:p-14 group hover:dark:bg-white hover:bg-black transition-all duration-500 cursor-pointer">
+  <div class="dark:bg-d-700 bg-l-600 p-8 md:p-14 group hover:dark:bg-white hover:bg-black transition-all duration-500 cursor-pointer gi">
     <span class="material-symbols-outlined text-2xl mb-5 block group-hover:dark:text-black group-hover:text-white transition-colors">code</span>
     <h3 class="text-lg font-semibold tracking-tight mb-2 group-hover:dark:text-black group-hover:text-white transition-colors" data-es="Software Personalizado" data-en="Custom Software">Software Personalizado</h3>
     <p class="text-[10px] font-light dark:text-d-200 text-l-300 leading-relaxed mb-5 group-hover:dark:text-d-400 group-hover:text-l-400 transition-colors" data-es="Apps web, plataformas SaaS, dashboards y e-commerce." data-en="Web apps, SaaS platforms, dashboards and e-commerce.">Apps web, plataformas SaaS, dashboards y e-commerce.</p>
     <div class="space-y-1.5"><p class="text-[8px] flex items-center gap-2 group-hover:dark:text-d-400 group-hover:text-l-400 transition-colors"><span class="material-symbols-outlined text-[11px]">check</span>Web & Mobile</p><p class="text-[8px] flex items-center gap-2 group-hover:dark:text-d-400 group-hover:text-l-400 transition-colors"><span class="material-symbols-outlined text-[11px]">check</span>Dashboards</p><p class="text-[8px] flex items-center gap-2 group-hover:dark:text-d-400 group-hover:text-l-400 transition-colors"><span class="material-symbols-outlined text-[11px]">check</span>E-commerce</p></div>
   </div>
-  <div class="dark:bg-d-800 bg-l-700 p-8 md:p-14 group hover:dark:bg-white hover:bg-black transition-all duration-500 cursor-pointer">
+  <div class="dark:bg-d-800 bg-l-700 p-8 md:p-14 group hover:dark:bg-white hover:bg-black transition-all duration-500 cursor-pointer gi">
     <span class="material-symbols-outlined text-2xl mb-5 block group-hover:dark:text-black group-hover:text-white transition-colors">campaign</span>
     <h3 class="text-lg font-semibold tracking-tight mb-2 group-hover:dark:text-black group-hover:text-white transition-colors" data-es="Marketing & Mentorías" data-en="Marketing & Mentoring">Marketing & Mentorías</h3>
     <p class="text-[10px] font-light dark:text-d-200 text-l-300 leading-relaxed mb-5 group-hover:dark:text-d-400 group-hover:text-l-400 transition-colors" data-es="SEO, SEM, social media y mentorías 1:1." data-en="SEO, SEM, social media and 1:1 mentoring.">SEO, SEM, social media y mentorías 1:1.</p>
     <div class="space-y-1.5"><p class="text-[8px] flex items-center gap-2 group-hover:dark:text-d-400 group-hover:text-l-400 transition-colors"><span class="material-symbols-outlined text-[11px]">check</span>SEO & SEM</p><p class="text-[8px] flex items-center gap-2 group-hover:dark:text-d-400 group-hover:text-l-400 transition-colors"><span class="material-symbols-outlined text-[11px]">check</span>Social Media</p><p class="text-[8px] flex items-center gap-2 group-hover:dark:text-d-400 group-hover:text-l-400 transition-colors"><span class="material-symbols-outlined text-[11px]">check</span><span data-es="Mentorías 1:1" data-en="1:1 Mentoring">Mentorías 1:1</span></p></div>
   </div>
 </div>
+<!-- Image Gallery -->
+<div class="max-w-[1920px] mx-auto grid grid-cols-3 g2 mt-[2px]">
+  <div class="overflow-hidden aspect-[4/3]"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.3)" alt="" loading="lazy"/></div>
+  <div class="overflow-hidden aspect-[4/3]"><img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.25)" alt="" loading="lazy"/></div>
+  <div class="overflow-hidden aspect-[4/3]"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&q=90" class="w-full h-full object-cover" style="filter:brightness(.25)" alt="" loading="lazy"/></div>
+</div>
 <!-- CTA Banner -->
-<div class="max-w-[1920px] mx-auto relative overflow-hidden"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=3840&q=90" class="w-full h-40 object-cover" style="filter:brightness(.15)" alt=""/><div class="absolute inset-0 flex items-center justify-center"><button onclick="nav('contacto')" class="border border-white/20 text-white px-8 py-3 text-[9px] font-semibold uppercase tracking-[.15em] hover:bg-white hover:text-black transition-all" data-es="Solicitar Consulta Gratuita" data-en="Request Free Consultation">Solicitar Consulta Gratuita</button></div></div>
+<div class="max-w-[1920px] mx-auto relative overflow-hidden mt-[2px]"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=3840&q=90" class="w-full h-40 object-cover" style="filter:brightness(.12)" alt="" loading="lazy"/><div class="absolute inset-0 flex items-center justify-center"><button onclick="nav('contacto')" class="border border-white/20 text-white px-8 py-3 text-[9px] font-semibold uppercase tracking-[.15em] hover:bg-white hover:text-black transition-all gi flex items-center gap-2"><span class="material-symbols-outlined text-[12px]">mail</span> <span data-es="Solicitar Consulta Gratuita" data-en="Request Free Consultation">Solicitar Consulta Gratuita</span></button></div></div>
 </div>
 
-<!-- ████████████████████████████████████████████████ -->
-<!-- CLIENTES — Full-width pro dashboard -->
-<!-- ████████████████████████████████████████████████ -->
+<!-- ===== CLIENTES ===== -->
 <div id="page-clientes" class="page">
-<div class="mt-[40px] max-w-[1920px] mx-auto">
+<div class="mt-[90px] max-w-[1920px] mx-auto">
   <!-- Header Banner -->
-  <div class="relative h-[25vh] overflow-hidden"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=3840&q=90" class="absolute inset-0 w-full h-full object-cover" style="filter:brightness(.15)" alt=""/><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 md:p-10"><div><p class="text-white/30 text-[8px] tracking-[.3em] uppercase mb-2">Client Dashboard</p><h1 class="text-white text-3xl md:text-5xl font-bold tracking-tighter" data-es="Estado de Pedidos" data-en="Order Status">Estado de Pedidos</h1></div></div></div>
+  <div class="relative h-[25vh] overflow-hidden"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=3840&q=90" class="absolute inset-0 w-full h-full object-cover" style="filter:brightness(.12)" alt="" loading="lazy"/><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 md:p-10"><div><p class="text-white/30 text-[8px] tracking-[.3em] uppercase mb-2 flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">dashboard</span> Client Dashboard</p><h1 class="text-white text-3xl md:text-5xl font-bold tracking-tighter" data-es="Estado de Pedidos" data-en="Order Status">Estado de Pedidos</h1></div></div></div>
 
-  <div class="grid grid-cols-1 lg:grid-cols-12 g2 p-1">
-    <!-- Left: Projects full-width -->
-    <div class="lg:col-span-8 space-y-[2px]">
-      <!-- PROJECT 1 — Full width card -->
+  <!-- Timeline -->
+  <div class="dark:bg-d-800 bg-l-700 px-6 md:px-10 py-5 mt-[2px]">
+    <p class="text-[7px] tracking-[.2em] uppercase dark:text-d-200 text-l-400 mb-4 flex items-center gap-1"><span class="material-symbols-outlined text-[9px]">timeline</span> Project Timeline — IM-2024-089</p>
+    <div class="flex items-center">
+      <div class="flex flex-col items-center"><div class="tln done"></div><p class="text-[7px] mt-2 tracking-[.1em] uppercase dark:text-d-100 text-l-200">Briefing</p></div>
+      <div class="flex-1 h-[1.5px] dark:bg-d-300 bg-l-400 mb-5"></div>
+      <div class="flex flex-col items-center"><div class="tln done"></div><p class="text-[7px] mt-2 tracking-[.1em] uppercase dark:text-d-100 text-l-200" data-es="Modelado" data-en="Modeling">Modelado</p></div>
+      <div class="flex-1 h-[1.5px] dark:bg-d-300 bg-l-400 mb-5"></div>
+      <div class="flex flex-col items-center"><div class="tln active"></div><p class="text-[7px] mt-2 tracking-[.1em] uppercase dark:text-white text-black font-semibold">Render</p></div>
+      <div class="flex-1 h-[1.5px] dark:bg-d-500 bg-l-500 mb-5"></div>
+      <div class="flex flex-col items-center"><div class="tln"></div><p class="text-[7px] mt-2 tracking-[.1em] uppercase dark:text-d-200 text-l-400" data-es="Entrega" data-en="Delivery">Entrega</p></div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 g2 mt-[2px]">
+    <!-- Left: Projects -->
+    <div class="lg:col-span-8 flex flex-col" style="gap:2px">
+      <!-- PROJECT 1 -->
       <div class="dark:bg-d-800 bg-l-700 p-6 md:p-8" id="invoice1">
         <div class="flex flex-col md:flex-row justify-between gap-6">
           <div class="flex-1 space-y-4">
             <div class="flex items-center gap-3 flex-wrap">
-              <span class="text-[8px] font-semibold tracking-[.1em] uppercase px-2 py-0.5 dark:bg-white dark:text-black bg-black text-white" data-es="En Progreso" data-en="In Progress">En Progreso</span>
+              <span class="text-[8px] font-semibold tracking-[.1em] uppercase px-2 py-0.5 dark:bg-white dark:text-black bg-black text-white flex items-center gap-1"><span class="material-symbols-outlined text-[9px]">autorenew</span> <span data-es="En Progreso" data-en="In Progress">En Progreso</span></span>
               <span class="text-[8px] dark:text-d-200 text-l-400 font-mono">IM-2024-089</span>
-              <span class="text-[8px] dark:text-d-300 text-l-400"><span class="material-symbols-outlined text-[10px]">calendar_today</span> Nov 24, 2024</span>
+              <span class="text-[8px] dark:text-d-300 text-l-400 flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">calendar_today</span> Nov 24, 2024</span>
             </div>
             <h2 class="text-lg md:text-2xl font-bold tracking-tighter">Neo-Archival Metaverse Pavilion</h2>
             <p class="text-[10px] font-light dark:text-d-200 text-l-300 leading-relaxed" data-es="Fase 02: Mapeo estructural y optimización del layout espacial. Próxima revisión: viernes." data-en="Phase 02: Structural mapping and spatial layout optimization. Next review: Friday.">Fase 02: Mapeo estructural y optimización del layout espacial. Próxima revisión: viernes.</p>
-            <!-- Process Steps -->
             <div class="flex items-center gap-[2px]">
               <div class="flex-1 h-1.5 dark:bg-white bg-black rounded-sm"></div>
               <div class="flex-1 h-1.5 dark:bg-white bg-black rounded-sm"></div>
@@ -354,35 +382,33 @@ html.dark .uz{border-color:#333}html.light .uz{border-color:#ccc}
               <span class="dark:text-white text-black font-semibold flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">pending</span> Render</span>
               <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">radio_button_unchecked</span> <span data-es="Entrega" data-en="Delivery">Entrega</span></span>
             </div>
-            <!-- Info grid -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-3 border-t dark:border-d-600 border-l-500">
-              <div><p class="text-[7px] tracking-[.15em] uppercase dark:text-d-200 text-l-400" data-es="Factura" data-en="Invoice">Factura</p><p class="text-[10px] font-semibold mt-0.5">50% <span data-es="Pagado" data-en="Paid">Pagado</span></p></div>
-              <div><p class="text-[7px] tracking-[.15em] uppercase dark:text-d-200 text-l-400" data-es="Total" data-en="Total">Total</p><p class="text-[10px] font-semibold mt-0.5">€12,500</p></div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-3">
+              <div><p class="text-[7px] tracking-[.15em] uppercase dark:text-d-200 text-l-400 flex items-center gap-1"><span class="material-symbols-outlined text-[8px]">receipt</span> <span data-es="Factura" data-en="Invoice">Factura</span></p><p class="text-[10px] font-semibold mt-0.5">50% <span data-es="Pagado" data-en="Paid">Pagado</span></p></div>
+              <div><p class="text-[7px] tracking-[.15em] uppercase dark:text-d-200 text-l-400">Total</p><p class="text-[10px] font-semibold mt-0.5">€12,500</p></div>
               <div><p class="text-[7px] tracking-[.15em] uppercase dark:text-d-200 text-l-400" data-es="Pendiente" data-en="Remaining">Pendiente</p><p class="text-[10px] font-semibold mt-0.5">€6,250</p></div>
               <div><p class="text-[7px] tracking-[.15em] uppercase dark:text-d-200 text-l-400" data-es="Estimación" data-en="Estimate">Estimación</p><p class="text-[10px] font-semibold mt-0.5">Nov 24, 2024</p></div>
             </div>
           </div>
-          <!-- Actions -->
           <div class="flex flex-col gap-[2px] min-w-[150px]">
-            <button onclick="printInvoice('invoice1')" class="w-full py-2.5 dark:bg-white dark:text-black bg-black text-white text-[8px] font-semibold uppercase tracking-[.1em] hover:opacity-80 transition-opacity flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-[12px]">receipt_long</span><span data-es="Factura" data-en="Invoice">Factura</span></button>
-            <button class="w-full py-2.5 dark:bg-white dark:text-black bg-black text-white text-[8px] font-semibold uppercase tracking-[.1em] hover:opacity-80 transition-opacity flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-[12px]">print</span><span data-es="Imprimir" data-en="Print">Imprimir</span></button>
-            <button class="w-full py-2.5 border dark:border-d-400 border-l-500 text-[8px] font-semibold uppercase tracking-[.1em] hover:dark:bg-white hover:dark:text-black hover:bg-black hover:text-white transition-all flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-[12px]">upload</span><span data-es="Subir" data-en="Upload">Subir</span></button>
-            <button onclick="openChat()" class="w-full py-2.5 border dark:border-d-400 border-l-500 text-[8px] font-semibold uppercase tracking-[.1em] hover:dark:bg-white hover:dark:text-black hover:bg-black hover:text-white transition-all flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-[12px]">chat</span>Chat</button>
+            <button onclick="printInvoice('invoice1')" class="w-full py-2.5 dark:bg-white dark:text-black bg-black text-white text-[8px] font-semibold uppercase tracking-[.1em] hover:opacity-80 transition-opacity flex items-center justify-center gap-1.5 gi"><span class="material-symbols-outlined text-[12px]">receipt_long</span><span data-es="Factura" data-en="Invoice">Factura</span></button>
+            <button class="w-full py-2.5 dark:bg-white dark:text-black bg-black text-white text-[8px] font-semibold uppercase tracking-[.1em] hover:opacity-80 transition-opacity flex items-center justify-center gap-1.5 gi"><span class="material-symbols-outlined text-[12px]">print</span><span data-es="Imprimir" data-en="Print">Imprimir</span></button>
+            <button class="w-full py-2.5 dark:bg-d-600 bg-l-600 text-[8px] font-semibold uppercase tracking-[.1em] hover:dark:bg-white hover:dark:text-black hover:bg-black hover:text-white transition-all flex items-center justify-center gap-1.5 gi"><span class="material-symbols-outlined text-[12px]">upload</span><span data-es="Subir" data-en="Upload">Subir</span></button>
+            <button onclick="openChat()" class="w-full py-2.5 dark:bg-d-600 bg-l-600 text-[8px] font-semibold uppercase tracking-[.1em] hover:dark:bg-white hover:dark:text-black hover:bg-black hover:text-white transition-all flex items-center justify-center gap-1.5 gi"><span class="material-symbols-outlined text-[12px]">chat</span>Chat</button>
           </div>
         </div>
       </div>
 
       <!-- PROJECT 2 -->
-      <div class="dark:bg-d-800/60 bg-l-700/60 border dark:border-d-700 border-l-600 p-6 md:p-8">
+      <div class="dark:bg-d-800/60 bg-l-700/60 dark:bg-d-700 bg-l-600 p-6 md:p-8">
         <div class="flex flex-col md:flex-row justify-between gap-6">
           <div class="flex-1 space-y-4">
             <div class="flex items-center gap-3 flex-wrap">
-              <span class="text-[8px] font-semibold tracking-[.1em] uppercase px-2 py-0.5 dark:bg-d-400 bg-l-600" data-es="Completado" data-en="Completed">Completado</span>
+              <span class="text-[8px] font-semibold tracking-[.1em] uppercase px-2 py-0.5 dark:bg-d-400 bg-l-500 flex items-center gap-1"><span class="material-symbols-outlined text-[9px]">check_circle</span> <span data-es="Completado" data-en="Completed">Completado</span></span>
               <span class="text-[8px] dark:text-d-200 text-l-400 font-mono">IM-2024-042</span>
             </div>
             <h2 class="text-lg md:text-2xl font-bold tracking-tighter">Editorial Branding System</h2>
             <div class="flex items-center gap-[2px]"><div class="flex-1 h-1.5 dark:bg-d-300 bg-l-400 rounded-sm"></div><div class="flex-1 h-1.5 dark:bg-d-300 bg-l-400 rounded-sm"></div><div class="flex-1 h-1.5 dark:bg-d-300 bg-l-400 rounded-sm"></div><div class="flex-1 h-1.5 dark:bg-d-300 bg-l-400 rounded-sm"></div></div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-3 border-t dark:border-d-600 border-l-500">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-3">
               <div><p class="text-[7px] tracking-[.15em] uppercase dark:text-d-200 text-l-400" data-es="Factura" data-en="Invoice">Factura</p><p class="text-[10px] font-semibold mt-0.5" data-es="Liquidado" data-en="Settled">Liquidado</p></div>
               <div><p class="text-[7px] tracking-[.15em] uppercase dark:text-d-200 text-l-400">Total</p><p class="text-[10px] font-semibold mt-0.5">€8,200</p></div>
               <div><p class="text-[7px] tracking-[.15em] uppercase dark:text-d-200 text-l-400" data-es="Completado" data-en="Completed">Completado</p><p class="text-[10px] font-semibold mt-0.5">Oct 12, 2024</p></div>
@@ -390,120 +416,148 @@ html.dark .uz{border-color:#333}html.light .uz{border-color:#ccc}
             </div>
           </div>
           <div class="flex flex-col gap-[2px] min-w-[150px]">
-            <button class="w-full py-2.5 dark:bg-white dark:text-black bg-black text-white text-[8px] font-semibold uppercase tracking-[.1em] hover:opacity-80 transition-opacity flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-[12px]">folder_zip</span><span data-es="Descargar" data-en="Download">Descargar</span></button>
-            <button class="w-full py-2.5 border dark:border-d-400 border-l-500 text-[8px] font-semibold uppercase tracking-[.1em] hover:dark:bg-white hover:dark:text-black hover:bg-black hover:text-white transition-all flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-[12px]">visibility</span><span data-es="Ver" data-en="View">Ver</span></button>
+            <button class="w-full py-2.5 dark:bg-white dark:text-black bg-black text-white text-[8px] font-semibold uppercase tracking-[.1em] hover:opacity-80 transition-opacity flex items-center justify-center gap-1.5 gi"><span class="material-symbols-outlined text-[12px]">folder_zip</span><span data-es="Descargar" data-en="Download">Descargar</span></button>
+            <button class="w-full py-2.5 dark:bg-d-600 bg-l-600 text-[8px] font-semibold uppercase tracking-[.1em] hover:dark:bg-white hover:dark:text-black hover:bg-black hover:text-white transition-all flex items-center justify-center gap-1.5 gi"><span class="material-symbols-outlined text-[12px]">visibility</span><span data-es="Ver" data-en="View">Ver</span></button>
           </div>
         </div>
       </div>
 
       <!-- Upload Zone -->
-      <div class="uz p-6 text-center cursor-pointer dark:bg-d-800/30 bg-l-700/30" id="upZone" onclick="document.getElementById('fIn').click()">
+      <div class="uz p-8 text-center cursor-pointer dark:bg-d-800/30 bg-l-700/30" id="upZone" onclick="document.getElementById('fIn').click()">
         <input type="file" id="fIn" class="hidden" multiple onchange="handleUp(this)"/>
-        <span class="material-symbols-outlined text-xl dark:text-d-200 text-l-400 mb-2 block">cloud_upload</span>
+        <span class="material-symbols-outlined text-2xl dark:text-d-200 text-l-400 mb-3 block" id="uzIcon">cloud_upload</span>
         <p class="text-[9px] font-light dark:text-d-200 text-l-400" data-es="Arrastra archivos o haz clic para subir" data-en="Drag files or click to upload">Arrastra archivos o haz clic para subir</p>
         <p class="text-[7px] dark:text-d-300 text-l-400 mt-1">PDF, PSD, AI, ZIP — Max 500MB</p>
         <div id="upFiles" class="mt-3 space-y-1 text-left"></div>
       </div>
-
-      <!-- New Project Button -->
-      <button onclick="document.getElementById('newProj').classList.toggle('hidden')" class="w-full py-3 border dark:border-d-400 border-l-500 text-[9px] font-semibold uppercase tracking-[.12em] hover:dark:bg-white hover:dark:text-black hover:bg-black hover:text-white transition-all flex items-center justify-center gap-2"><span class="material-symbols-outlined text-[13px]">add</span><span data-es="Iniciar Nuevo Proyecto" data-en="Start New Project">Iniciar Nuevo Proyecto</span></button>
-      <!-- New Project Form -->
-      <div id="newProj" class="hidden dark:bg-d-800 bg-l-700 p-6 space-y-4">
-        <h3 class="text-sm font-semibold" data-es="Nuevo Proyecto" data-en="New Project">Nuevo Proyecto</h3>
-        <input type="text" placeholder="Nombre del proyecto" class="w-full bg-transparent border-b dark:border-d-400 border-l-500 py-2 text-xs outline-none focus:dark:border-white focus:border-black transition-colors"/>
-        <select class="w-full bg-transparent border-b dark:border-d-400 border-l-500 py-2 text-xs outline-none dark:bg-d-800 bg-l-700">
-          <option>Archviz</option><option>Metaverse / VR</option><option>Marketing & IA</option><option>Software</option>
-        </select>
-        <textarea placeholder="Descripción breve..." rows="3" class="w-full bg-transparent border-b dark:border-d-400 border-l-500 py-2 text-xs outline-none resize-none focus:dark:border-white focus:border-black transition-colors"></textarea>
-        <button class="dark:bg-white dark:text-black bg-black text-white px-6 py-2.5 text-[8px] font-semibold uppercase tracking-[.1em] hover:opacity-80 transition-opacity" data-es="Enviar Solicitud" data-en="Submit Request">Enviar Solicitud</button>
-      </div>
     </div>
 
     <!-- Right sidebar -->
-    <div class="lg:col-span-4 space-y-[2px]">
-      <!-- Chart -->
-      <div class="dark:bg-d-800 bg-l-700 p-5"><p class="text-[8px] tracking-[.12em] uppercase dark:text-d-200 text-l-400 mb-3" data-es="Progreso Temporal" data-en="Timeline">Progreso Temporal</p><canvas id="tChart" height="140"></canvas></div>
-      <!-- Stats -->
+    <div class="lg:col-span-4 flex flex-col" style="gap:2px">
+      <div class="dark:bg-d-800 bg-l-700 p-5"><p class="text-[8px] tracking-[.12em] uppercase dark:text-d-200 text-l-400 mb-3 flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">insights</span> <span data-es="Progreso Temporal" data-en="Timeline">Progreso Temporal</span></p><canvas id="tChart" height="140"></canvas></div>
       <div class="dark:bg-d-800 bg-l-700 p-5 space-y-3">
-        <p class="text-[8px] tracking-[.12em] uppercase dark:text-d-200 text-l-400" data-es="Capacidad" data-en="Capacity">Capacidad</p>
-        <div><div class="flex justify-between mb-1"><span class="text-[8px] font-semibold uppercase tracking-[.1em]" data-es="Tareas Activas" data-en="Active Tasks">Tareas Activas</span><span class="text-[8px] font-mono">03</span></div><div class="h-[2px] dark:bg-d-500 bg-l-500 w-full"><div class="h-full dark:bg-white bg-black" style="width:65%"></div></div></div>
-        <div><div class="flex justify-between mb-1"><span class="text-[8px] font-semibold uppercase tracking-[.1em]" data-es="Aprobaciones" data-en="Approvals">Aprobaciones</span><span class="text-[8px] font-mono">01</span></div><div class="h-[2px] dark:bg-d-500 bg-l-500 w-full"><div class="h-full dark:bg-white bg-black" style="width:20%"></div></div></div>
-        <div><div class="flex justify-between mb-1"><span class="text-[8px] font-semibold uppercase tracking-[.1em]" data-es="Presupuesto Consumido" data-en="Budget Consumed">Presupuesto Consumido</span><span class="text-[8px] font-mono">72%</span></div><div class="h-[2px] dark:bg-d-500 bg-l-500 w-full"><div class="h-full dark:bg-white bg-black" style="width:72%"></div></div></div>
+        <p class="text-[8px] tracking-[.12em] uppercase dark:text-d-200 text-l-400 flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">speed</span> <span data-es="Capacidad del Estudio" data-en="Studio Capacity">Capacidad del Estudio</span></p>
+        <div class="gi p-2"><div class="flex justify-between mb-1"><span class="text-[8px] font-semibold uppercase tracking-[.1em]" data-es="Tareas Activas" data-en="Active Tasks">Tareas Activas</span><span class="text-[8px] font-mono">03</span></div><div class="h-[2px] dark:bg-d-500 bg-l-500 w-full"><div class="h-full dark:bg-white bg-black" style="width:65%"></div></div></div>
+        <div class="gi p-2"><div class="flex justify-between mb-1"><span class="text-[8px] font-semibold uppercase tracking-[.1em]" data-es="Aprobaciones" data-en="Approvals">Aprobaciones</span><span class="text-[8px] font-mono">01</span></div><div class="h-[2px] dark:bg-d-500 bg-l-500 w-full"><div class="h-full dark:bg-white bg-black" style="width:20%"></div></div></div>
+        <div class="gi p-2"><div class="flex justify-between mb-1"><span class="text-[8px] font-semibold uppercase tracking-[.1em]" data-es="Presupuesto Consumido" data-en="Budget Consumed">Presupuesto Consumido</span><span class="text-[8px] font-mono">72%</span></div><div class="h-[2px] dark:bg-d-500 bg-l-500 w-full"><div class="h-full dark:bg-white bg-black" style="width:72%"></div></div></div>
       </div>
-      <!-- CTA -->
-      <div class="dark:bg-white dark:text-black bg-black text-white p-5">
+      <div class="dark:bg-white dark:text-black bg-black text-white p-6 gi">
+        <span class="material-symbols-outlined text-xl mb-2 block">calendar_month</span>
         <h3 class="text-xs font-semibold mb-2" data-es="Solicitar Consulta" data-en="Request Consultation">Solicitar Consulta</h3>
         <p class="text-[9px] font-light opacity-50 leading-relaxed mb-3" data-es="¿Cambios en el alcance del proyecto?" data-en="Project scope changes?">¿Cambios en el alcance del proyecto?</p>
-        <button onclick="nav('contacto')" class="w-full py-2.5 border dark:border-black/20 border-white/20 text-[8px] font-semibold uppercase tracking-[.12em] hover:opacity-70 transition-opacity" data-es="Reservar Llamada" data-en="Book a Call">Reservar Llamada</button>
+        <button onclick="nav('contacto')" class="w-full py-2.5 border dark:border-black/20 border-white/20 text-[8px] font-semibold uppercase tracking-[.12em] hover:opacity-70 transition-opacity flex items-center justify-center gap-1" data-es="Reservar Llamada" data-en="Book a Call"><span class="material-symbols-outlined text-[11px]">call</span> <span data-es="Reservar Llamada" data-en="Book a Call">Reservar Llamada</span></button>
       </div>
-      <!-- Sidebar image -->
-      <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=90" class="w-full h-40 object-cover" style="filter:brightness(.3)" alt=""/></div>
+      <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=90" class="w-full h-40 object-cover" style="filter:brightness(.25)" alt="" loading="lazy"/></div>
     </div>
   </div>
 </div>
 </div>
 
-<!-- ████████████████████████████████████████████████ -->
-<!-- CONTACTO -->
-<!-- ████████████████████████████████████████████████ -->
+<!-- ===== CONTACTO ===== -->
 <div id="page-contacto" class="page">
-<div class="relative h-[40vh] mt-[40px] overflow-hidden">
-  <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=3840&q=90" class="absolute inset-0 w-full h-full object-cover" style="filter:brightness(.15)" alt=""/>
+<div class="relative h-[40vh] mt-[90px] overflow-hidden">
+  <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=3840&q=90" class="absolute inset-0 w-full h-full object-cover" style="filter:brightness(.12)" alt="" loading="lazy"/>
   <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
   <div class="absolute inset-0 flex items-end p-6 md:p-10 z-10"><div>
-    <p class="text-white/30 text-[8px] tracking-[.3em] uppercase mb-2">Get In Touch</p>
-    <h1 class="text-white text-4xl md:text-7xl font-bold tracking-tighter leading-[.9]" data-es="Contacto" data-en="Contact">Contacto</h1>
+    <p class="text-white/30 text-[8px] tracking-[.3em] uppercase mb-2"><span class="material-symbols-outlined text-[10px] mr-1">mail</span> Get In Touch</p>
+    <h1 class="text-white text-5xl md:text-8xl lg:text-[10rem] font-extralight tracking-tighter leading-[.85]" data-es="Contacto" data-en="Contact">Contacto</h1>
   </div></div>
 </div>
 <!-- Banner -->
-<div class="max-w-[1920px] mx-auto relative overflow-hidden"><img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=3840&q=90" class="w-full h-20 object-cover" style="filter:brightness(.12)" alt=""/><div class="absolute inset-0 flex items-center justify-center"><p class="text-white/30 text-[8px] tracking-[.3em] uppercase" data-es="Estamos aquí para ayudarte" data-en="We're here to help">Estamos aquí para ayudarte</p></div></div>
-<div class="max-w-[1920px] mx-auto grid grid-cols-1 lg:grid-cols-2 g2">
+<div class="max-w-[1920px] mx-auto relative overflow-hidden mt-[2px]"><img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=3840&q=90" class="w-full h-20 object-cover" style="filter:brightness(.1)" alt="" loading="lazy"/><div class="absolute inset-0 flex items-center justify-center"><p class="text-white/30 text-[8px] tracking-[.3em] uppercase flex items-center gap-2"><span class="material-symbols-outlined text-[11px]">favorite</span> <span data-es="Estamos aquí para ayudarte" data-en="We're here to help">Estamos aquí para ayudarte</span></p></div></div>
+
+<!-- Step Indicator -->
+<div class="max-w-[1920px] mx-auto dark:bg-d-800 bg-l-700 flex items-center justify-center gap-3 py-4 mt-[2px]">
+  <div class="sdot w-2 h-2 rounded-full dark:bg-white bg-black transition-all"></div>
+  <div class="sdot w-2 h-2 rounded-full dark:bg-d-500 bg-l-500 transition-all"></div>
+  <div class="sdot w-2 h-2 rounded-full dark:bg-d-500 bg-l-500 transition-all"></div>
+</div>
+
+<div class="max-w-[1920px] mx-auto grid grid-cols-1 lg:grid-cols-2 g2 mt-[2px]">
   <!-- Form -->
-  <div class="dark:bg-d-800 bg-l-700 p-6 md:p-10">
-    <form id="cForm" onsubmit="submitC(event)" class="space-y-5">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div><label class="text-[7px] font-semibold uppercase tracking-[.12em] block mb-1.5" data-es="Nombre *" data-en="Name *">Nombre *</label><input type="text" required class="w-full bg-transparent border-b dark:border-d-400 border-l-500 py-2 text-xs font-light outline-none focus:dark:border-white focus:border-black transition-colors"/></div>
-        <div><label class="text-[7px] font-semibold uppercase tracking-[.12em] block mb-1.5">Email *</label><input type="email" required class="w-full bg-transparent border-b dark:border-d-400 border-l-500 py-2 text-xs font-light outline-none focus:dark:border-white focus:border-black transition-colors"/></div>
+  <div class="dark:bg-d-800 bg-l-700 p-8 md:p-14">
+    <form id="cForm" onsubmit="submitC(event)">
+      <!-- Step 1 -->
+      <div class="cs act" data-step="1">
+        <p class="text-[8px] tracking-[.2em] uppercase dark:text-d-200 text-l-400 mb-8 flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">person</span> <span data-es="Paso 1 — Tus Datos" data-en="Step 1 — Your Info">Paso 1 — Tus Datos</span></p>
+        <div class="space-y-8">
+          <div><label class="text-[7px] font-semibold uppercase tracking-[.12em] block mb-2" data-es="Nombre *" data-en="Name *">Nombre *</label><input type="text" required id="cName" class="ig w-full bg-transparent border-b dark:border-d-400 border-l-500 py-3 text-sm font-light outline-none focus:dark:border-white focus:border-black transition-all"/></div>
+          <div><label class="text-[7px] font-semibold uppercase tracking-[.12em] block mb-2">Email *</label><input type="email" required id="cEmail" class="ig w-full bg-transparent border-b dark:border-d-400 border-l-500 py-3 text-sm font-light outline-none focus:dark:border-white focus:border-black transition-all"/></div>
+          <div class="grid grid-cols-2 gap-6">
+            <div><label class="text-[7px] font-semibold uppercase tracking-[.12em] block mb-2" data-es="Teléfono" data-en="Phone">Teléfono</label><input type="tel" class="ig w-full bg-transparent border-b dark:border-d-400 border-l-500 py-3 text-sm font-light outline-none focus:dark:border-white focus:border-black transition-all"/></div>
+            <div><label class="text-[7px] font-semibold uppercase tracking-[.12em] block mb-2" data-es="Empresa" data-en="Company">Empresa</label><input type="text" class="ig w-full bg-transparent border-b dark:border-d-400 border-l-500 py-3 text-sm font-light outline-none focus:dark:border-white focus:border-black transition-all"/></div>
+          </div>
+        </div>
+        <button type="button" onclick="goContactStep(2)" class="mt-10 dark:bg-white dark:text-black bg-black text-white px-8 py-3 text-[8px] font-semibold uppercase tracking-[.12em] hover:opacity-80 transition-opacity flex items-center gap-2 gi"><span data-es="Siguiente" data-en="Next">Siguiente</span> <span class="material-symbols-outlined text-[12px]">arrow_forward</span></button>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div><label class="text-[7px] font-semibold uppercase tracking-[.12em] block mb-1.5" data-es="Teléfono" data-en="Phone">Teléfono</label><input type="tel" class="w-full bg-transparent border-b dark:border-d-400 border-l-500 py-2 text-xs font-light outline-none focus:dark:border-white focus:border-black transition-colors"/></div>
-        <div><label class="text-[7px] font-semibold uppercase tracking-[.12em] block mb-1.5" data-es="Empresa" data-en="Company">Empresa</label><input type="text" class="w-full bg-transparent border-b dark:border-d-400 border-l-500 py-2 text-xs font-light outline-none focus:dark:border-white focus:border-black transition-colors"/></div>
+
+      <!-- Step 2 -->
+      <div class="cs" data-step="2">
+        <p class="text-[8px] tracking-[.2em] uppercase dark:text-d-200 text-l-400 mb-8 flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">category</span> <span data-es="Paso 2 — Tu Proyecto" data-en="Step 2 — Your Project">Paso 2 — Tu Proyecto</span></p>
+        <p class="text-[8px] tracking-[.15em] uppercase dark:text-d-200 text-l-400 mb-3" data-es="Tipo de Proyecto" data-en="Project Type">Tipo de Proyecto</p>
+        <div class="flex flex-wrap gap-[6px] mb-8" id="serviceGroup">
+          <button type="button" class="pill" data-val="archviz" onclick="selPill(this)">Archviz</button>
+          <button type="button" class="pill" data-val="metaverse" onclick="selPill(this)">Metaverse</button>
+          <button type="button" class="pill" data-val="marketing" onclick="selPill(this)">Marketing</button>
+          <button type="button" class="pill" data-val="ia" onclick="selPill(this)">IA</button>
+          <button type="button" class="pill" data-val="software" onclick="selPill(this)">Software</button>
+          <button type="button" class="pill" data-val="mentoring" onclick="selPill(this)" data-es="Mentorías" data-en="Mentoring">Mentorías</button>
+        </div>
+        <p class="text-[8px] tracking-[.15em] uppercase dark:text-d-200 text-l-400 mb-3" data-es="Rango de Presupuesto" data-en="Budget Range">Rango de Presupuesto</p>
+        <div class="flex flex-wrap gap-[6px] mb-8" id="budgetGroup">
+          <button type="button" class="pill" data-val="5k" onclick="selPill(this)">< €5K</button>
+          <button type="button" class="pill" data-val="15k" onclick="selPill(this)">€5K – 15K</button>
+          <button type="button" class="pill" data-val="50k" onclick="selPill(this)">€15K – 50K</button>
+          <button type="button" class="pill" data-val="50k+" onclick="selPill(this)">€50K+</button>
+        </div>
+        <div class="flex gap-3">
+          <button type="button" onclick="goContactStep(1)" class="dark:bg-d-600 bg-l-600 px-6 py-3 text-[8px] font-semibold uppercase tracking-[.12em] hover:opacity-80 transition-opacity flex items-center gap-2 gi"><span class="material-symbols-outlined text-[12px]">arrow_back</span> <span data-es="Volver" data-en="Back">Volver</span></button>
+          <button type="button" onclick="goContactStep(3)" class="dark:bg-white dark:text-black bg-black text-white px-8 py-3 text-[8px] font-semibold uppercase tracking-[.12em] hover:opacity-80 transition-opacity flex items-center gap-2 gi"><span data-es="Siguiente" data-en="Next">Siguiente</span> <span class="material-symbols-outlined text-[12px]">arrow_forward</span></button>
+        </div>
       </div>
-      <div><label class="text-[7px] font-semibold uppercase tracking-[.12em] block mb-1.5" data-es="Servicio *" data-en="Service *">Servicio *</label><select required class="w-full bg-transparent border-b dark:border-d-400 border-l-500 py-2 text-xs outline-none dark:bg-d-800 bg-l-700"><option value="">—</option><option>Archviz</option><option>Metaverse/VR</option><option>Marketing</option><option>IA Consulting</option><option>Software</option><option>Mentorías</option></select></div>
-      <div><label class="text-[7px] font-semibold uppercase tracking-[.12em] block mb-1.5" data-es="Mensaje *" data-en="Message *">Mensaje *</label><textarea required rows="3" class="w-full bg-transparent border-b dark:border-d-400 border-l-500 py-2 text-xs font-light outline-none resize-none focus:dark:border-white focus:border-black transition-colors"></textarea></div>
-      <div id="cMsg" class="hidden dark:bg-white dark:text-black bg-black text-white p-3 text-center"><span class="material-symbols-outlined text-base block mb-1">check_circle</span><p class="text-[8px] font-semibold uppercase tracking-[.1em]" data-es="Mensaje enviado" data-en="Message sent">Mensaje enviado</p></div>
-      <button type="submit" id="cBtn" class="dark:bg-white dark:text-black bg-black text-white px-6 py-2.5 text-[8px] font-semibold uppercase tracking-[.12em] hover:opacity-80 transition-opacity flex items-center gap-2"><span data-es="Enviar" data-en="Send">Enviar</span><span class="material-symbols-outlined text-[12px]">send</span></button>
+
+      <!-- Step 3 -->
+      <div class="cs" data-step="3">
+        <p class="text-[8px] tracking-[.2em] uppercase dark:text-d-200 text-l-400 mb-8 flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">edit_note</span> <span data-es="Paso 3 — Tu Mensaje" data-en="Step 3 — Your Message">Paso 3 — Tu Mensaje</span></p>
+        <div class="space-y-8">
+          <div><label class="text-[7px] font-semibold uppercase tracking-[.12em] block mb-2" data-es="Mensaje *" data-en="Message *">Mensaje *</label><textarea required rows="5" class="ig w-full bg-transparent border-b dark:border-d-400 border-l-500 py-3 text-sm font-light outline-none resize-none focus:dark:border-white focus:border-black transition-all"></textarea></div>
+        </div>
+        <div id="cMsg" class="hidden dark:bg-white dark:text-black bg-black text-white p-4 text-center mt-6"><span class="material-symbols-outlined text-base block mb-1">check_circle</span><p class="text-[8px] font-semibold uppercase tracking-[.1em]" data-es="Mensaje enviado con éxito" data-en="Message sent successfully">Mensaje enviado con éxito</p></div>
+        <div class="flex gap-3 mt-8">
+          <button type="button" onclick="goContactStep(2)" class="dark:bg-d-600 bg-l-600 px-6 py-3 text-[8px] font-semibold uppercase tracking-[.12em] hover:opacity-80 transition-opacity flex items-center gap-2 gi"><span class="material-symbols-outlined text-[12px]">arrow_back</span> <span data-es="Volver" data-en="Back">Volver</span></button>
+          <button type="submit" id="cBtn" class="dark:bg-white dark:text-black bg-black text-white px-8 py-3 text-[8px] font-semibold uppercase tracking-[.12em] hover:opacity-80 transition-opacity flex items-center gap-2 gi"><span class="material-symbols-outlined text-[12px]">send</span> <span data-es="Enviar" data-en="Send">Enviar</span></button>
+        </div>
+      </div>
     </form>
   </div>
   <!-- Info -->
-  <div class="dark:bg-d-700 bg-l-600 p-6 md:p-10 space-y-6">
-    <div><p class="text-[7px] font-semibold uppercase tracking-[.12em] dark:text-d-200 text-l-400 mb-1">Email</p><a href="mailto:hola@imhotepstudio.com" class="text-sm font-light hover:opacity-60 transition-opacity">hola@imhotepstudio.com</a></div>
-    <div><p class="text-[7px] font-semibold uppercase tracking-[.12em] dark:text-d-200 text-l-400 mb-1" data-es="Teléfono" data-en="Phone">Teléfono</p><p class="text-sm font-light">+34 600 000 000</p></div>
-    <div><p class="text-[7px] font-semibold uppercase tracking-[.12em] dark:text-d-200 text-l-400 mb-1" data-es="Ubicación" data-en="Location">Ubicación</p><p class="text-sm font-light">Madrid, España</p></div>
-    <div class="pt-4 border-t dark:border-d-500 border-l-500">
-      <p class="text-[7px] font-semibold uppercase tracking-[.12em] dark:text-d-200 text-l-400 mb-3" data-es="Redes Sociales" data-en="Social Media">Redes Sociales</p>
+  <div class="dark:bg-d-700 bg-l-600 p-8 md:p-14 space-y-6">
+    <div><p class="text-[7px] font-semibold uppercase tracking-[.12em] dark:text-d-200 text-l-400 mb-1 flex items-center gap-1"><span class="material-symbols-outlined text-[9px]">mail</span> Email</p><a href="mailto:hola@imhotepstudio.com" class="text-sm font-light hover:opacity-60 transition-opacity">hola@imhotepstudio.com</a></div>
+    <div><p class="text-[7px] font-semibold uppercase tracking-[.12em] dark:text-d-200 text-l-400 mb-1 flex items-center gap-1"><span class="material-symbols-outlined text-[9px]">call</span> <span data-es="Teléfono" data-en="Phone">Teléfono</span></p><p class="text-sm font-light">+34 600 000 000</p></div>
+    <div><p class="text-[7px] font-semibold uppercase tracking-[.12em] dark:text-d-200 text-l-400 mb-1 flex items-center gap-1"><span class="material-symbols-outlined text-[9px]">location_on</span> <span data-es="Ubicación" data-en="Location">Ubicación</span></p><p class="text-sm font-light">Madrid, España</p></div>
+    <div class="pt-4">
+      <p class="text-[7px] font-semibold uppercase tracking-[.12em] dark:text-d-200 text-l-400 mb-3 flex items-center gap-1"><span class="material-symbols-outlined text-[9px]">share</span> <span data-es="Redes Sociales" data-en="Social Media">Redes Sociales</span></p>
       <div class="flex gap-2">
-        <a href="https://www.instagram.com/imhotepestudio/" target="_blank" class="w-8 h-8 border dark:border-d-400 border-l-500 flex items-center justify-center hover:dark:bg-white hover:dark:text-black hover:bg-black hover:text-white transition-all"><i class="fa-brands fa-instagram text-[11px]"></i></a>
-        <a class="w-8 h-8 border dark:border-d-400 border-l-500 flex items-center justify-center hover:dark:bg-white hover:dark:text-black hover:bg-black hover:text-white transition-all cursor-pointer"><i class="fa-brands fa-linkedin-in text-[10px]"></i></a>
-        <a class="w-8 h-8 border dark:border-d-400 border-l-500 flex items-center justify-center hover:dark:bg-white hover:dark:text-black hover:bg-black hover:text-white transition-all cursor-pointer"><i class="fa-brands fa-behance text-[11px]"></i></a>
-        <a class="w-8 h-8 border dark:border-d-400 border-l-500 flex items-center justify-center hover:dark:bg-white hover:dark:text-black hover:bg-black hover:text-white transition-all cursor-pointer"><i class="fa-brands fa-youtube text-[11px]"></i></a>
-        <a class="w-8 h-8 border dark:border-d-400 border-l-500 flex items-center justify-center hover:dark:bg-white hover:dark:text-black hover:bg-black hover:text-white transition-all cursor-pointer"><i class="fa-brands fa-x-twitter text-[10px]"></i></a>
+        <a href="https://www.instagram.com/imhotepestudio/" target="_blank" class="w-9 h-9 dark:bg-d-600 bg-l-500 flex items-center justify-center hover:dark:bg-white hover:dark:text-black hover:bg-black hover:text-white transition-all gi"><i class="fa-brands fa-instagram text-[12px]"></i></a>
+        <a class="w-9 h-9 dark:bg-d-600 bg-l-500 flex items-center justify-center hover:dark:bg-white hover:dark:text-black hover:bg-black hover:text-white transition-all cursor-pointer gi"><i class="fa-brands fa-linkedin-in text-[11px]"></i></a>
+        <a class="w-9 h-9 dark:bg-d-600 bg-l-500 flex items-center justify-center hover:dark:bg-white hover:dark:text-black hover:bg-black hover:text-white transition-all cursor-pointer gi"><i class="fa-brands fa-behance text-[12px]"></i></a>
+        <a class="w-9 h-9 dark:bg-d-600 bg-l-500 flex items-center justify-center hover:dark:bg-white hover:dark:text-black hover:bg-black hover:text-white transition-all cursor-pointer gi"><i class="fa-brands fa-youtube text-[12px]"></i></a>
+        <a class="w-9 h-9 dark:bg-d-600 bg-l-500 flex items-center justify-center hover:dark:bg-white hover:dark:text-black hover:bg-black hover:text-white transition-all cursor-pointer gi"><i class="fa-brands fa-x-twitter text-[11px]"></i></a>
       </div>
     </div>
-    <!-- Map -->
-    <div class="relative overflow-hidden mt-4"><img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=800&q=80" class="w-full h-36 object-cover" style="filter:brightness(.4) grayscale(1)" alt=""/><div class="absolute inset-0 flex items-center justify-center"><span class="dark:bg-white dark:text-black bg-black text-white px-4 py-1.5 text-[8px] font-semibold uppercase tracking-[.1em] flex items-center gap-1"><span class="material-symbols-outlined text-[11px]">location_on</span>Madrid, Spain</span></div></div>
+    <div class="relative overflow-hidden mt-4"><img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=800&q=90" class="w-full h-44 object-cover" style="filter:brightness(.35) grayscale(1)" alt="" loading="lazy"/><div class="absolute inset-0 flex items-center justify-center"><span class="dark:bg-white dark:text-black bg-black text-white px-4 py-1.5 text-[8px] font-semibold uppercase tracking-[.1em] flex items-center gap-1"><span class="material-symbols-outlined text-[11px]">location_on</span>Madrid, Spain</span></div></div>
   </div>
 </div>
 </div>
 
-<!-- ===== FOOTER ===== -->
-<footer id="ft" class="w-full py-6 px-4 md:px-8 border-t dark:border-d-700 border-l-600 dark:bg-d-900 bg-l-800" style="display:none">
+<!-- FOOTER -->
+<footer id="ft" class="w-full py-6 px-6 md:px-10 dark:bg-d-900 bg-l-800 mt-[2px]" style="display:none">
 <div class="flex flex-col md:flex-row justify-between items-center max-w-[1920px] mx-auto">
   <p class="text-[8px] tracking-[.1em] uppercase dark:text-d-200 text-l-400">IMHOTEP Studio © 2024</p>
-  <div class="flex gap-4 mt-3 md:mt-0 items-center">
-    <a href="https://www.instagram.com/imhotepestudio/" target="_blank" class="dark:text-d-300 text-l-400 hover:dark:text-white hover:text-black transition-colors"><i class="fa-brands fa-instagram text-[11px]"></i></a>
-    <a class="dark:text-d-300 text-l-400 hover:dark:text-white hover:text-black transition-colors cursor-pointer"><i class="fa-brands fa-linkedin-in text-[10px]"></i></a>
-    <a class="dark:text-d-300 text-l-400 hover:dark:text-white hover:text-black transition-colors cursor-pointer"><i class="fa-brands fa-behance text-[11px]"></i></a>
+  <div class="flex gap-5 mt-3 md:mt-0 items-center">
+    <a href="https://www.instagram.com/imhotepestudio/" target="_blank" class="dark:text-d-300 text-l-400 hover:dark:text-white hover:text-black transition-colors"><i class="fa-brands fa-instagram text-[12px]"></i></a>
+    <a class="dark:text-d-300 text-l-400 hover:dark:text-white hover:text-black transition-colors cursor-pointer"><i class="fa-brands fa-linkedin-in text-[11px]"></i></a>
+    <a class="dark:text-d-300 text-l-400 hover:dark:text-white hover:text-black transition-colors cursor-pointer"><i class="fa-brands fa-behance text-[12px]"></i></a>
     <span class="dark:text-d-400 text-l-500">|</span>
     <a class="text-[8px] tracking-[.08em] uppercase dark:text-d-300 text-l-400 hover:dark:text-white hover:text-black transition-colors cursor-pointer">Privacy</a>
     <a class="text-[8px] tracking-[.08em] uppercase dark:text-d-300 text-l-400 hover:dark:text-white hover:text-black transition-colors cursor-pointer">Terms</a>
@@ -511,51 +565,84 @@ html.dark .uz{border-color:#333}html.light .uz{border-color:#ccc}
 </div>
 </footer>
 
-<!-- ===== CHAT WIDGET ===== -->
-<div class="chat-bubble dark:bg-white dark:text-black bg-black text-white" id="chatBubble" onclick="toggleChat()"><span class="material-symbols-outlined text-[20px]">chat</span></div>
-<div class="chat-panel dark:bg-d-800 bg-white border dark:border-d-600 border-l-500" id="chatPanel">
+<!-- CHAT WIDGET -->
+<div class="chat-bubble dark:bg-white dark:text-black bg-black text-white" id="chatBubble" onclick="toggleChat()" style="display:none"><span class="material-symbols-outlined text-[20px]">chat</span></div>
+<div class="chat-panel dark:bg-d-800/95 bg-white/95" id="chatPanel">
   <div class="dark:bg-d-700 bg-l-700 px-4 py-3 flex items-center justify-between">
     <div class="flex items-center gap-2"><div class="w-2 h-2 bg-green-500 rounded-full"></div><span class="text-[9px] font-semibold uppercase tracking-[.1em]">IMHOTEP Chat</span></div>
     <button onclick="toggleChat()"><span class="material-symbols-outlined text-[14px]">close</span></button>
   </div>
-  <div id="chatMsgs" class="flex-1 overflow-y-auto p-4 space-y-3" style="height:320px">
+  <div id="chatMsgs" class="flex-1 overflow-y-auto p-4 space-y-3" style="height:300px">
     <div class="flex gap-2"><div class="w-6 h-6 rounded-full dark:bg-d-400 bg-l-500 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-[10px]">smart_toy</span></div><div class="dark:bg-d-700 bg-l-700 rounded-lg p-2.5 max-w-[80%]"><p class="text-[10px] font-light" data-es="¡Hola! ¿En qué podemos ayudarte?" data-en="Hi! How can we help you?">¡Hola! ¿En qué podemos ayudarte?</p><p class="text-[7px] dark:text-d-300 text-l-400 mt-1">10:00</p></div></div>
   </div>
-  <div class="px-3 py-2 border-t dark:border-d-600 border-l-500 flex gap-2">
+  <div class="px-3 py-2 dark:bg-d-700/50 bg-l-600/50 flex gap-2">
     <input type="text" id="chatIn" placeholder="Escribe un mensaje..." class="flex-1 bg-transparent text-[10px] outline-none" onkeydown="if(event.key==='Enter')sendMsg()"/>
-    <button onclick="sendMsg()" class="dark:bg-white dark:text-black bg-black text-white w-7 h-7 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"><span class="material-symbols-outlined text-[12px]">send</span></button>
+    <button onclick="sendMsg()" class="dark:bg-white dark:text-black bg-black text-white w-7 h-7 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity gi"><span class="material-symbols-outlined text-[12px]">send</span></button>
   </div>
 </div>
 
-<!-- ===== JAVASCRIPT ===== -->
+<!-- JAVASCRIPT -->
 <script>
-let cP='home',cS=0,tS=4,sT,lang='es';
+const LOGO='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAwADAAAD/4QLgRXhpZgAATU0AKgAAAAgABAE7AAIAAAAHAAABSodpAAQAAAABAAABUpydAAEAAAAOAAACyuocAAcAAAEMAAAAPgAAAAAc6gAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQWRyaWFuAAAABZADAAIAAAAUAAACoJAEAAIAAAAUAAACtJKRAAIAAAADMDIAAJKSAAIAAAADMDIAAOocAAcAAAEMAAABlAAAAAAc6gAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMjAyNjowNDowOSAwMTo0NTowOAAyMDI2OjA0OjA5IDAxOjQ1OjA4AAAAQQBkAHIAaQBhAG4AAAD/4QQZaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49J++7vycgaWQ9J1c1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCc/Pg0KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyI+PHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj48cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0idXVpZDpmYWY1YmRkNS1iYTNkLTExZGEtYWQzMS1kMzNkNzUxODJmMWIiIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIvPjxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSJ1dWlkOmZhZjViZGQ1LWJhM2QtMTFkYS1hZDMxLWQzM2Q3NTE4MmYxYiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIj48eG1wOkNyZWF0ZURhdGU+MjAyNi0wNC0wOVQwMTo0NTowOC4wMTU8L3htcDpDcmVhdGVEYXRlPjwvcmRmOkRlc2NyaXB0aW9uPjxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSJ1dWlkOmZhZjViZGQ1LWJhM2QtMTFkYS1hZDMxLWQzM2Q3NTE4MmYxYiIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIj48ZGM6Y3JlYXRvcj48cmRmOlNlcSB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPjxyZGY6bGk+QWRyaWFuPC9yZGY6bGk+PC9yZGY6U2VxPg0KCQkJPC9kYzpjcmVhdG9yPjwvcmRmOkRlc2NyaXB0aW9uPjwvcmRmOlJERj48L3g6eG1wbWV0YT4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8P3hwYWNrZXQgZW5kPSd3Jz8+/9sAQwAHBQUGBQQHBgUGCAcHCAoRCwoJCQoVDxAMERgVGhkYFRgXGx4nIRsdJR0XGCIuIiUoKSssKxogLzMvKjInKisq/9sAQwEHCAgKCQoUCwsUKhwYHCoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioq/8AAEQgBswG2AwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A8QpKU0lAAenFFJmgmgBaSkzSigAApaWkxznvQAClpKWgAoxRRQAUopKcBigBDxRmg0lABSUtNoAKWkpR0pAFFFFAAKWkpRTAKUGkooAfRTc0ZoAXNNoooATvTgMmkpc4oAdS00GlzQAAHcTnj0oNLSEUANJpKU9aTFABS5pAAKWgBaKTq1KTQAZpM0lFADqQ0ZpKACiiigAooooAKQ9aWigAopRSkUANooooAM5pKDTeegoADRilxiigBMc0vSiigBaWkpRQAmPmzmlFFLigBKKXGKSgBwFFAooADSGlxRn0oAaTjrxSYFBAIwRkUUAIaBRSgUgCjFXdO0m/1edodKsri8lVdzJBGXIHrgVpf8IR4p/6FvVf/AR/8KYGBilrf/4QjxT/ANC3qn/gI/8AhR/wg/in/oW9U/8AAN/8KAMClxW+PA/ir/oW9V/8A3/wpf8AhB/FP/Qt6r/4CP8A4UAc/g0YroP+EH8Vf9C3qv8A4Bv/AIUf8IR4p/6FzVf/AADf/CgDAAoK+lb/APwhHin/AKFzVf8AwDf/AApP+EI8U/8AQuar/wCAb/4UAc/S7a3/APhCPFP/AELmq/8AgG/+FH/CEeKf+hc1X/wDf/CgDBAxSit4eCPFJ/5lzVP/AAEf/CsV43ikaOVGR0JVlYYII7GgCOkY4B4zTjSYoAbyQCeD6UlOxzmkNACUUUUAFFKRQB8woASinGkAoAMUlOpO1ACUUUUAFFFFABRRRmgBRS02nCgAxRRRQAw80UUUAJ1oxS0hoAKBS0CgApRRRQA4UtMzilzQAppMVe0fS7jXdbs9Ksdv2m8kEUW9sDJ9TXov/DO/jj/qHf8AgR/9agDy0UV23i/4T+JPBGh/2rrf2T7N5qxfuZtzbjnHGPauIVg6gjvQAtFFFADTTCafTCuSPagAFOBpO9KBQB7H+zUf+Lg6gP8AqHH/ANDWvp6vkD4O+M9L8DeLbnUtbMwgls2hXyk3HduU9Pwr2j/hovwT/wBRD/wG/wDr0Aer0V5N/wANG+CvTUP/AAH/APr11fgf4k6H8QGvF0IXANnt83z4tn3s4xzz0NAHXUUUUAFFFFABRRRQAUV5vr/xy8K+G/EN5o+oLem5s32SeXBlc4zwc+9Z//DRngv+5qP/AIDj/GgD1ivhTxA2fFGq/wDX5L/6Ga+kx+0Z4KJwV1AfW3/+vXzJqlyl7rV9dQ58ue4kkTcMHBYkUAVScDJpFYMuR0pWGRg9KQDA4oAWkxRQeKAExx0pKXPNLigAo7ims4VgD36V6hb/ADxrdWsVxEthslQOubjsRn0oA8x7UAV6RqnwK8Y6Po93qV4LHyLSFppNs+TtUZOOPQV5rHIJEDL35oAdSE0pptABSUppKACikzSigAopc5oxQAUuaSigBc0UlFACUvWkooAKSlooATNLSdaWgBaKM0hNAC0UgHrS0AdN8NP+SqeG/8Ar+T+tfbVfE3wzGfir4c/6/l/ka+2aAPI/wBpM4+FI97+L+TV8sQ/6lfpX1P+0mM/CpfbUIv5NXyxD/qV+lAEmaMO1JRigApCQFJ6AdzTqdkUANAocHbg9+9PooAMVPBbzXcvlWkEk8h/hjQsfyFQg4611/gX4i6h4Bj1BdNtLa5+3bQ4nzx5ecYwR/eoA5gqQSCCD6GkIxXp938efFl7ayWt3Y6VLBKpR43iYqwPUEbqpfDb4Vaj8RLm5lt76GwtLQqsty6lzuPYKO/BPX0oA87xVnT9NutWv4rHTrd7i5mbbHFGMsx9AK+jB+zHoDsBJ4hv2TuVhRSfzBr0jwV8NfDvgG3K6FaEXDjEl5MQ00n/Aj0HsABQBxfwp+Ah0W8ttc8X7Jbm3IkgsV+aINjjzG43e4HHuTXt1FFABRRRQAUUUUAFFFFAGF4p8E6B40tlt/EWmxXiJnY7ZV0+jDkfnXhnjD9nKS38y68F3puUXn7HdEBwP8AZfofw/WvrCigD4Eu7G6069e0v7eW2uIzh4pUKsp9waizX3P4z+GPhTxtHnWtOX7UBhbq3PlzD/gQ6/QgivmPx5+z/wCIvDHm3ehbtc09ckeSoE6D3j7/APASfpQB5HivfP2XRibxJ9Lf/wBnrwNkaNikkbI6HBDDBH4V7x+y+D53iQjp5dv/wCz0AfQtFFFABRRRQAUUUUAfGHxbH/F3vEX/XyP/QVrka7D4t/8le8Rf9fI/wDQRXH0AFJSmkoAKKKKAGMcA8Zpxpjr8hx170+gAoP1oFJQAUlOApKACkJoJ4pCM0ADHBHHeo85ORTyaSgBtFLRQAlFLSUAFFFFABRRiloAQUlKaQ0AFFFFAADg5p1NzTqACmMcnilLY9TSUASJjb1/+tSqQe9N3fSkzQA6lxTdwopAFGc+lLSUAFFFFADqKWigApaOlFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAHkn7Sf/ACSuf/sIRfyavlmE/ul+lfU/7Sf/ACSuf/sIRfyavlmH/VL9KABW+bGetLSEUuM0AOFLSClFACUhp1IaAEpKU0lABRRRQAUUUUAFLRRQAUlLRQAlFLSUAJSmgCigAooooAKKKKAHUlFFABRRRQAhGabg5pc0ooATFGKWloASiiigApaSloAWlpKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigDyT9pP/klc/wD2EIv5NXyzD/ql+lfU37Sf/JK5/wDsIRfyavlmH/VL9KAFIoFGaWgAH1ozSZooAKKMZpMUAOpD3ooNACUUGkoAdSdBQDRQAUUUUAFFFFABRRRQAUlLRQAlFLSUAJSmigAooooAKKKKAHU2iigAooooAKKKKACiiigBKKKWgBKKKKACloooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAPJP2k/8AklUn/YQi/k1fLUP+rX6V9TftJ/8AJKpP+whF/Jq+Wof9Wv0oAcBSlqAKWgApaQ0lAC0lKKKACkopKACiiigBaKSigBaKSloASiiigAooooAKKKKACkpaWgBKKKKACiiigAooooAKKKKACiiigBaSiigBaKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA//2Q==';
+let cP='home',cS=0,tS=4,sT,lang='es',contactStep=1;
 const slides=[
-  {t:'MONOLITHIC<br>ARCHITECTURE',s:'Visualización arquitectónica de alto nivel.',se:'Architectural visualization at the highest level.'},
-  {t:'VIRTUAL<br>WORLDS',s:'Experiencias inmersivas en realidad virtual.',se:'Immersive virtual reality experiences.'},
-  {t:'DIGITAL<br>INNOVATION',s:'Inteligencia artificial y automatización.',se:'Artificial intelligence and automation.'},
-  {t:'CREATIVE<br>EXCELLENCE',s:'Donde la visión se convierte en realidad.',se:'Where vision becomes reality.'}
+  {t:'MONOLITHIC<br>ARCHITECTURE',s:'Visualización arquitectónica de alto nivel.',se:'Architectural visualization at the highest level.',svc:'Archviz'},
+  {t:'VIRTUAL<br>WORLDS',s:'Experiencias inmersivas en realidad virtual y metaverso.',se:'Immersive virtual reality and metaverse experiences.',svc:'Metaverse'},
+  {t:'DIGITAL<br>INNOVATION',s:'Inteligencia artificial y automatización de procesos.',se:'Artificial intelligence and process automation.',svc:'Marketing & IA'},
+  {t:'CREATIVE<br>EXCELLENCE',s:'Donde la visión se convierte en realidad digital.',se:'Where vision becomes digital reality.',svc:'Creative Studio'}
 ];
 
+// NAV with logo transition
 function nav(p){
-  document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));
-  setTimeout(()=>{const t=document.getElementById('page-'+p);if(t)t.classList.add('active')},30);
-  document.querySelectorAll('.nl').forEach(l=>{l.classList.remove('act');l.classList.add('dark:text-d-200','text-l-300');if(l.dataset.p===p){l.classList.add('act');l.classList.remove('dark:text-d-200','text-l-300')}});
-  document.getElementById('ft').style.display=p==='home'?'none':'block';
-  document.getElementById('chatBubble').style.display=p==='home'?'none':'flex';
-  window.scrollTo({top:0,behavior:'smooth'});
-  cP=p;if(p==='home')startS();if(p==='clientes')initCh();
+  if(p===cP)return;
+  const ol=document.getElementById('logoOverlay'),oi=document.getElementById('logoOvImg');
+  ol.style.opacity='1';ol.style.pointerEvents='all';
+  oi.style.transform='scale(1)';oi.style.opacity='1';
+  setTimeout(()=>{
+    document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));
+    const t=document.getElementById('page-'+p);if(t)t.classList.add('active');
+    document.querySelectorAll('.nl').forEach(l=>{l.classList.remove('act');l.classList.add('dark:text-d-200','text-l-300');if(l.dataset.p===p){l.classList.add('act');l.classList.remove('dark:text-d-200','text-l-300')}});
+    document.getElementById('ft').style.display=p==='home'?'none':'block';
+    document.getElementById('chatBubble').style.display=p==='home'?'none':'flex';
+    window.scrollTo({top:0});
+    cP=p;
+    if(p==='home')startS();
+    if(p==='clientes')setTimeout(initCh,150);
+    if(p==='contacto')setTimeout(()=>goContactStep(1),100);
+    setTimeout(()=>{
+      oi.style.transform='scale(1.2)';oi.style.opacity='0';
+      ol.style.opacity='0';
+      setTimeout(()=>{ol.style.pointerEvents='none';oi.style.transform='scale(.4)'},450);
+    },220);
+  },380);
 }
 function toggleMob(){document.getElementById('mob').classList.toggle('open')}
 
 // Slider
-function goS(i){document.querySelectorAll('.slide').forEach(s=>s.classList.remove('active'));const s=document.querySelector(`[data-slide="${i}"]`);if(s)s.classList.add('active');document.getElementById('heroCount').textContent=String(i+1).padStart(2,'0')+' / '+String(tS).padStart(2,'0');document.getElementById('heroTitle').innerHTML=slides[i].t;document.getElementById('heroSub').textContent=lang==='es'?slides[i].s:slides[i].se;const b=document.getElementById('sliderBar');b.style.transition='none';b.style.width='0%';requestAnimationFrame(()=>requestAnimationFrame(()=>{b.style.transition='width 5s linear';b.style.width=((i+1)/tS*100)+'%'}));cS=i}
+function goS(i){
+  document.querySelectorAll('.slide').forEach(s=>s.classList.remove('active'));
+  const s=document.querySelector(`[data-slide="${i}"]`);if(s)s.classList.add('active');
+  document.getElementById('heroCount').textContent=String(i+1).padStart(2,'0')+' / '+String(tS).padStart(2,'0');
+  document.getElementById('heroTitle').innerHTML=slides[i].t;
+  document.getElementById('heroSub').textContent=lang==='es'?slides[i].s:slides[i].se;
+  const sv=document.getElementById('heroService');if(sv)sv.textContent=slides[i].svc;
+  const b=document.getElementById('sliderBar');
+  b.style.transition='none';b.style.width='0%';
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{b.style.transition='width 5s linear';b.style.width=((i+1)/tS*100)+'%'}));
+  cS=i;
+}
 function nextSlide(){goS((cS+1)%tS);clearInterval(sT);startS()}
 function prevSlide(){goS((cS-1+tS)%tS);clearInterval(sT);startS()}
 function startS(){clearInterval(sT);sT=setInterval(()=>goS((cS+1)%tS),5000)}
 
 // Theme
-function toggleTheme(){const h=document.documentElement;h.classList.toggle('dark');h.classList.toggle('light');document.getElementById('themeIcon').textContent=h.classList.contains('dark')?'light_mode':'dark_mode';if(cP==='clientes')setTimeout(initCh,100)}
+function toggleTheme(){
+  const h=document.documentElement;h.classList.toggle('dark');h.classList.toggle('light');
+  const dk=h.classList.contains('dark');
+  document.getElementById('themeIcon').textContent=dk?'light_mode':'dark_mode';
+  document.getElementById('logoOverlay').style.background=dk?'rgba(10,10,10,.96)':'rgba(250,250,250,.96)';
+  if(cP==='clientes')setTimeout(initCh,100);
+}
 
 // Lang
 function toggleLang(){lang=lang==='es'?'en':'es';document.getElementById('langBtn').textContent=lang==='es'?'EN':'ES';document.querySelectorAll('[data-'+lang+']').forEach(el=>{const v=el.getAttribute('data-'+lang);if(v){if(el.tagName==='INPUT'||el.tagName==='TEXTAREA')el.placeholder=v;else el.textContent=v}})}
@@ -563,14 +650,47 @@ function toggleLang(){lang=lang==='es'?'en':'es';document.getElementById('langBt
 // Filter
 function fGrid(c){document.querySelectorAll('.af').forEach(b=>{b.style.borderBottom='none';b.classList.remove('font-semibold','dark:text-white','text-black');b.classList.add('dark:text-d-200','text-l-400');if(b.dataset.f===c){b.style.borderBottom='1.5px solid currentColor';b.classList.add('font-semibold','dark:text-white','text-black');b.classList.remove('dark:text-d-200','text-l-400')}});document.querySelectorAll('.ai').forEach(e=>{if(c==='all'||e.dataset.c===c){e.style.display='block';e.style.opacity='0';setTimeout(()=>{e.style.opacity='1';e.style.transition='opacity .4s'},20)}else{e.style.opacity='0';setTimeout(()=>e.style.display='none',300)}})}
 
-// Contact
+// Contact steps
+function goContactStep(step){
+  document.querySelectorAll('.cs').forEach(s=>{s.classList.remove('act');setTimeout(()=>{if(!s.classList.contains('act'))s.style.display='none'},400)});
+  setTimeout(()=>{
+    const t=document.querySelector(`.cs[data-step="${step}"]`);
+    if(t){t.style.display='block';requestAnimationFrame(()=>requestAnimationFrame(()=>t.classList.add('act')))}
+    document.querySelectorAll('.sdot').forEach((d,i)=>{
+      if(i<step){d.classList.add('dark:bg-white','bg-black');d.classList.remove('dark:bg-d-500','bg-l-500')}
+      else{d.classList.remove('dark:bg-white','bg-black');d.classList.add('dark:bg-d-500','bg-l-500')}
+    });
+    contactStep=step;
+  },step===1?0:350);
+}
+function selPill(el){const g=el.parentElement;g.querySelectorAll('.pill').forEach(p=>p.classList.remove('sel'));el.classList.add('sel')}
+
+// Contact submit
 function submitC(e){e.preventDefault();const b=document.getElementById('cBtn'),m=document.getElementById('cMsg');b.style.opacity='.4';b.disabled=true;setTimeout(()=>{b.style.display='none';m.classList.remove('hidden');e.target.reset();setTimeout(()=>{b.style.display='flex';b.style.opacity='1';b.disabled=false;m.classList.add('hidden')},3500)},800)}
 
 // Upload
-function handleUp(inp){const c=document.getElementById('upFiles');Array.from(inp.files).forEach(f=>{const d=document.createElement('div');d.className='flex items-center justify-between text-[8px] py-1 border-b dark:border-d-600 border-l-500';d.innerHTML=`<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">description</span>${f.name}</span><span class="dark:text-d-200 text-l-400">${(f.size/1024).toFixed(0)}KB</span>`;c.appendChild(d)})}
-const uz=document.getElementById('upZone');if(uz){['dragenter','dragover'].forEach(e=>uz.addEventListener(e,ev=>{ev.preventDefault();uz.style.borderColor='currentColor'}));['dragleave','drop'].forEach(e=>uz.addEventListener(e,ev=>{ev.preventDefault();uz.style.borderColor=''}));uz.addEventListener('drop',ev=>{document.getElementById('fIn').files=ev.dataTransfer.files;handleUp(document.getElementById('fIn'))})}
+function handleUp(inp){
+  const c=document.getElementById('upFiles');
+  Array.from(inp.files).forEach(f=>{
+    const ext=f.name.split('.').pop().toLowerCase();
+    const iconMap={pdf:'picture_as_pdf',jpg:'image',jpeg:'image',png:'image',gif:'image',psd:'palette',ai:'draw',zip:'folder_zip',rar:'folder_zip'};
+    const icon=iconMap[ext]||'description';
+    const d=document.createElement('div');
+    d.className='flex items-center justify-between text-[8px] py-1.5 dark:bg-d-700/50 bg-l-600/50 px-2 gi';
+    d.innerHTML=`<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[11px]">${icon}</span>${f.name}</span><span class="flex items-center gap-2"><span class="dark:text-d-200 text-l-400">${(f.size/1024).toFixed(0)}KB</span><button onclick="this.closest('div').remove()" class="material-symbols-outlined text-[10px] hover:opacity-60 cursor-pointer">close</button></span>`;
+    c.appendChild(d);
+  });
+}
+// Drag & Drop
+const uz=document.getElementById('upZone');
+if(uz){
+  const uzI=document.getElementById('uzIcon');
+  ['dragenter','dragover'].forEach(e=>uz.addEventListener(e,ev=>{ev.preventDefault();uz.classList.add('dg');if(uzI)uzI.textContent='file_download'}));
+  ['dragleave','drop'].forEach(e=>uz.addEventListener(e,ev=>{ev.preventDefault();uz.classList.remove('dg');if(uzI)uzI.textContent='cloud_upload'}));
+  uz.addEventListener('drop',ev=>{document.getElementById('fIn').files=ev.dataTransfer.files;handleUp(document.getElementById('fIn'))});
+}
 
-// Print Invoice
+// Print
 function printInvoice(id){const el=document.getElementById(id);if(el){const w=window.open('','','width=800,height=600');w.document.write('<html><head><title>Invoice</title><style>*{font-family:Inter,sans-serif;margin:0;padding:8px}body{color:#111;font-size:11px}</style></head><body>');w.document.write('<h1 style="font-size:18px;margin-bottom:16px">IMHOTEP STUDIO — INVOICE</h1>');w.document.write(el.innerHTML);w.document.write('</body></html>');w.document.close();w.print()}}
 
 // Chat
@@ -585,7 +705,13 @@ setTimeout(()=>{const r=lang==='es'?'Gracias por tu mensaje. Un miembro del equi
 function initCh(){const ctx=document.getElementById('tChart');if(!ctx)return;const dk=document.documentElement.classList.contains('dark');const c=dk?'rgba(255,255,255,':'rgba(0,0,0,';if(window.myCh)window.myCh.destroy();window.myCh=new Chart(ctx,{type:'line',data:{labels:['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov'],datasets:[{data:[5,12,20,28,35,45,52,60,70,78,85],borderColor:c+'0.7)',backgroundColor:c+'0.03)',borderWidth:1,pointRadius:0,tension:.4,fill:true}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{grid:{color:c+'0.04)'},ticks:{color:c+'0.25)',font:{size:7}}},y:{grid:{color:c+'0.04)'},ticks:{color:c+'0.25)',font:{size:7},callback:v=>v+'%'}}}}})}
 
 // Init
-document.addEventListener('DOMContentLoaded',()=>{startS();document.getElementById('chatBubble').style.display='none';const b=document.getElementById('sliderBar');if(b){b.style.transition='none';b.style.width='0%';requestAnimationFrame(()=>requestAnimationFrame(()=>{b.style.transition='width 5s linear';b.style.width='25%'}))}})
+document.addEventListener('DOMContentLoaded',()=>{
+  ['navLogo','homeLogo','logoOvImg'].forEach(id=>{const el=document.getElementById(id);if(el)el.src=LOGO});
+  startS();
+  document.getElementById('chatBubble').style.display='none';
+  const b=document.getElementById('sliderBar');
+  if(b){b.style.transition='none';b.style.width='0%';requestAnimationFrame(()=>requestAnimationFrame(()=>{b.style.transition='width 5s linear';b.style.width='25%'}))}
+});
 </script>
 </body>
 </html>
