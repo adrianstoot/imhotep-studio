@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Lock, Construction, ArrowRight, ShieldCheck } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface LoginScreenProps {
@@ -7,84 +6,200 @@ interface LoginScreenProps {
 }
 
 export const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin }) => {
-  const [pin, setPin] = useState('');
+  const [pin, setPin] = useState(['', '', '', '']);
   const [error, setError] = useState(false);
+  const [focusedIndex, setFocusedIndex] = useState(0);
+  const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    inputRefs.current[0]?.focus();
+  }, []);
+
+  const handleChange = (index: number, value: string) => {
+    if (!/^\d*$/.test(value)) return;
+    setError(false);
+
+    const newPin = [...pin];
+    newPin[index] = value.slice(-1);
+    setPin(newPin);
+
+    if (value && index < 3) {
+      inputRefs.current[index + 1]?.focus();
+    }
+
+    // Auto-submit when all 4 digits entered
+    if (value && index === 3) {
+      const fullPin = newPin.join('');
+      if (fullPin === '4444') {
+        onLogin();
+      } else {
+        setError(true);
+        setTimeout(() => {
+          setPin(['', '', '', '']);
+          inputRefs.current[0]?.focus();
+        }, 600);
+      }
+    }
+  };
+
+  const handleKeyDown = (index: number, e: React.KeyboardEvent) => {
+    if (e.key === 'Backspace' && !pin[index] && index > 0) {
+      inputRefs.current[index - 1]?.focus();
+    }
+    if (e.key === 'Enter') {
+      const fullPin = pin.join('');
+      if (fullPin.length === 4) {
+        if (fullPin === '4444') {
+          onLogin();
+        } else {
+          setError(true);
+          setTimeout(() => {
+            setPin(['', '', '', '']);
+            inputRefs.current[0]?.focus();
+          }, 600);
+        }
+      }
+    }
+  };
+
+  const handlePaste = (e: React.ClipboardEvent) => {
     e.preventDefault();
-    if (pin === '4444') {
-      setError(false);
-      onLogin();
-    } else {
-      setError(true);
-      setPin('');
-      // Shake animation effect could be triggered here
+    const pasted = e.clipboardData.getData('text').replace(/\D/g, '').slice(0, 4);
+    if (pasted.length === 4) {
+      const newPin = pasted.split('');
+      setPin(newPin);
+      if (pasted === '4444') {
+        setTimeout(() => onLogin(), 200);
+      } else {
+        setError(true);
+        setTimeout(() => {
+          setPin(['', '', '', '']);
+          inputRefs.current[0]?.focus();
+        }, 600);
+      }
     }
   };
 
   return (
-    <div className="fixed inset-0 bg-[#0f172a] z-[100] flex items-center justify-center overflow-hidden">
-      {/* Dynamic Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-600/20 rounded-full blur-[120px]" />
-      </div>
+    <div className="fixed inset-0 z-[100] flex items-center justify-center" style={{ background: '#080b12' }}>
+      {/* Subtle radial glow */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: 'radial-gradient(ellipse 50% 40% at 50% 45%, rgba(99,102,241,0.06) 0%, transparent 70%)'
+      }} />
 
-      <motion.div 
-        initial={{ opacity: 0, y: 20, scale: 0.95 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.5, type: 'spring' }}
-        className="relative z-10 w-full max-w-md p-8 bg-[#1e293b]/80 backdrop-blur-xl border border-slate-700/50 rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col items-center"
+      {/* Minimalist login card */}
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+        className="relative z-10 flex flex-col items-center"
       >
-        <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-500/20 border border-blue-400/30">
-          <Construction className="w-10 h-10 text-white" />
+        {/* Monogram mark */}
+        <div className="w-8 h-8 rounded-md flex items-center justify-center mb-6"
+          style={{
+            background: 'linear-gradient(135deg, rgba(99,102,241,0.15) 0%, rgba(99,102,241,0.05) 100%)',
+            border: '1px solid rgba(99,102,241,0.2)',
+          }}
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(129,140,248,0.8)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M2 20h20M5 20V8l7-5 7 5v12" />
+            <path d="M9 20v-5h6v5" />
+          </svg>
         </div>
-        
-        <h1 className="text-3xl font-black text-white tracking-tight mb-2">ConstructoPro <span className="text-blue-400">v12</span></h1>
-        <p className="text-slate-400 text-sm mb-8 text-center">Software avanzado de simulación y normativa técnica de edificación. Acceso restringido.</p>
 
-        <form onSubmit={handleSubmit} className="w-full">
-          <div className="relative mb-6">
-            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-              <Lock className="h-5 w-5 text-slate-400" />
-            </div>
+        {/* Title */}
+        <h1 className="text-[11px] font-medium tracking-[0.35em] uppercase mb-1"
+          style={{ color: 'rgba(148,163,184,0.7)' }}>
+          IMHOTEP STUDIO
+        </h1>
+        <p className="text-[9px] tracking-[0.2em] uppercase mb-8"
+          style={{ color: 'rgba(100,116,139,0.4)' }}>
+          Acceso restringido
+        </p>
+
+        {/* PIN inputs */}
+        <motion.div
+          className="flex gap-2.5 mb-5"
+          animate={error ? { x: [0, -8, 8, -6, 6, -3, 3, 0] } : {}}
+          transition={{ duration: 0.5 }}
+        >
+          {pin.map((digit, i) => (
             <input
+              key={i}
+              ref={el => { inputRefs.current[i] = el; }}
               type="password"
-              value={pin}
-              onChange={(e) => { setPin(e.target.value); setError(false); }}
-              placeholder="Introduce el PIN de acceso"
-              className={`block w-full pl-12 pr-4 py-4 bg-slate-900/50 border ${error ? 'border-red-500 focus:ring-red-500/50' : 'border-slate-600 focus:border-blue-500 focus:ring-blue-500/50'} rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 transition-all text-center tracking-widest text-xl font-mono`}
-              autoFocus
+              inputMode="numeric"
+              maxLength={1}
+              value={digit}
+              onChange={e => handleChange(i, e.target.value)}
+              onKeyDown={e => handleKeyDown(i, e)}
+              onFocus={() => setFocusedIndex(i)}
+              onPaste={i === 0 ? handlePaste : undefined}
+              className="outline-none text-center transition-all duration-300"
+              style={{
+                width: '36px',
+                height: '40px',
+                background: digit ? 'rgba(99,102,241,0.06)' : 'rgba(255,255,255,0.015)',
+                border: `1px solid ${
+                  error ? 'rgba(239,68,68,0.4)' :
+                  focusedIndex === i ? 'rgba(99,102,241,0.35)' :
+                  digit ? 'rgba(99,102,241,0.15)' :
+                  'rgba(255,255,255,0.06)'
+                }`,
+                borderRadius: '8px',
+                color: 'rgba(226,232,240,0.9)',
+                fontSize: '15px',
+                fontFamily: 'ui-monospace, monospace',
+                fontWeight: 500,
+                letterSpacing: '0',
+                caretColor: 'rgba(99,102,241,0.6)',
+                boxShadow: focusedIndex === i ? '0 0 0 2px rgba(99,102,241,0.08)' : 'none',
+              }}
+              autoComplete="off"
             />
-            <AnimatePresence>
-              {error && (
-                <motion.p 
-                  initial={{ opacity: 0, y: -10 }} 
-                  animate={{ opacity: 1, y: 0 }} 
-                  exit={{ opacity: 0 }}
-                  className="absolute -bottom-6 left-0 right-0 text-red-400 text-xs text-center font-medium"
-                >
-                  PIN incorrecto. Inténtalo de nuevo.
-                </motion.p>
-              )}
-            </AnimatePresence>
-          </div>
+          ))}
+        </motion.div>
 
-          <button
-            type="submit"
-            className="w-full relative group overflow-hidden bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform active:scale-[0.98] shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] flex items-center justify-center"
-          >
-            <span className="relative z-10 flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5" /> Entrar al Simulador
-            </span>
-            <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
-          </button>
-        </form>
+        {/* Error message */}
+        <AnimatePresence>
+          {error && (
+            <motion.p
+              initial={{ opacity: 0, y: -4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              className="text-[9px] tracking-wider uppercase"
+              style={{ color: 'rgba(239,68,68,0.6)' }}
+            >
+              PIN incorrecto
+            </motion.p>
+          )}
+        </AnimatePresence>
+
+        {/* Dots indicator */}
+        <div className="flex gap-1.5 mt-6">
+          {pin.map((digit, i) => (
+            <div
+              key={i}
+              className="transition-all duration-300"
+              style={{
+                width: '3px',
+                height: '3px',
+                borderRadius: '50%',
+                background: digit
+                  ? 'rgba(99,102,241,0.6)'
+                  : 'rgba(255,255,255,0.08)',
+              }}
+            />
+          ))}
+        </div>
       </motion.div>
 
-      {/* Footer Branding */}
-      <div className="absolute bottom-6 left-0 right-0 text-center text-slate-500 text-xs font-medium tracking-widest">
-        &copy; 2026 ADRIANSTOOT ENTERPRISE
+      {/* Bottom brand */}
+      <div className="absolute bottom-5 left-0 right-0 text-center">
+        <span className="text-[8px] tracking-[0.4em] uppercase"
+          style={{ color: 'rgba(100,116,139,0.2)' }}>
+          ADRIANSTOOT
+        </span>
       </div>
     </div>
   );

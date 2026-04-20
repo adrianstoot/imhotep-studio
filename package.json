@@ -30,6 +30,7 @@
     "@types/papaparse": "^5.5.2",
     "@types/three": "^0.183.1",
     "autoprefixer": "^10.4.21",
+    "canvas": "^3.2.3",
     "tailwindcss": "^4.1.14",
     "tsx": "^4.21.0",
     "typescript": "~5.8.2",
