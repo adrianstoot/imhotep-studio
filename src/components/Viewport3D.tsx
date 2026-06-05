@@ -81,7 +81,7 @@ function generateFallbackTexture(type: string, color: string, textureId?: string
 }
 
 export const Viewport3D: React.FC = () => {
-  const { layers, selectedId, hoveredId, setHoveredId, activeSystem } = useAppContext();
+  const { layers, selectedId, hoveredId, setHoveredId, selectLayer, activeSystem } = useAppContext();
   const containerRef = useRef<HTMLDivElement>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
   const sceneRef = useRef<THREE.Scene | null>(null);
@@ -320,6 +320,7 @@ export const Viewport3D: React.FC = () => {
                 key={l.instanceId}
                 onMouseEnter={() => setHoveredId(l.instanceId)}
                 onMouseLeave={() => setHoveredId(null)}
+                onClick={() => selectLayer(l.instanceId)}
                 className={`flex items-center gap-2 text-[8px] px-1.5 py-1 rounded cursor-pointer transition-all ${
                   l.instanceId === hoveredId ? 'bg-orange-500/15 text-orange-300' : 'text-slate-400 hover:bg-slate-800/50'
                 }`}

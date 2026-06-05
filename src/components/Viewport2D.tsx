@@ -36,9 +36,10 @@ const loadTexture = (textureId: string): Promise<HTMLImageElement | null> => {
 };
 
 export const Viewport2D: React.FC = () => {
-  const { layers, selectedId, hoveredId, setHoveredId, activeSystem } = useAppContext();
+  const { layers, selectedId, hoveredId, setHoveredId, selectLayer, activeSystem } = useAppContext();
   const wrapperRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const layerRectsRef = useRef<{ id: string; x: number; y: number; w: number; h: number }[]>([]);
 
   useEffect(() => {
     // Preload all current layer textures
@@ -158,6 +159,8 @@ export const Viewport2D: React.FC = () => {
       const wWrapper = wrapperRef.current;
       if (!cvs || !wWrapper) return;
 
+      const currentRects: { id: string; x: number; y: number; w: number; h: number }[] = [];
+
       const dpr = window.devicePixelRatio || 1;
       cvs.width = wWrapper.clientWidth * dpr;
       cvs.height = wWrapper.clientHeight * dpr;
@@ -244,6 +247,7 @@ export const Viewport2D: React.FC = () => {
             ctx.fillText(`${rawMM}mm`, drawX + dW + 8, cy + rh / 2 + 3);
           }
 
+          currentRects.push({ id: l.instanceId, x: drawX, y: cy, w: dW, h: rh });
           cy += rh;
         });
 
@@ -316,6 +320,7 @@ export const Viewport2D: React.FC = () => {
           ctx.lineWidth = 0.8;
           ctx.beginPath(); ctx.moveTo(cx, drawY - 14); ctx.lineTo(cx, drawY - 10); ctx.stroke();
 
+          currentRects.push({ id: l.instanceId, x: cx, y: drawY, w: rw, h: dH });
           cx += rw;
         });
 
@@ -409,6 +414,8 @@ export const Viewport2D: React.FC = () => {
         ctx.fillText(i === 0 ? 'EXT' : i === layers.length - 1 ? 'INT' : `${i + 1}`, legX + legendW - 8, ly + 7);
         ctx.textAlign = 'left';
       });
+
+      layerRectsRef.current = currentRects;
     };
 
     draw();
@@ -416,6 +423,54 @@ export const Viewport2D: React.FC = () => {
     if (wrapperRef.current) resizeObserver.observe(wrapperRef.current);
     return () => { resizeObserver.disconnect(); };
   }, [layers, selectedId, hoveredId, activeSystem]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const found = layerRectsRef.current.find(
+      (r) => x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h
+    );
+
+    if (found) {
+      if (hoveredId !== found.id) {
+        setHoveredId(found.id);
+      }
+    } else {
+      if (hoveredId !== null) {
+        setHoveredId(null);
+      }
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (hoveredId !== null) {
+      setHoveredId(null);
+    }
+  };
+
+  const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const found = layerRectsRef.current.find(
+      (r) => x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h
+    );
+
+    if (found) {
+      selectLayer(found.id);
+    } else {
+      selectLayer(null);
+    }
+  };
 
   return (
     <div className="h-[50%] border-b border-slate-700/50 relative flex flex-col shadow-inner" style={{ background: 'radial-gradient(circle at center, #1a2332 0%, #0c1220 100%)' }}>
@@ -425,7 +480,14 @@ export const Viewport2D: React.FC = () => {
         </span>
       </div>
       <div className="flex-1 w-full h-full relative" ref={wrapperRef}>
-        <canvas ref={canvasRef} className="absolute inset-0 w-full h-full cursor-crosshair" id="canvas2D"></canvas>
+        <canvas 
+          ref={canvasRef} 
+          className="absolute inset-0 w-full h-full cursor-pointer" 
+          id="canvas2D"
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          onClick={handleCanvasClick}
+        ></canvas>
       </div>
     </div>
   );

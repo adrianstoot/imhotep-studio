@@ -56,7 +56,7 @@ export const SidebarLeft: React.FC = () => {
       <div className="absolute inset-0 pointer-events-none border-r border-white/5" />
 
       {/* System Selector */}
-      <div className="p-4 pb-3 border-b border-slate-800/60">
+      <div id="tour-system-selector" className="p-4 pb-3 border-b border-slate-800/60">
         <label className="text-[9px] font-bold text-blue-500 uppercase tracking-widest mb-2 flex items-center">
           <GitBranch className="w-3.5 h-3.5 mr-1.5" /> 1. Tipo de Cerramiento
         </label>
@@ -100,7 +100,7 @@ export const SidebarLeft: React.FC = () => {
       </div>
 
       {/* Search + Cards */}
-      <div className="flex-1 overflow-y-auto custom-scroll p-2.5 flex flex-col">
+      <div id="tour-catalog" className="flex-1 overflow-y-auto custom-scroll p-2.5 flex flex-col">
         <div className="mb-3 relative shrink-0">
           <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-500 w-3.5 h-3.5" />
           <input 

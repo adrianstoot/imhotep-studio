@@ -21,6 +21,7 @@ export const Footer: React.FC = () => {
 
   return (
     <motion.footer 
+      id="tour-footer"
       initial={{ y: 80 }}
       animate={{ y: 0 }}
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}

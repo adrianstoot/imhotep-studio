@@ -50,7 +50,7 @@ export const SidebarRight: React.FC = () => {
       <div className="absolute inset-0 pointer-events-none border-l border-white/5" />
       
       {/* ═══════════ NORMATIVE GUIDE ═══════════ */}
-      <div className="border-b border-slate-800/80 bg-slate-900/10">
+      <div id="tour-normative" className="border-b border-slate-800/80 bg-slate-900/10">
         <div className="p-4 pb-3 flex justify-between items-center">
           <h2 className="text-xs font-black uppercase tracking-widest text-purple-400 flex items-center">
             <ClipboardList className="w-4 h-4 mr-2 text-purple-500" /> Guía Normativa
@@ -131,7 +131,7 @@ export const SidebarRight: React.FC = () => {
       </div>
 
       {/* ═══════════ ENERGY EFFICIENCY & METRICS ═══════════ */}
-      <div className="border-b border-slate-800/80 p-4 bg-slate-900/10">
+      <div id="tour-metrics" className="border-b border-slate-800/80 p-4 bg-slate-900/10">
         <div className="flex justify-between items-center mb-3">
           <h2 className="text-xs font-black uppercase tracking-widest text-blue-400 flex items-center">
             <Flame className="w-4 h-4 mr-2" /> Eficiencia Energética
@@ -212,7 +212,7 @@ export const SidebarRight: React.FC = () => {
       </div>
 
       {/* ═══════════ INSTALLED LAYERS ═══════════ */}
-      <div className="flex-1 overflow-hidden flex flex-col">
+      <div id="tour-layers-list" className="flex-1 overflow-hidden flex flex-col">
         <div className="p-4 border-b border-slate-800 flex justify-between items-center bg-slate-900/60 shadow-md relative z-10">
           <h2 className="text-xs font-black uppercase tracking-widest text-orange-400 flex items-center">
             <ListTree className="w-4 h-4 mr-2 text-orange-500" /> Capas Instaladas <span className="ml-2 bg-orange-500/20 text-orange-300 px-2 py-0.5 rounded-md text-[9px]">{layers.length}</span>

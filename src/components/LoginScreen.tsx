@@ -192,6 +192,27 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin }) => {
             />
           ))}
         </div>
+
+        {/* Guest Mode Access */}
+        <motion.button
+          whileHover={{ scale: 1.02, backgroundColor: 'rgba(99,102,241,0.08)' }}
+          whileTap={{ scale: 0.98 }}
+          onClick={onLogin}
+          className="mt-8 px-5 py-2 text-[10px] tracking-[0.2em] font-medium uppercase rounded-lg border transition-all duration-300 flex items-center gap-2"
+          style={{
+            borderColor: 'rgba(99,102,241,0.25)',
+            background: 'rgba(99,102,241,0.02)',
+            color: 'rgba(129,140,248,0.85)',
+            boxShadow: '0 4px 12px rgba(99,102,241,0.02)',
+            cursor: 'pointer'
+          }}
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-70">
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+          Acceso Invitado
+        </motion.button>
       </motion.div>
 
       {/* Bottom brand */}

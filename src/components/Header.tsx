@@ -59,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBudget, onOpenGlaser, onOp
       </div>
 
       {/* Tool buttons */}
-      <nav className="flex items-center gap-1">
+      <nav id="tour-header-tools" className="flex items-center gap-1">
         {toolButtons.map(btn => (
           <button key={btn.label} onClick={btn.onClick} className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all border border-transparent hover:border-slate-700/50 ${btn.color} ${btn.bg}`} title={btn.label}>
             <btn.icon className="w-3.5 h-3.5" /> <span className="hidden xl:inline">{btn.label}</span>
