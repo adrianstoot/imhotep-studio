@@ -1,0 +1,596 @@
+### Page
+- Page URL: http://127.0.0.1:4180/
+- Page Title: ConstructoPro Next
+### Snapshot
+```yaml
+- generic [ref=f4e3]:
+  - banner [ref=f4e4]:
+    - strong [ref=f4e9]: ConstructoPro
+    - combobox "Sistema constructivo" [ref=f4e11] [cursor=pointer]:
+      - option "Fachada ventilada" [selected]
+      - option "Fachada SATE"
+      - option "Hueco de fachada"
+      - option "Cubierta inclinada"
+      - option "Cubierta plana"
+      - option "Terraza y balcón"
+      - option "Pavimento y solera"
+      - option "Partición y trasdosado"
+    - button "Cargar ejemplo" [ref=f4e12] [cursor=pointer]
+    - generic [ref=f4e17]:
+      - button "Deshacer" [disabled] [ref=f4e18]
+      - button "Rehacer" [disabled] [ref=f4e22]
+    - button "Vaciar detalle" [ref=f4e32] [cursor=pointer]
+    - button "Configuración" [ref=f4e38] [cursor=pointer]
+  - generic [ref=f4e42]:
+    - navigation "Módulos del editor" [ref=f4e43]:
+      - button "Mostrar u ocultar materiales" [pressed] [ref=f4e44] [cursor=pointer]
+      - button "Árbol de capas" [ref=f4e56] [cursor=pointer]
+      - button "Presupuesto por m²" [ref=f4e61] [cursor=pointer]
+      - button "Normativa" [ref=f4e64] [cursor=pointer]
+      - button "Regla de medición" [ref=f4e70] [cursor=pointer]
+    - complementary [ref=f4e77]:
+      - generic [ref=f4e78]:
+        - generic [ref=f4e79]:
+          - generic [ref=f4e80]: BIBLIOTECA CONSTRUCTIVA
+          - strong [ref=f4e81]: Materiales
+        - generic [ref=f4e82]:
+          - generic [ref=f4e83]: "50"
+          - text: referencias
+      - textbox [ref=f4e88]:
+        - /placeholder: Producto, empresa o prestación…
+      - generic "Biblioteca de materiales" [ref=f4e89]:
+        - button "Selección visual 50" [ref=f4e90] [cursor=pointer]:
+          - generic [ref=f4e101]: Selección visual
+          - generic [ref=f4e102]: "50"
+        - button "Referencias 208" [ref=f4e103] [cursor=pointer]:
+          - generic [ref=f4e106]: Referencias
+          - generic [ref=f4e107]: "208"
+      - generic [ref=f4e108]:
+        - generic [ref=f4e109]:
+          - generic [ref=f4e110]: Familia
+          - combobox "Familia de material" [ref=f4e111]:
+            - option "Todas las familias" [selected]
+            - option "Fábrica"
+            - option "Aislamientos"
+            - option "Protección"
+            - option "Revestimientos"
+            - option "Subestructura"
+            - option "Huecos"
+            - option "Remates"
+        - generic [ref=f4e112]:
+          - generic [ref=f4e113]: Tipo
+          - combobox "Tipo de material" [ref=f4e114]:
+            - option "Todos los tipos" [selected]
+            - option "Aparejos"
+            - option "Bloques cerámicos"
+            - option "Lana mineral"
+            - option "Lana de vidrio"
+            - option "Membranas transpirables"
+            - option "Morteros base"
+            - option "Paneles minerales"
+            - option "Paneles cerámicos"
+            - option "Ménsulas"
+            - option "Perfiles"
+            - option "Ventanas"
+            - option "Bloques celulares"
+            - option "Madera estructural"
+            - option "Acabados continuos"
+            - option "Fibrocemento"
+            - option "Fijaciones"
+            - option "Vidrios aislantes"
+            - option "Vierteaguas"
+            - option "Soportes de hormigón"
+            - option "Sellantes"
+            - option "Ventanas correderas"
+            - option "Ventanas aluminio"
+      - generic [ref=f4e115] [cursor=pointer]:
+        - checkbox "Compatibles con este detalle 33" [checked] [ref=f4e116]
+        - generic [ref=f4e117]: Compatibles con este detalle
+        - generic [ref=f4e118]: "33"
+      - generic [ref=f4e119]:
+        - generic [ref=f4e120]: Materiales disponibles
+        - generic [ref=f4e121]: "33"
+      - generic [ref=f4e122]:
+        - article [ref=f4e123]:
+          - button "Abrir ficha completa de Ladrillo perforado métrico · 24×11,5×5 cm" [ref=f4e124] [cursor=pointer]:
+            - img "Material Ladrillo perforado métrico · 24×11,5×5 cm" [ref=f4e126]
+            - generic [ref=f4e127]:
+              - generic [ref=f4e128]: HISPALYT
+              - strong [ref=f4e129]: Ladrillo perforado métrico · 24×11,5×5 cm
+              - emphasis [ref=f4e130]: 240 × 50 × 115 mm
+              - generic [ref=f4e131]: Aparejos
+          - generic [ref=f4e132]:
+            - generic [ref=f4e133]: Fuente documentada
+            - button "Añadir Ladrillo perforado métrico · 24×11,5×5 cm al editor 3D" [ref=f4e136] [cursor=pointer]: Colocar
+        - article [ref=f4e138]:
+          - button "Abrir ficha completa de Ladrillo hueco gran formato · 50×50×7 cm" [ref=f4e139] [cursor=pointer]:
+            - img "Material Ladrillo hueco gran formato · 50×50×7 cm" [ref=f4e141]
+            - generic [ref=f4e142]:
+              - generic [ref=f4e143]: HISPALYT
+              - strong [ref=f4e144]: Ladrillo hueco gran formato · 50×50×7 cm
+              - emphasis [ref=f4e145]: 500 × 500 × 70 mm
+              - generic [ref=f4e146]: Aparejos
+          - generic [ref=f4e147]:
+            - generic [ref=f4e148]: Fuente documentada
+            - button "Añadir Ladrillo hueco gran formato · 50×50×7 cm al editor 3D" [ref=f4e151] [cursor=pointer]: Colocar
+        - article [ref=f4e153]:
+          - button "Abrir ficha completa de Bloque Termoarcilla · 24 cm" [ref=f4e154] [cursor=pointer]:
+            - img "Material Bloque Termoarcilla · 24 cm" [ref=f4e156]
+            - generic [ref=f4e157]:
+              - generic [ref=f4e158]: Consorcio Termoarcilla
+              - strong [ref=f4e159]: Bloque Termoarcilla · 24 cm
+              - emphasis [ref=f4e160]: 300 × 190 × 240 mm
+              - generic [ref=f4e161]: Bloques cerámicos
+          - generic [ref=f4e162]:
+            - generic [ref=f4e163]: Fuente enlazada
+            - button "Añadir Bloque Termoarcilla · 24 cm al editor 3D" [ref=f4e166] [cursor=pointer]: Colocar
+        - article [ref=f4e168]:
+          - button "Abrir ficha completa de Ventirock Duo · 80 mm" [ref=f4e169] [cursor=pointer]:
+            - img "Material Ventirock Duo · 80 mm" [ref=f4e171]
+            - generic [ref=f4e172]:
+              - generic [ref=f4e173]: ROCKWOOL
+              - strong [ref=f4e174]: Ventirock Duo · 80 mm
+              - emphasis [ref=f4e175]: 1350 × 600 × 80 mm
+              - generic [ref=f4e176]: Lana mineral
+          - generic [ref=f4e177]:
+            - generic [ref=f4e178]: Fuente documentada
+            - button "Añadir Ventirock Duo · 80 mm al editor 3D" [ref=f4e181] [cursor=pointer]: Colocar
+        - article [ref=f4e183]:
+          - button "Abrir ficha completa de Arena · 80 mm" [ref=f4e184] [cursor=pointer]:
+            - img "Material Arena · 80 mm" [ref=f4e186]
+            - generic [ref=f4e187]:
+              - generic [ref=f4e188]: ISOVER
+              - strong [ref=f4e189]: Arena · 80 mm
+              - emphasis [ref=f4e190]: 1350 × 600 × 80 mm
+              - generic [ref=f4e191]: Lana de vidrio
+          - generic [ref=f4e192]:
+            - generic [ref=f4e193]: Fuente enlazada
+            - button "Añadir Arena · 80 mm al editor 3D" [ref=f4e196] [cursor=pointer]: Colocar
+        - article [ref=f4e198]:
+          - button "Abrir ficha completa de Tyvek · Housewrap" [ref=f4e199] [cursor=pointer]:
+            - img "Material Tyvek · Housewrap" [ref=f4e201]
+            - generic [ref=f4e202]:
+              - generic [ref=f4e203]: DuPont
+              - strong [ref=f4e204]: Tyvek · Housewrap
+              - emphasis [ref=f4e205]: 50.000 × 1500 × 0,2 mm
+              - generic [ref=f4e206]: Membranas transpirables
+          - generic [ref=f4e207]:
+            - generic [ref=f4e208]: Fuente enlazada
+            - button "Añadir Tyvek · Housewrap al editor 3D" [ref=f4e211] [cursor=pointer]: Colocar
+        - article [ref=f4e213]:
+          - button "Abrir ficha completa de webertherm base · Capa 5 mm" [ref=f4e214] [cursor=pointer]:
+            - img "Material webertherm base · Capa 5 mm" [ref=f4e216]
+            - generic [ref=f4e217]:
+              - generic [ref=f4e218]: Saint-Gobain Weber
+              - strong [ref=f4e219]: webertherm base · Capa 5 mm
+              - emphasis [ref=f4e220]: 1000 × 1000 × 5 mm
+              - generic [ref=f4e221]: Morteros base
+          - generic [ref=f4e222]:
+            - generic [ref=f4e223]: Fuente enlazada
+            - button "Añadir webertherm base · Capa 5 mm al editor 3D" [ref=f4e226] [cursor=pointer]: Colocar
+        - article [ref=f4e228]:
+          - button "Abrir ficha completa de Rockpanel Colours A2 · 8 mm · 2500×1200" [ref=f4e229] [cursor=pointer]:
+            - img "Material Rockpanel Colours A2 · 8 mm · 2500×1200" [ref=f4e231]
+            - generic [ref=f4e232]:
+              - generic [ref=f4e233]: Rockpanel
+              - strong [ref=f4e234]: Rockpanel Colours A2 · 8 mm · 2500×1200
+              - emphasis [ref=f4e235]: 1200 × 2500 × 8 mm
+              - generic [ref=f4e236]: Paneles minerales
+          - generic [ref=f4e237]:
+            - generic [ref=f4e238]: Fuente documentada
+            - button "Añadir Rockpanel Colours A2 · 8 mm · 2500×1200 al editor 3D" [ref=f4e241] [cursor=pointer]: Colocar
+        - article [ref=f4e243]:
+          - button "Abrir ficha completa de Panel cerámico FAVETON · Bersal 300" [ref=f4e244] [cursor=pointer]:
+            - img "Material Panel cerámico FAVETON · Bersal 300" [ref=f4e246]
+            - generic [ref=f4e247]:
+              - generic [ref=f4e248]: FAVETON
+              - strong [ref=f4e249]: Panel cerámico FAVETON · Bersal 300
+              - emphasis [ref=f4e250]: 1200 × 300 × 24 mm
+              - generic [ref=f4e251]: Paneles cerámicos
+          - generic [ref=f4e252]:
+            - generic [ref=f4e253]: Fuente enlazada
+            - button "Añadir Panel cerámico FAVETON · Bersal 300 al editor 3D" [ref=f4e256] [cursor=pointer]: Colocar
+        - article [ref=f4e258]:
+          - button "Abrir ficha completa de Ménsula Hilti MFT · MFT-S2S 80" [ref=f4e259] [cursor=pointer]:
+            - img "Material Ménsula Hilti MFT · MFT-S2S 80" [ref=f4e261]
+            - generic [ref=f4e262]:
+              - generic [ref=f4e263]: Hilti
+              - strong [ref=f4e264]: Ménsula Hilti MFT · MFT-S2S 80
+              - emphasis [ref=f4e265]: 80 × 160 × 70 mm
+              - generic [ref=f4e266]: Ménsulas
+          - generic [ref=f4e267]:
+            - generic [ref=f4e268]: Fuente enlazada
+            - button "Añadir Ménsula Hilti MFT · MFT-S2S 80 al editor 3D" [ref=f4e271] [cursor=pointer]: Colocar
+        - article [ref=f4e273]:
+          - button "Abrir ficha completa de Perfil Hilti MFT · T 60×40 · 3 m" [ref=f4e274] [cursor=pointer]:
+            - img "Material Perfil Hilti MFT · T 60×40 · 3 m" [ref=f4e276]
+            - generic [ref=f4e277]:
+              - generic [ref=f4e278]: Hilti
+              - strong [ref=f4e279]: Perfil Hilti MFT · T 60×40 · 3 m
+              - emphasis [ref=f4e280]: 60 × 3000 × 40 mm
+              - generic [ref=f4e281]: Perfiles
+          - generic [ref=f4e282]:
+            - generic [ref=f4e283]: Fuente enlazada
+            - button "Añadir Perfil Hilti MFT · T 60×40 · 3 m al editor 3D" [ref=f4e286] [cursor=pointer]: Colocar
+        - article [ref=f4e288]:
+          - button "Abrir ficha completa de Ventana CORTIZO · COR 70 Industrial · 1200×1200" [ref=f4e289] [cursor=pointer]:
+            - img "Material Ventana CORTIZO · COR 70 Industrial · 1200×1200" [ref=f4e291]
+            - generic [ref=f4e292]:
+              - generic [ref=f4e293]: CORTIZO
+              - strong [ref=f4e294]: Ventana CORTIZO · COR 70 Industrial · 1200×1200
+              - emphasis [ref=f4e295]: 1200 × 1200 × 70 mm
+              - generic [ref=f4e296]: Ventanas
+          - generic [ref=f4e297]:
+            - generic [ref=f4e298]: Fuente enlazada
+            - button "Añadir Ventana CORTIZO · COR 70 Industrial · 1200×1200 al editor 3D" [ref=f4e301] [cursor=pointer]: Colocar
+        - article [ref=f4e303]:
+          - button "Abrir ficha completa de Bloque de hormigón celular · 20 cm" [ref=f4e304] [cursor=pointer]:
+            - img "Material Bloque de hormigón celular · 20 cm" [ref=f4e974]
+            - generic [ref=f4e306]:
+              - generic [ref=f4e307]: Xella Ytong
+              - strong [ref=f4e308]: Bloque de hormigón celular · 20 cm
+              - emphasis [ref=f4e309]: 625 × 250 × 200 mm
+              - generic [ref=f4e310]: Bloques celulares
+          - generic [ref=f4e311]:
+            - generic [ref=f4e312]: Fuente documentada
+            - button "Añadir Bloque de hormigón celular · 20 cm al editor 3D" [ref=f4e315] [cursor=pointer]: Colocar
+        - article [ref=f4e317]:
+          - button "Abrir ficha completa de Panel CLT · 100 mm" [ref=f4e318] [cursor=pointer]:
+            - generic [ref=f4e319]:
+              - img "Material Panel CLT · 100 mm"
+            - generic [ref=f4e320]:
+              - generic [ref=f4e321]: EGOIN
+              - strong [ref=f4e322]: Panel CLT · 100 mm
+              - emphasis [ref=f4e323]: 1000 × 3000 × 100 mm
+              - generic [ref=f4e324]: Madera estructural
+          - generic [ref=f4e325]:
+            - generic [ref=f4e326]: Fuente documentada
+            - button "Añadir Panel CLT · 100 mm al editor 3D" [ref=f4e329] [cursor=pointer]: Colocar
+        - article [ref=f4e331]:
+          - button "Abrir ficha completa de weberpral · Classic 15 mm" [ref=f4e332] [cursor=pointer]:
+            - generic [ref=f4e333]:
+              - img "Material weberpral · Classic 15 mm"
+            - generic [ref=f4e334]:
+              - generic [ref=f4e335]: Saint-Gobain Weber
+              - strong [ref=f4e336]: weberpral · Classic 15 mm
+              - emphasis [ref=f4e337]: 1000 × 1000 × 15 mm
+              - generic [ref=f4e338]: Acabados continuos
+          - generic [ref=f4e339]:
+            - generic [ref=f4e340]: Fuente documentada
+            - button "Añadir weberpral · Classic 15 mm al editor 3D" [ref=f4e343] [cursor=pointer]: Colocar
+        - article [ref=f4e345]:
+          - button "Abrir ficha completa de EQUITONE · tectiva 8 mm" [ref=f4e346] [cursor=pointer]:
+            - generic [ref=f4e347]:
+              - img "Material EQUITONE · tectiva 8 mm"
+            - generic [ref=f4e348]:
+              - generic [ref=f4e349]: EQUITONE
+              - strong [ref=f4e350]: EQUITONE · tectiva 8 mm
+              - emphasis [ref=f4e351]: 1220 × 3050 × 8 mm
+              - generic [ref=f4e352]: Fibrocemento
+          - generic [ref=f4e353]:
+            - generic [ref=f4e354]: Fuente documentada
+            - button "Añadir EQUITONE · tectiva 8 mm al editor 3D" [ref=f4e357] [cursor=pointer]: Colocar
+        - article [ref=f4e359]:
+          - button "Abrir ficha completa de EJOT CROSSFIX · CF 120" [ref=f4e360] [cursor=pointer]:
+            - generic [ref=f4e361]:
+              - img "Material EJOT CROSSFIX · CF 120"
+            - generic [ref=f4e362]:
+              - generic [ref=f4e363]: EJOT
+              - strong [ref=f4e364]: EJOT CROSSFIX · CF 120
+              - emphasis [ref=f4e365]: 120 × 140 × 60 mm
+              - generic [ref=f4e366]: Ménsulas
+          - generic [ref=f4e367]:
+            - generic [ref=f4e368]: Fuente documentada
+            - button "Añadir EJOT CROSSFIX · CF 120 al editor 3D" [ref=f4e371] [cursor=pointer]: Colocar
+        - article [ref=f4e373]:
+          - button "Abrir ficha completa de Fijación EJOT · DH 140" [ref=f4e374] [cursor=pointer]:
+            - generic [ref=f4e375]:
+              - img "Material Fijación EJOT · DH 140"
+            - generic [ref=f4e376]:
+              - generic [ref=f4e377]: EJOT
+              - strong [ref=f4e378]: Fijación EJOT · DH 140
+              - emphasis [ref=f4e379]: 60 × 140 × 8 mm
+              - generic [ref=f4e380]: Fijaciones
+          - generic [ref=f4e381]:
+            - generic [ref=f4e382]: Fuente documentada
+            - button "Añadir Fijación EJOT · DH 140 al editor 3D" [ref=f4e385] [cursor=pointer]: Colocar
+        - article [ref=f4e387]:
+          - button "Abrir ficha completa de Ventana STRUGAL · S82RP · 1500×1400" [ref=f4e388] [cursor=pointer]:
+            - generic [ref=f4e389]:
+              - img "Material Ventana STRUGAL · S82RP · 1500×1400"
+            - generic [ref=f4e390]:
+              - generic [ref=f4e391]: STRUGAL
+              - strong [ref=f4e392]: Ventana STRUGAL · S82RP · 1500×1400
+              - emphasis [ref=f4e393]: 1500 × 1400 × 82 mm
+              - generic [ref=f4e394]: Ventanas
+          - generic [ref=f4e395]:
+            - generic [ref=f4e396]: Fuente documentada
+            - button "Añadir Ventana STRUGAL · S82RP · 1500×1400 al editor 3D" [ref=f4e399] [cursor=pointer]: Colocar
+        - article [ref=f4e401]:
+          - button "Abrir ficha completa de CLIMALIT PLUS · 4/16/4" [ref=f4e402] [cursor=pointer]:
+            - generic [ref=f4e403]:
+              - img "Material CLIMALIT PLUS · 4/16/4"
+            - generic [ref=f4e404]:
+              - generic [ref=f4e405]: Saint-Gobain Glass
+              - strong [ref=f4e406]: CLIMALIT PLUS · 4/16/4
+              - emphasis [ref=f4e407]: 1000 × 1000 × 24 mm
+              - generic [ref=f4e408]: Vidrios aislantes
+          - generic [ref=f4e409]:
+            - generic [ref=f4e410]: Fuente documentada
+            - button "Añadir CLIMALIT PLUS · 4/16/4 al editor 3D" [ref=f4e413] [cursor=pointer]: Colocar
+        - article [ref=f4e415]:
+          - button "Abrir ficha completa de Remate RHEINZINK · Vierteaguas 250" [ref=f4e416] [cursor=pointer]:
+            - generic [ref=f4e417]:
+              - img "Material Remate RHEINZINK · Vierteaguas 250"
+            - generic [ref=f4e418]:
+              - generic [ref=f4e419]: RHEINZINK
+              - strong [ref=f4e420]: Remate RHEINZINK · Vierteaguas 250
+              - emphasis [ref=f4e421]: 250 × 3000 × 12 mm
+              - generic [ref=f4e422]: Vierteaguas
+          - generic [ref=f4e423]:
+            - generic [ref=f4e424]: Fuente documentada
+            - button "Añadir Remate RHEINZINK · Vierteaguas 250 al editor 3D" [ref=f4e427] [cursor=pointer]: Colocar
+        - article [ref=f4e429]:
+          - button "Abrir ficha completa de Hormigón estructural · C30/37 · 250 mm" [ref=f4e430] [cursor=pointer]:
+            - generic [ref=f4e431]:
+              - img "Material Hormigón estructural · C30/37 · 250 mm"
+            - generic [ref=f4e432]:
+              - generic [ref=f4e433]: Holcim España
+              - strong [ref=f4e434]: Hormigón estructural · C30/37 · 250 mm
+              - emphasis [ref=f4e435]: 1000 × 1000 × 250 mm
+              - generic [ref=f4e436]: Soportes de hormigón
+          - generic [ref=f4e437]:
+            - generic [ref=f4e438]: Fuente enlazada
+            - button "Añadir Hormigón estructural · C30/37 · 250 mm al editor 3D" [ref=f4e441] [cursor=pointer]: Colocar
+        - article [ref=f4e443]:
+          - button "Abrir ficha completa de Bloque de hormigón celular · 25 cm" [ref=f4e444] [cursor=pointer]:
+            - generic [ref=f4e445]:
+              - img "Material Bloque de hormigón celular · 25 cm"
+            - generic [ref=f4e446]:
+              - generic [ref=f4e447]: Xella Ytong
+              - strong [ref=f4e448]: Bloque de hormigón celular · 25 cm
+              - emphasis [ref=f4e449]: 625 × 250 × 250 mm
+              - generic [ref=f4e450]: Bloques celulares
+          - generic [ref=f4e451]:
+            - generic [ref=f4e452]: Fuente documentada
+            - button "Añadir Bloque de hormigón celular · 25 cm al editor 3D" [ref=f4e455] [cursor=pointer]: Colocar
+        - article [ref=f4e457]:
+          - button "Abrir ficha completa de Ventirock Duo · 120 mm" [ref=f4e458] [cursor=pointer]:
+            - generic [ref=f4e459]:
+              - img "Material Ventirock Duo · 120 mm"
+            - generic [ref=f4e460]:
+              - generic [ref=f4e461]: ROCKWOOL
+              - strong [ref=f4e462]: Ventirock Duo · 120 mm
+              - emphasis [ref=f4e463]: 1350 × 600 × 120 mm
+              - generic [ref=f4e464]: Lana mineral
+          - generic [ref=f4e465]:
+            - generic [ref=f4e466]: Fuente documentada
+            - button "Añadir Ventirock Duo · 120 mm al editor 3D" [ref=f4e469] [cursor=pointer]: Colocar
+        - article [ref=f4e471]:
+          - button "Abrir ficha completa de Arena · 100 mm" [ref=f4e472] [cursor=pointer]:
+            - generic [ref=f4e473]:
+              - img "Material Arena · 100 mm"
+            - generic [ref=f4e474]:
+              - generic [ref=f4e475]: ISOVER
+              - strong [ref=f4e476]: Arena · 100 mm
+              - emphasis [ref=f4e477]: 1350 × 600 × 100 mm
+              - generic [ref=f4e478]: Lana de vidrio
+          - generic [ref=f4e479]:
+            - generic [ref=f4e480]: Fuente enlazada
+            - button "Añadir Arena · 100 mm al editor 3D" [ref=f4e483] [cursor=pointer]: Colocar
+        - article [ref=f4e485]:
+          - button "Abrir ficha completa de Tyvek · UV Facade" [ref=f4e486] [cursor=pointer]:
+            - generic [ref=f4e487]:
+              - img "Material Tyvek · UV Facade"
+            - generic [ref=f4e488]:
+              - generic [ref=f4e489]: DuPont
+              - strong [ref=f4e490]: Tyvek · UV Facade
+              - emphasis [ref=f4e491]: 50.000 × 1500 × 0,4 mm
+              - generic [ref=f4e492]: Membranas transpirables
+          - generic [ref=f4e493]:
+            - generic [ref=f4e494]: Fuente enlazada
+            - button "Añadir Tyvek · UV Facade al editor 3D" [ref=f4e497] [cursor=pointer]: Colocar
+        - article [ref=f4e499]:
+          - button "Abrir ficha completa de Sikaflex · Construction+" [ref=f4e500] [cursor=pointer]:
+            - generic [ref=f4e501]:
+              - img "Material Sikaflex · Construction+"
+            - generic [ref=f4e502]:
+              - generic [ref=f4e503]: Sika
+              - strong [ref=f4e504]: Sikaflex · Construction+
+              - emphasis [ref=f4e505]: 600 × 15 × 15 mm
+              - generic [ref=f4e506]: Sellantes
+          - generic [ref=f4e507]:
+            - generic [ref=f4e508]: Fuente enlazada
+            - button "Añadir Sikaflex · Construction+ al editor 3D" [ref=f4e511] [cursor=pointer]: Colocar
+        - article [ref=f4e513]:
+          - button "Abrir ficha completa de Panel cerámico TEMPIO · FK-L 2/16" [ref=f4e514] [cursor=pointer]:
+            - generic [ref=f4e515]:
+              - img "Material Panel cerámico TEMPIO · FK-L 2/16"
+            - generic [ref=f4e516]:
+              - generic [ref=f4e517]: TEMPIO
+              - strong [ref=f4e518]: Panel cerámico TEMPIO · FK-L 2/16
+              - emphasis [ref=f4e519]: 1200 × 300 × 16 mm
+              - generic [ref=f4e520]: Paneles cerámicos
+          - generic [ref=f4e521]:
+            - generic [ref=f4e522]: Fuente enlazada
+            - button "Añadir Panel cerámico TEMPIO · FK-L 2/16 al editor 3D" [ref=f4e525] [cursor=pointer]: Colocar
+        - article [ref=f4e527]:
+          - button "Abrir ficha completa de ULMA Stoneo · Pure 14 mm" [ref=f4e528] [cursor=pointer]:
+            - generic [ref=f4e529]:
+              - img "Material ULMA Stoneo · Pure 14 mm"
+            - generic [ref=f4e530]:
+              - generic [ref=f4e531]: ULMA Architectural
+              - strong [ref=f4e532]: ULMA Stoneo · Pure 14 mm
+              - emphasis [ref=f4e533]: 1800 × 900 × 14 mm
+              - generic [ref=f4e534]: Paneles minerales
+          - generic [ref=f4e535]:
+            - generic [ref=f4e536]: Fuente enlazada
+            - button "Añadir ULMA Stoneo · Pure 14 mm al editor 3D" [ref=f4e539] [cursor=pointer]: Colocar
+        - article [ref=f4e541]:
+          - button "Abrir ficha completa de fischer BWM · ATK 140" [ref=f4e542] [cursor=pointer]:
+            - generic [ref=f4e543]:
+              - img "Material fischer BWM · ATK 140"
+            - generic [ref=f4e544]:
+              - generic [ref=f4e545]: fischer
+              - strong [ref=f4e546]: fischer BWM · ATK 140
+              - emphasis [ref=f4e547]: 140 × 160 × 80 mm
+              - generic [ref=f4e548]: Ménsulas
+          - generic [ref=f4e549]:
+            - generic [ref=f4e550]: Fuente enlazada
+            - button "Añadir fischer BWM · ATK 140 al editor 3D" [ref=f4e553] [cursor=pointer]: Colocar
+        - article [ref=f4e555]:
+          - button "Abrir ficha completa de SFS Nvelope · NV1 T · 3 m" [ref=f4e556] [cursor=pointer]:
+            - generic [ref=f4e557]:
+              - img "Material SFS Nvelope · NV1 T · 3 m"
+            - generic [ref=f4e558]:
+              - generic [ref=f4e559]: SFS
+              - strong [ref=f4e560]: SFS Nvelope · NV1 T · 3 m
+              - emphasis [ref=f4e561]: 60 × 3000 × 50 mm
+              - generic [ref=f4e562]: Perfiles
+          - generic [ref=f4e563]:
+            - generic [ref=f4e564]: Fuente enlazada
+            - button "Añadir SFS Nvelope · NV1 T · 3 m al editor 3D" [ref=f4e567] [cursor=pointer]: Colocar
+        - article [ref=f4e569]:
+          - button "Abrir ficha completa de Ventana KÖMMERLING · PremiDoor 76 · 2400×2200" [ref=f4e570] [cursor=pointer]:
+            - generic [ref=f4e571]:
+              - img "Material Ventana KÖMMERLING · PremiDoor 76 · 2400×2200"
+            - generic [ref=f4e572]:
+              - generic [ref=f4e573]: KÖMMERLING
+              - strong [ref=f4e574]: Ventana KÖMMERLING · PremiDoor 76 · 2400×2200
+              - emphasis [ref=f4e575]: 2400 × 2200 × 179 mm
+              - generic [ref=f4e576]: Ventanas correderas
+          - generic [ref=f4e577]:
+            - generic [ref=f4e578]: Fuente enlazada
+            - button "Añadir Ventana KÖMMERLING · PremiDoor 76 · 2400×2200 al editor 3D" [ref=f4e581] [cursor=pointer]: Colocar
+        - article [ref=f4e583]:
+          - button "Abrir ficha completa de Ventana TECHNAL · TIGAL · 1800×1400" [ref=f4e584] [cursor=pointer]:
+            - generic [ref=f4e585]:
+              - img "Material Ventana TECHNAL · TIGAL · 1800×1400"
+            - generic [ref=f4e586]:
+              - generic [ref=f4e587]: TECHNAL
+              - strong [ref=f4e588]: Ventana TECHNAL · TIGAL · 1800×1400
+              - emphasis [ref=f4e589]: 1800 × 1400 × 70 mm
+              - generic [ref=f4e590]: Ventanas aluminio
+          - generic [ref=f4e591]:
+            - generic [ref=f4e592]: Fuente enlazada
+            - button "Añadir Ventana TECHNAL · TIGAL · 1800×1400 al editor 3D" [ref=f4e595] [cursor=pointer]: Colocar
+    - main [ref=f4e597]:
+      - generic [ref=f4e598]:
+        - generic [ref=f4e599]:
+          - generic [ref=f4e600]: ESTUDIO CONSTRUCTIVO
+          - heading "Fachada ventilada" [level=1] [ref=f4e601]
+        - navigation "Paneles del espacio de trabajo" [ref=f4e602]:
+          - button "Mostrar u ocultar materiales" [pressed] [ref=f4e603] [cursor=pointer]
+          - button "Mostrar u ocultar plano 2D" [pressed] [ref=f4e607] [cursor=pointer]
+          - button "Mostrar u ocultar propiedades" [active] [ref=f4e611] [cursor=pointer]
+      - generic [ref=f4e615]:
+        - generic [ref=f4e616]:
+          - region "Editor tridimensional" [ref=f4e975]:
+            - generic [ref=f4e978]:
+              - generic [ref=f4e979]:
+                - button "Seleccionar (Esc)" [ref=f4e980] [cursor=pointer]
+                - button "Mover (W)" [ref=f4e983] [cursor=pointer]
+                - button "Rotar (E)" [ref=f4e989] [cursor=pointer]
+                - button "Medir" [ref=f4e994] [cursor=pointer]
+                - button "Editar piezas del patrón" [ref=f4e1001] [cursor=pointer]
+              - generic [ref=f4e1008]:
+                - button "Duplicar (Ctrl+D)" [ref=f4e1009] [cursor=pointer]
+                - button "Eliminar (Supr)" [ref=f4e1013] [cursor=pointer]
+                - button "Aislar selección" [ref=f4e1017] [cursor=pointer]
+              - generic [ref=f4e1024]:
+                - button "Snapping 50 mm / 5°" [ref=f4e1025] [cursor=pointer]
+                - button "Cuadrícula" [ref=f4e1028] [cursor=pointer]
+                - button "GLOBAL" [ref=f4e1031] [cursor=pointer]
+            - generic [ref=f4e1032]:
+              - button "Vista frontal" [ref=f4e1033] [cursor=pointer]
+              - button "Vista lateral" [ref=f4e1039] [cursor=pointer]
+              - button "Vista isométrica" [ref=f4e1043] [cursor=pointer]
+              - button "Restablecer cámara" [ref=f4e1050] [cursor=pointer]
+              - button "Rotación automática" [ref=f4e1054] [cursor=pointer]
+              - button "Encajar escena o selección" [ref=f4e1060] [cursor=pointer]
+              - button "PERS" [ref=f4e1066] [cursor=pointer]
+            - generic [aria-hidden] [ref=f4e1067]:
+              - generic [ref=f4e1068]: X
+              - generic [ref=f4e1069]: "Y"
+              - generic [ref=f4e1070]: Z
+          - generic:
+            - text: "01"
+            - strong: Modelo 3D
+        - region "Sección técnica 2D sincronizada" [ref=f4e714]:
+          - generic [ref=f4e715]:
+            - generic [ref=f4e716]:
+              - strong [ref=f4e717]: Dibujo técnico
+              - generic [ref=f4e718]: Sección constructiva · capas · 6 elementos
+            - navigation [ref=f4e719]:
+              - button "Descargar SVG a escala" [ref=f4e720] [cursor=pointer]
+              - button "Ampliar" [ref=f4e724] [cursor=pointer]
+              - button "Cerrar" [ref=f4e730] [cursor=pointer]
+          - img "Sección constructiva · capas. Dibujo proporcional al modelo, cotas en milímetros." [ref=f4e735]:
+            - generic [ref=f4e737]: Sección constructiva · capas
+            - generic [ref=f4e738]: Plano X = 0 mm · tramo ampliado · cotas en mm · SVG 1:10
+            - generic [ref=f4e745]:
+              - generic [ref=f4e747]: "1"
+              - generic [ref=f4e749]: "1"
+              - generic [ref=f4e750]: Hoja cerámica principal · 115mm
+              - generic [ref=f4e751]: Espesor nominal 115 mm
+            - generic [ref=f4e752]:
+              - generic [ref=f4e754]: "2"
+              - generic [ref=f4e756]: "2"
+              - generic [ref=f4e757]: Regularización continua
+              - generic [ref=f4e758]: Espesor nominal 8 mm
+            - generic [ref=f4e759]:
+              - generic [ref=f4e761]: "3"
+              - generic [ref=f4e763]: "3"
+              - generic [ref=f4e764]: Aislamiento semirrígido
+              - generic [ref=f4e765]: Espesor nominal 100 mm
+            - generic [ref=f4e766]:
+              - generic [ref=f4e768]: "4"
+              - generic [ref=f4e770]: "4"
+              - generic [ref=f4e771]: Membrana exterior
+              - generic [ref=f4e772]: Espesor nominal 0,4 mm
+            - generic [ref=f4e773]:
+              - generic [ref=f4e775]: "5"
+              - generic [ref=f4e777]: "5"
+              - generic [ref=f4e778]: Perfil horizontal 3.1 ·resuelto contra hueco
+              - generic [ref=f4e779]: Envolvente comercial · sin sección interior
+            - generic [ref=f4e780]:
+              - generic [ref=f4e782]: "6"
+              - generic [ref=f4e784]: "6"
+              - generic [ref=f4e785]: Perfil horizontal 3.2 ·resuelto contra hueco
+              - generic [ref=f4e786]: Envolvente comercial · sin sección interior
+            - generic [ref=f4e787]: ELEMENTOS EN EL CORTE
+            - generic [ref=f4e788]:
+              - generic [ref=f4e789]: 900 mm
+              - generic [ref=f4e790]: 1000 mm · tramo
+            - generic [ref=f4e791]: 500 mm · referencia gráfica
+            - generic [ref=f4e793]: "Línea continua: volumen de capa"
+            - generic [ref=f4e794]: "Línea discontinua: envolvente comercial"
+            - generic [ref=f4e795]: Geometría proporcional al documento 3D. Pantalla ajustada; escala física indicada para el SVG exportado.
+          - generic [ref=f4e796]:
+            - combobox "Vista técnica" [ref=f4e797]:
+              - option "Capas" [selected]
+              - option "Jamba"
+              - option "Alzado"
+            - generic [ref=f4e798]:
+              - generic [ref=f4e799]: Corte X
+              - slider "Posición del plano de corte X" [ref=f4e800]: "0"
+            - button "Conjunto" [ref=f4e801] [cursor=pointer]
+            - combobox "Escala de exportación SVG" [ref=f4e802]:
+              - option "1:5"
+              - option "1:10" [selected]
+              - option "1:20"
+            - generic [ref=f4e803]: SVG a escala
+  - contentinfo [ref=f4e956]:
+    - paragraph [ref=f4e957]:
+      - text: Unidades
+      - strong [ref=f4e958]: mm
+    - paragraph [ref=f4e960]:
+      - text: Plano
+      - strong [ref=f4e961]: 1:10
+    - button [ref=f4e963] [cursor=pointer]:
+      - text: Ajuste
+      - strong [ref=f4e964]: 50 mm · 5°
+    - paragraph [ref=f4e965]: 65 objetos · 1 seleccionados
+    - button "Modo pieza" [ref=f4e966] [cursor=pointer]
+    - button "Ajuste de posición y giro" [pressed] [ref=f4e969] [cursor=pointer]
+```

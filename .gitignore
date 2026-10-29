@@ -1,8 +1,5 @@
 node_modules/
-build/
-dist/
-coverage/
-.DS_Store
-*.log
-.env*
-!.env.example
+ConstructoPro-Next/node_modules/
+ConstructoPro-Next/.npm-cache/
+ConstructoPro-Next/dist/
+ConstructoPro-Next/.playwright-cli/

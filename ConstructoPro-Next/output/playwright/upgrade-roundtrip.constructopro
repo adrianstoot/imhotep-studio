@@ -1,0 +1,1550 @@
+{
+  "format": "constructopro",
+  "exportedAt": "2026-10-28T21:49:16.884Z",
+  "project": {
+    "schemaVersion": 4,
+    "appVersion": "0.5.0",
+    "id": "project-84c323a6-220e-49c5-8f08-255d69b39a12",
+    "title": "Fachada ventilada · estudio constructivo",
+    "createdAt": "2026-10-28T21:48:07.173Z",
+    "updatedAt": "2026-10-28T21:49:07.417Z",
+    "detailType": "fachada-ventilada",
+    "context": {
+      "municipality": "València",
+      "province": "Valencia/València",
+      "altitudeM": 15,
+      "climateZone": "B3",
+      "climateZoneSource": "cte-anejob",
+      "use": "Docente",
+      "exposure": "Normal",
+      "orientation": "N",
+      "interiorTemperatureC": 20,
+      "exteriorTemperatureC": 5,
+      "interiorHumidityPct": 55,
+      "exteriorHumidityPct": 75
+    },
+    "budget": {
+      "areaM2": 15.36,
+      "wastePct": 5,
+      "vatPct": 21,
+      "rateOverrides": {}
+    },
+    "entities": [
+      {
+        "id": "entity-4bd35dff-be59-49e3-8185-d01525bcb7e8",
+        "productId": "hispalyt-ladrillo-perforado-metrico-24-11-5-10-cm",
+        "variantId": "hispalyt-ladrillo-perforado-metrico-24-11-5-10-cm-variant",
+        "name": "01 · Hoja cerámica principal · 115 mm",
+        "transform": {
+          "position": [
+            -300,
+            1600,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "coverage": {
+          "widthMm": 4200,
+          "heightMm": 3200,
+          "jointMm": 10,
+          "bedJointMm": 10,
+          "headJointMm": 10,
+          "mortarRecessMm": 3,
+          "stagger": true,
+          "overlapMm": 0,
+          "sideOverlapMm": 0,
+          "pieceExceptions": []
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-bc6b8b28-16d0-4950-8da4-f861eb3b959b",
+        "productId": "saint-gobain-weber-webertherm-base-capa-8-mm",
+        "variantId": "saint-gobain-weber-webertherm-base-capa-8-mm-variant",
+        "name": "02 · Regularización continua",
+        "transform": {
+          "position": [
+            -175,
+            1600,
+            61.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "coverage": {
+          "widthMm": 3850,
+          "heightMm": 3200,
+          "jointMm": 0,
+          "bedJointMm": 0,
+          "headJointMm": 0,
+          "mortarRecessMm": 0,
+          "stagger": false,
+          "overlapMm": 0,
+          "sideOverlapMm": 0,
+          "pieceExceptions": []
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-ab121cab-10fd-4bfa-bcc6-c4296eefbb42",
+        "productId": "rockwool-ventirock-duo-100-mm",
+        "variantId": "rockwool-ventirock-duo-100-mm-variant",
+        "name": "03 · Aislamiento semirrígido",
+        "transform": {
+          "position": [
+            100,
+            1600,
+            115.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "coverage": {
+          "widthMm": 3300,
+          "heightMm": 3200,
+          "jointMm": 0,
+          "bedJointMm": 0,
+          "headJointMm": 0,
+          "mortarRecessMm": 0,
+          "stagger": true,
+          "overlapMm": 0,
+          "sideOverlapMm": 0,
+          "pieceExceptions": []
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-d256094a-44f8-4413-9931-fe7057559fc8",
+        "productId": "dupont-tyvek-uv-facade",
+        "variantId": "dupont-tyvek-uv-facade-variant",
+        "name": "04 · Membrana exterior",
+        "transform": {
+          "position": [
+            350,
+            1600,
+            165.7
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "coverage": {
+          "widthMm": 2800,
+          "heightMm": 3200,
+          "jointMm": 0,
+          "bedJointMm": 0,
+          "headJointMm": 0,
+          "mortarRecessMm": 0,
+          "stagger": false,
+          "overlapMm": 0,
+          "sideOverlapMm": 0,
+          "pieceExceptions": []
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-e3af0641-9e06-4d1f-8b70-323429f7b95f",
+        "productId": "holcim-espana-hormigon-estructural-c25-30-200-mm",
+        "variantId": "holcim-espana-hormigon-estructural-c25-30-200-mm-variant",
+        "name": "Forjado superior · reconstrucción parcial",
+        "transform": {
+          "position": [
+            0,
+            3300,
+            -120
+          ],
+          "rotation": [
+            1.5707963267948966,
+            0,
+            0
+          ]
+        },
+        "coverage": {
+          "widthMm": 4800,
+          "heightMm": 900,
+          "jointMm": 0,
+          "bedJointMm": 0,
+          "headJointMm": 0,
+          "mortarRecessMm": 0,
+          "stagger": false,
+          "overlapMm": 0,
+          "sideOverlapMm": 0,
+          "pieceExceptions": []
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-44795bf0-4b66-462f-8301-35fd25c02622",
+        "productId": "holcim-espana-hormigon-estructural-c25-30-200-mm",
+        "variantId": "holcim-espana-hormigon-estructural-c25-30-200-mm-variant",
+        "name": "Forjado inferior · reconstrucción parcial",
+        "transform": {
+          "position": [
+            0,
+            -100,
+            -120
+          ],
+          "rotation": [
+            1.5707963267948966,
+            0,
+            0
+          ]
+        },
+        "coverage": {
+          "widthMm": 4800,
+          "heightMm": 900,
+          "jointMm": 0,
+          "bedJointMm": 0,
+          "headJointMm": 0,
+          "mortarRecessMm": 0,
+          "stagger": false,
+          "overlapMm": 0,
+          "sideOverlapMm": 0,
+          "pieceExceptions": []
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-ed54a161-6f57-42ad-b223-b1cbd7679e93",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil vertical 1",
+        "transform": {
+          "position": [
+            -1800,
+            1600,
+            205.9
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "cutLengthMm": 3000,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-f982eb3e-908a-4adf-8336-2f7f80e25fb7",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil vertical 2",
+        "transform": {
+          "position": [
+            -1050,
+            1600,
+            205.9
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "cutLengthMm": 3000,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-90cb3b2b-1175-44c4-a8ab-94986c1d0512",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil vertical 3",
+        "transform": {
+          "position": [
+            -300,
+            1600,
+            205.9
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "cutLengthMm": 3000,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-37933b6f-56fb-41dd-8df6-4962806d8035",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil vertical 4",
+        "transform": {
+          "position": [
+            450,
+            1600,
+            205.9
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "cutLengthMm": 3000,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-bf27156e-85ce-4bec-8ec2-6e3638d9e7da",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil vertical 5",
+        "transform": {
+          "position": [
+            1200,
+            1600,
+            205.9
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "cutLengthMm": 3000,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-6acfe5a3-472f-47b6-a7b0-dbf673be1d6f",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil vertical 6",
+        "transform": {
+          "position": [
+            1950,
+            1600,
+            205.9
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "cutLengthMm": 3000,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-50c2e95a-7a10-44c3-a054-aeaab9e70057",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil horizontal 1.1 · resuelto contra hueco",
+        "transform": {
+          "position": [
+            -1200,
+            350,
+            205.9
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ]
+        },
+        "cutLengthMm": 2400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-81031169-5ac3-464b-9438-435d1a930060",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil horizontal 1.2 · resuelto contra hueco",
+        "transform": {
+          "position": [
+            1200,
+            350,
+            205.9
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ]
+        },
+        "cutLengthMm": 2400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-f049eb58-4f79-426e-937d-758cbb61ecf6",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil horizontal 2.1 · resuelto contra hueco",
+        "transform": {
+          "position": [
+            -1200,
+            950,
+            205.9
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ]
+        },
+        "cutLengthMm": 2400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-c44325b4-a7ef-4f29-8b79-179f9fd2a23e",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil horizontal 2.2 · resuelto contra hueco",
+        "transform": {
+          "position": [
+            1200,
+            950,
+            205.9
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ]
+        },
+        "cutLengthMm": 2400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-154fcf96-dd3a-435e-8330-6d9827bb44ee",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil horizontal 3.1 · resuelto contra hueco",
+        "transform": {
+          "position": [
+            -1200,
+            1650,
+            205.9
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ]
+        },
+        "cutLengthMm": 2400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-d8ae0f63-7736-4dcf-9005-ad0ddb5b2342",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil horizontal 3.2 · resuelto contra hueco",
+        "transform": {
+          "position": [
+            1200,
+            1650,
+            205.9
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ]
+        },
+        "cutLengthMm": 2400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-b7c3608b-5dc9-4bd3-993c-ef3391ef1779",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil horizontal 4.1 · resuelto contra hueco",
+        "transform": {
+          "position": [
+            -1200,
+            2350,
+            205.9
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ]
+        },
+        "cutLengthMm": 2400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-5cf4c687-96d5-4ed6-beb1-cb451ae14b68",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil horizontal 4.2 · resuelto contra hueco",
+        "transform": {
+          "position": [
+            1200,
+            2350,
+            205.9
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ]
+        },
+        "cutLengthMm": 2400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-da9d5641-5350-4e40-b698-b791e6f1c79d",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil horizontal 5.1 · resuelto contra hueco",
+        "transform": {
+          "position": [
+            -1200,
+            2950,
+            205.9
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ]
+        },
+        "cutLengthMm": 2400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-c578422a-d959-4a6e-b32b-f5ac85d542f0",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil horizontal 5.2 · resuelto contra hueco",
+        "transform": {
+          "position": [
+            1200,
+            2950,
+            205.9
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ]
+        },
+        "cutLengthMm": 2400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-f20ddf14-fdf0-4efa-b457-6387973008df",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 1.1",
+        "transform": {
+          "position": [
+            -1800,
+            350,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-c0f7ef51-8627-48a2-a01b-62f98081c1a1",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 1.2",
+        "transform": {
+          "position": [
+            -1050,
+            350,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-8f301b80-229f-44ba-8659-cfbea14b791e",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 1.3",
+        "transform": {
+          "position": [
+            -300,
+            350,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-81583f58-edc0-4325-9e3d-0faac0851231",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 1.4",
+        "transform": {
+          "position": [
+            450,
+            350,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-1b093d94-8cc5-4556-bc6a-55138bf334b5",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 1.5",
+        "transform": {
+          "position": [
+            1200,
+            350,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-c2dc2818-ecd5-40d3-bd8f-837da0fe32df",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 1.6",
+        "transform": {
+          "position": [
+            1950,
+            350,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-e467a5fb-fbcf-4b1f-bb1d-1a91d64a6f4d",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 2.1",
+        "transform": {
+          "position": [
+            -1800,
+            950,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-089f76c9-2328-4c7e-8fe2-5573d4e0c40e",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 2.2",
+        "transform": {
+          "position": [
+            -1050,
+            950,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-0bccf64f-67f2-489c-bc0f-6fe45543636f",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 2.3",
+        "transform": {
+          "position": [
+            -300,
+            950,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-ce967446-bfb8-4fd1-8ae5-808a0747ed5b",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 2.4",
+        "transform": {
+          "position": [
+            450,
+            950,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-7159b5eb-e051-4626-b79c-4718414bfd89",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 2.5",
+        "transform": {
+          "position": [
+            1200,
+            950,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-cc97163d-0030-4135-8fe9-64a6f5ede5e2",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 2.6",
+        "transform": {
+          "position": [
+            1950,
+            950,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-ce15d812-405f-4031-b7a5-d6fda0983369",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 3.1",
+        "transform": {
+          "position": [
+            -1800,
+            1650,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-3d7d7fa6-9110-4ad3-a13f-16c0dc7099da",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 3.2",
+        "transform": {
+          "position": [
+            -1050,
+            1650,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-a4be828c-53c4-4366-a492-2aeb3f06b5be",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 3.3",
+        "transform": {
+          "position": [
+            -300,
+            1650,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-1bf7c552-d825-43ad-8512-db0605a7fd3d",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 3.4",
+        "transform": {
+          "position": [
+            450,
+            1650,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-2fdc1688-0d87-4e87-9a9b-436155472e26",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 3.5",
+        "transform": {
+          "position": [
+            1200,
+            1650,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-f33ddc90-9109-48ef-a9f0-f87c609872e3",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 3.6",
+        "transform": {
+          "position": [
+            1950,
+            1650,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-d2422da9-f4eb-4c6f-a66d-5ef9f4ad6715",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 4.1",
+        "transform": {
+          "position": [
+            -1800,
+            2350,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-cca1f20f-a4c5-41cb-802d-999b0629c80b",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 4.2",
+        "transform": {
+          "position": [
+            -1050,
+            2350,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-5c3c45fe-58bc-44f8-abb2-aa784107d468",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 4.3",
+        "transform": {
+          "position": [
+            -300,
+            2350,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-b48b02b1-03cb-487f-965d-dfd101f6ebee",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 4.4",
+        "transform": {
+          "position": [
+            450,
+            2350,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-b626bda7-d7e7-45cb-abdd-b45943632e24",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 4.5",
+        "transform": {
+          "position": [
+            1200,
+            2350,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-14707f3b-1002-4dbc-a365-6d6c25251b7a",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 4.6",
+        "transform": {
+          "position": [
+            1950,
+            2350,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-82b792a0-ca7b-44c0-9114-3cc93811c866",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 5.1",
+        "transform": {
+          "position": [
+            -1800,
+            2950,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-a0f729dd-8ca9-4a6e-98b8-78519f9307a6",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 5.2",
+        "transform": {
+          "position": [
+            -1050,
+            2950,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-bf382949-726d-4419-8075-af47b1f633f2",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 5.3",
+        "transform": {
+          "position": [
+            -300,
+            2950,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-85c56a8d-2910-47b9-b436-a2b017b1c887",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 5.4",
+        "transform": {
+          "position": [
+            450,
+            2950,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-c0275fca-e991-4657-8995-f6742069a0ae",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 5.5",
+        "transform": {
+          "position": [
+            1200,
+            2950,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-80031d73-2e0e-46bf-8df9-fc89f054388f",
+        "productId": "edu-facade-bracket",
+        "variantId": "edu-facade-bracket-variant",
+        "name": "Ménsula 5.6",
+        "transform": {
+          "position": [
+            1950,
+            2950,
+            145.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-9ed19cda-e5e2-422f-a46a-81bd5a50c783",
+        "productId": "ejot-fijacion-ejot-dh-140",
+        "variantId": "ejot-fijacion-ejot-dh-140-variant",
+        "name": "Fijación de aislamiento 1",
+        "transform": {
+          "position": [
+            -1850,
+            2200,
+            165.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-e1d42e30-9088-4242-9ce5-8f83e721a582",
+        "productId": "ejot-fijacion-ejot-dh-140",
+        "variantId": "ejot-fijacion-ejot-dh-140-variant",
+        "name": "Fijación de aislamiento 2",
+        "transform": {
+          "position": [
+            -1250,
+            1100,
+            165.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-a56147e0-209a-4ea6-9308-e3109d04a444",
+        "productId": "ejot-fijacion-ejot-dh-140",
+        "variantId": "ejot-fijacion-ejot-dh-140-variant",
+        "name": "Fijación de aislamiento 3",
+        "transform": {
+          "position": [
+            -650,
+            2200,
+            165.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-8be0f6c4-6f80-442f-9817-4af591220710",
+        "productId": "ejot-fijacion-ejot-dh-140",
+        "variantId": "ejot-fijacion-ejot-dh-140-variant",
+        "name": "Fijación de aislamiento 4",
+        "transform": {
+          "position": [
+            -50,
+            1100,
+            165.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-9c153e47-2424-43c9-8d1d-38847b8d7cc3",
+        "productId": "ejot-fijacion-ejot-dh-140",
+        "variantId": "ejot-fijacion-ejot-dh-140-variant",
+        "name": "Fijación de aislamiento 5",
+        "transform": {
+          "position": [
+            550,
+            2200,
+            165.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-2c85ae9d-be93-4d86-8a8d-5e0ce73dff49",
+        "productId": "ejot-fijacion-ejot-dh-140",
+        "variantId": "ejot-fijacion-ejot-dh-140-variant",
+        "name": "Fijación de aislamiento 6",
+        "transform": {
+          "position": [
+            1150,
+            1100,
+            165.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-232f33cc-0068-40d3-bf1f-ea62a7cb4c5c",
+        "productId": "ejot-fijacion-ejot-dh-140",
+        "variantId": "ejot-fijacion-ejot-dh-140-variant",
+        "name": "Fijación de aislamiento 7",
+        "transform": {
+          "position": [
+            1750,
+            2200,
+            165.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-0b4ba2da-82ae-4b46-abdb-307238cb7317",
+        "productId": "rockpanel-rockpanel-colours-a2-8-mm-2500-1200",
+        "variantId": "rockpanel-rockpanel-colours-a2-8-mm-2500-1200-variant",
+        "name": "05 · Revestimiento ventilado · cutaway",
+        "transform": {
+          "position": [
+            825,
+            1600,
+            229.9
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "coverage": {
+          "widthMm": 1850,
+          "heightMm": 2880,
+          "jointMm": 10,
+          "bedJointMm": 10,
+          "headJointMm": 10,
+          "mortarRecessMm": 3,
+          "stagger": false,
+          "overlapMm": 0,
+          "sideOverlapMm": 0,
+          "pieceExceptions": []
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-18d3a84d-b137-4137-9198-3ae577f1e8d5",
+        "productId": "cortizo-ventana-cortizo-cor-80-industrial-1200-1400",
+        "variantId": "cortizo-ventana-cortizo-cor-80-industrial-1200-1400-variant",
+        "name": "Ventana · montaje completo sobre premarco",
+        "transform": {
+          "position": [
+            900,
+            1650,
+            20
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "opening": {
+          "widthMm": 1200,
+          "heightMm": 1400,
+          "sillMm": 950,
+          "depthMm": 1000,
+          "installation": {
+            "jointMm": 20,
+            "preframeFaceMm": 30,
+            "preframeDepthMm": 80,
+            "revealInsulationMm": 25,
+            "facadeFaceOffsetMm": 213.9,
+            "insulationFaceOffsetMm": 145.5,
+            "sillSlopeDeg": 10,
+            "sillProjectionMm": 40,
+            "lintelHeightMm": 150,
+            "lintelBearingMm": 200,
+            "supportDepthMm": 115,
+            "supportCenterOffsetMm": -20
+          },
+          "affectedEntities": [
+            {
+              "entityId": "entity-4bd35dff-be59-49e3-8185-d01525bcb7e8",
+              "behavior": "cut-coverage"
+            },
+            {
+              "entityId": "entity-bc6b8b28-16d0-4950-8da4-f861eb3b959b",
+              "behavior": "cut-coverage"
+            },
+            {
+              "entityId": "entity-ab121cab-10fd-4bfa-bcc6-c4296eefbb42",
+              "behavior": "cut-coverage"
+            },
+            {
+              "entityId": "entity-d256094a-44f8-4413-9931-fe7057559fc8",
+              "behavior": "cut-coverage"
+            },
+            {
+              "entityId": "entity-37933b6f-56fb-41dd-8df6-4962806d8035",
+              "behavior": "split-linear"
+            },
+            {
+              "entityId": "entity-bf27156e-85ce-4bec-8ec2-6e3638d9e7da",
+              "behavior": "split-linear"
+            },
+            {
+              "entityId": "entity-c44325b4-a7ef-4f29-8b79-179f9fd2a23e",
+              "behavior": "split-linear"
+            },
+            {
+              "entityId": "entity-d8ae0f63-7736-4dcf-9005-ad0ddb5b2342",
+              "behavior": "split-linear"
+            },
+            {
+              "entityId": "entity-5cf4c687-96d5-4ed6-beb1-cb451ae14b68",
+              "behavior": "split-linear"
+            },
+            {
+              "entityId": "entity-ce967446-bfb8-4fd1-8ae5-808a0747ed5b",
+              "behavior": "suppress-unit"
+            },
+            {
+              "entityId": "entity-7159b5eb-e051-4626-b79c-4718414bfd89",
+              "behavior": "suppress-unit"
+            },
+            {
+              "entityId": "entity-1bf7c552-d825-43ad-8512-db0605a7fd3d",
+              "behavior": "suppress-unit"
+            },
+            {
+              "entityId": "entity-2fdc1688-0d87-4e87-9a9b-436155472e26",
+              "behavior": "suppress-unit"
+            },
+            {
+              "entityId": "entity-b48b02b1-03cb-487f-965d-dfd101f6ebee",
+              "behavior": "suppress-unit"
+            },
+            {
+              "entityId": "entity-b626bda7-d7e7-45cb-abdd-b45943632e24",
+              "behavior": "suppress-unit"
+            },
+            {
+              "entityId": "entity-9c153e47-2424-43c9-8d1d-38847b8d7cc3",
+              "behavior": "suppress-unit"
+            },
+            {
+              "entityId": "entity-2c85ae9d-be93-4d86-8a8d-5e0ce73dff49",
+              "behavior": "suppress-unit"
+            },
+            {
+              "entityId": "entity-0b4ba2da-82ae-4b46-abdb-307238cb7317",
+              "behavior": "cut-coverage"
+            }
+          ],
+          "hostIds": [
+            "entity-4bd35dff-be59-49e3-8185-d01525bcb7e8",
+            "entity-bc6b8b28-16d0-4950-8da4-f861eb3b959b",
+            "entity-ab121cab-10fd-4bfa-bcc6-c4296eefbb42",
+            "entity-d256094a-44f8-4413-9931-fe7057559fc8",
+            "entity-37933b6f-56fb-41dd-8df6-4962806d8035",
+            "entity-bf27156e-85ce-4bec-8ec2-6e3638d9e7da",
+            "entity-c44325b4-a7ef-4f29-8b79-179f9fd2a23e",
+            "entity-d8ae0f63-7736-4dcf-9005-ad0ddb5b2342",
+            "entity-5cf4c687-96d5-4ed6-beb1-cb451ae14b68",
+            "entity-ce967446-bfb8-4fd1-8ae5-808a0747ed5b",
+            "entity-7159b5eb-e051-4626-b79c-4718414bfd89",
+            "entity-1bf7c552-d825-43ad-8512-db0605a7fd3d",
+            "entity-2fdc1688-0d87-4e87-9a9b-436155472e26",
+            "entity-b48b02b1-03cb-487f-965d-dfd101f6ebee",
+            "entity-b626bda7-d7e7-45cb-abdd-b45943632e24",
+            "entity-9c153e47-2424-43c9-8d1d-38847b8d7cc3",
+            "entity-2c85ae9d-be93-4d86-8a8d-5e0ce73dff49",
+            "entity-0b4ba2da-82ae-4b46-abdb-307238cb7317"
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      }
+    ],
+    "camera": {
+      "mode": "perspective",
+      "position": [
+        4450,
+        3350,
+        4550
+      ],
+      "target": [
+        220,
+        1580,
+        60
+      ]
+    },
+    "section": {
+      "open": true,
+      "expanded": false,
+      "offsetMm": -1500,
+      "direction": "vertical-x",
+      "scale": 10
+    }
+  }
+}

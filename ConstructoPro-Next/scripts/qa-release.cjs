@@ -1,0 +1,92 @@
+async (page) => {
+  const origin = new URL(page.url()).origin;
+  const errors = [], failedRequests = [], matrix = [];
+  page.on('pageerror', (error) => errors.push(String(error)));
+  page.on('response', (response) => { if (response.status() >= 400) failedRequests.push(`${response.status()} ${response.url()}`); });
+  const waitModel = async () => {
+    await page.locator('.viewport-canvas canvas').waitFor();
+    await page.locator('.geometry-progress').waitFor({state:'hidden',timeout:45000});
+    await page.waitForFunction(() => /[1-9][\d.]*\s*piezas/.test(document.querySelector('.viewport-status')?.textContent ?? '') && !document.querySelector('.geometry-progress'), {timeout:45000});
+  };
+  const count = async () => Number((await page.locator('.statusbar__project').innerText()).match(/^(\d+)/)[1]);
+  const load = async (system) => {
+    await page.getByRole('combobox',{name:'Sistema constructivo'}).selectOption(system);
+    await page.getByRole('button',{name:'Cargar ejemplo',exact:true}).click();
+    await waitModel();
+  };
+  const systems = ['fachada-ventilada','fachada-sate','hueco-fachada','cubierta-inclinada','cubierta-plana','terraza','pavimento','particion'];
+  await page.setViewportSize({width:1600,height:1000});
+  await page.goto(`${origin}/?demo=fachada-ventilada&qa=smoke`);
+  await waitModel();
+  for (let pass = 1; pass <= 2; pass++) for (const system of systems) {
+    await load(system);
+    const objects = await count();
+    const polygons = await page.getByRole('region',{name:'Sección técnica 2D sincronizada'}).locator('svg polygon').count();
+    if (!objects || !polygons) throw new Error(`Escena vacía: ${system}`);
+    matrix.push({pass,system,objects,polygons,metrics:await page.locator('.viewport-status').innerText()});
+    if (pass === 2) await page.screenshot({path:`output/playwright/upgrade-${system}.png`});
+  }
+  await load('fachada-ventilada');
+  const preview = page.getByRole('region',{name:'Sección técnica 2D sincronizada'});
+  if ((await preview.boundingBox()).width > 500) throw new Error('El 2D inicial no es una ventana pequeña');
+  await page.getByRole('button',{name:'Ampliar dibujo técnico',exact:true}).click();
+  if (!(await preview.getAttribute('class')).includes('is-expanded')) throw new Error('No amplía el plano al pulsarlo');
+  await page.getByRole('button',{name:'Reducir',exact:true}).click();
+  await preview.getByRole('button',{name:'Cerrar',exact:true}).click();
+  await page.getByRole('button',{name:'Mostrar dibujo técnico',exact:true}).click();
+  if ((await preview.getAttribute('class')).includes('is-expanded')) throw new Error('El plano debe reabrirse pequeño');
+  const initial = await count();
+  await page.getByRole('button',{name:'Duplicar (Ctrl+D)',exact:true}).click();
+  if (await count() !== initial + 1) throw new Error('Duplicación incorrecta');
+  await page.getByRole('button',{name:'Deshacer',exact:true}).click();
+  if (await count() !== initial) throw new Error('Undo incorrecto');
+  await page.getByRole('button',{name:'Rehacer',exact:true}).click();
+  if (await count() !== initial + 1) throw new Error('Redo incorrecto');
+  await page.getByRole('button',{name:'Árbol de capas',exact:true}).click();
+  await page.locator('.tree-select').filter({hasText:'· copia'}).first().click();
+  await page.getByRole('button',{name:'Eliminar (Supr)',exact:true}).click();
+  if (await count() !== initial) throw new Error('Eliminar incorrecto');
+  await page.getByRole('button',{name:/^Referencias \d+$/}).click();
+  await page.getByPlaceholder('Producto, empresa o prestación…').fill('Rastrel');
+  await page.getByRole('checkbox',{name:/Compatibles con este detalle/}).uncheck();
+  await page.getByRole('button',{name:/Abrir ficha completa de Rastrel/}).click();
+  await page.getByRole('dialog').waitFor();
+  await page.getByRole('dialog').getByRole('button',{name:'Cerrar',exact:true}).first().click();
+  await page.getByPlaceholder('Producto, empresa o prestación…').fill('Ladrillo perforado métrico');
+  await page.getByRole('button',{name:/Añadir Ladrillo perforado métrico/}).first().click();
+  const canvas = page.locator('.viewport-canvas canvas');
+  const rect = await canvas.boundingBox();
+  await canvas.click({position:{x:rect.width*0.5,y:rect.height*0.5}});
+  if (await count() !== initial + 1) throw new Error('Colocación incorrecta');
+  await page.getByRole('button',{name:'Deshacer',exact:true}).click();
+  await page.getByPlaceholder('Producto, empresa o prestación…').fill('');
+  await page.getByRole('button',{name:'Selección visual 50',exact:true}).click();
+  await page.getByRole('checkbox',{name:/Compatibles con este detalle/}).check();
+  await page.getByRole('button',{name:'Normativa',exact:true}).click();
+  await page.getByText('Revisión constructiva',{exact:true}).waitFor();
+  await page.getByText('Construcción III',{exact:true}).waitFor();
+  await page.screenshot({path:'output/playwright/upgrade-cte.png'});
+  await page.getByRole('button',{name:'Presupuesto por m²',exact:true}).click();
+  await page.getByText('Tarifas docentes editables.',{exact:true}).waitFor();
+  await page.getByRole('button',{name:'Configuración',exact:true}).click();
+  const projectDownload = page.waitForEvent('download');
+  await page.getByRole('button',{name:'Exportar proyecto Documento nativo'}).click();
+  await (await projectDownload).saveAs('output/playwright/upgrade-roundtrip.constructopro');
+  await page.locator('input[type="file"]').setInputFiles('output/playwright/upgrade-roundtrip.constructopro');
+  if (await count() !== initial) throw new Error('Importación no conserva la composición');
+  const svgDownload = page.waitForEvent('download');
+  await page.getByRole('button',{name:'Descargar SVG a escala',exact:true}).click();
+  await (await svgDownload).saveAs('output/playwright/upgrade-section.svg');
+  await page.getByRole('button',{name:'Configuración',exact:true}).click();
+  const pdfDownload = page.waitForEvent('download');
+  await page.getByRole('button',{name:'Memoria PDF Vistas, fuentes y avisos'}).click();
+  await (await pdfDownload).saveAs('output/playwright/upgrade-report.pdf');
+  for (const [name,width,height] of [['laptop',1176,900],['narrow',390,844],['desktop',1600,1000]]) {
+    await page.setViewportSize({width,height});
+    await page.reload();
+    await waitModel();
+    await page.screenshot({path:`output/playwright/upgrade-${name}.png`});
+  }
+  if (errors.length || failedRequests.length) throw new Error('Errores de navegador o solicitudes fallidas');
+  return {matrix,errors,failedRequests,interactions:['8 tipos × 2 pasadas','2D pequeño/ampliar/reducir/cerrar/reabrir','duplicar','undo','redo','eliminar','buscar referencia','ficha','colocar','normativa','presupuesto','exportar/importar proyecto','SVG','PDF'],viewports:['1600x1000','1176x900','390x844']};
+}

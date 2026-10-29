@@ -1,0 +1,1606 @@
+{
+  "format": "constructopro",
+  "exportedAt": "2026-08-12T19:01:22.417Z",
+  "project": {
+    "schemaVersion": 4,
+    "appVersion": "0.3.0",
+    "id": "project-67371006-0954-4830-b787-4edde0eccec5",
+    "title": "QA Persistencia 1001m",
+    "createdAt": "2026-08-12T18:57:46.946Z",
+    "updatedAt": "2026-08-12T19:00:17.795Z",
+    "detailType": "fachada-ventilada",
+    "context": {
+      "municipality": "Madrid",
+      "province": "Madrid",
+      "altitudeM": 1001,
+      "climateZone": "E1",
+      "climateZoneSource": "cte-anejob",
+      "use": "Docente",
+      "exposure": "Normal",
+      "orientation": "N",
+      "interiorTemperatureC": 20,
+      "exteriorTemperatureC": 5,
+      "interiorHumidityPct": 55,
+      "exteriorHumidityPct": 75
+    },
+    "entities": [
+      {
+        "id": "entity-3b94ec67-208b-43e6-929c-c1b6276731ff",
+        "productId": "hispalyt-ladrillo-perforado-metrico-24-11-5-10-cm",
+        "variantId": "hispalyt-ladrillo-perforado-metrico-24-11-5-10-cm-variant",
+        "name": "01 · Hoja cerámica portante",
+        "transform": {
+          "position": [
+            -300,
+            1600,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "coverage": {
+          "widthMm": 4200,
+          "heightMm": 3200,
+          "jointMm": 10,
+          "bedJointMm": 10,
+          "headJointMm": 10,
+          "mortarRecessMm": 3,
+          "stagger": true,
+          "overlapMm": 0,
+          "pieceExceptions": []
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-73de2104-224e-4c7c-8bd8-d7ae1280365d",
+        "productId": "saint-gobain-weber-webertherm-base-capa-8-mm",
+        "variantId": "saint-gobain-weber-webertherm-base-capa-8-mm-variant",
+        "name": "02 · Regularización continua",
+        "transform": {
+          "position": [
+            -475,
+            1600,
+            120
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "coverage": {
+          "widthMm": 3850,
+          "heightMm": 3200,
+          "jointMm": 0,
+          "bedJointMm": 0,
+          "headJointMm": 0,
+          "mortarRecessMm": 0,
+          "stagger": false,
+          "overlapMm": 0,
+          "pieceExceptions": []
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-332bd97f-fc33-49b8-acc5-dd36a4bd5290",
+        "productId": "rockwool-ventirock-duo-100-mm",
+        "variantId": "rockwool-ventirock-duo-100-mm-variant",
+        "name": "03 · Aislamiento semirrígido",
+        "transform": {
+          "position": [
+            -750,
+            1600,
+            185
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "coverage": {
+          "widthMm": 3300,
+          "heightMm": 3000,
+          "jointMm": 2,
+          "bedJointMm": 2,
+          "headJointMm": 2,
+          "mortarRecessMm": 3,
+          "stagger": true,
+          "overlapMm": 0,
+          "pieceExceptions": []
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-d0ece3bc-54e9-4a95-baba-4310b263a609",
+        "productId": "dupont-tyvek-uv-facade",
+        "variantId": "dupont-tyvek-uv-facade-variant",
+        "name": "04 · Membrana exterior",
+        "transform": {
+          "position": [
+            -1000,
+            1600,
+            240
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "coverage": {
+          "widthMm": 2800,
+          "heightMm": 2860,
+          "jointMm": 0,
+          "bedJointMm": 0,
+          "headJointMm": 0,
+          "mortarRecessMm": 0,
+          "stagger": false,
+          "overlapMm": 0,
+          "pieceExceptions": []
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-858df86b-2be2-4931-b85f-6dab803d3d63",
+        "productId": "holcim-espana-hormigon-estructural-c25-30-200-mm",
+        "variantId": "holcim-espana-hormigon-estructural-c25-30-200-mm-variant",
+        "name": "Forjado superior · reconstrucción parcial",
+        "transform": {
+          "position": [
+            0,
+            3300,
+            -120
+          ],
+          "rotation": [
+            1.5707963267948966,
+            0,
+            0
+          ]
+        },
+        "coverage": {
+          "widthMm": 4800,
+          "heightMm": 900,
+          "jointMm": 0,
+          "bedJointMm": 0,
+          "headJointMm": 0,
+          "mortarRecessMm": 0,
+          "stagger": false,
+          "overlapMm": 0,
+          "pieceExceptions": []
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-8e3ce7da-2f85-47a1-9891-e31a08d2dc2e",
+        "productId": "holcim-espana-hormigon-estructural-c25-30-200-mm",
+        "variantId": "holcim-espana-hormigon-estructural-c25-30-200-mm-variant",
+        "name": "Forjado inferior · reconstrucción parcial",
+        "transform": {
+          "position": [
+            0,
+            -80,
+            -120
+          ],
+          "rotation": [
+            1.5707963267948966,
+            0,
+            0
+          ]
+        },
+        "coverage": {
+          "widthMm": 4800,
+          "heightMm": 900,
+          "jointMm": 0,
+          "bedJointMm": 0,
+          "headJointMm": 0,
+          "mortarRecessMm": 0,
+          "stagger": false,
+          "overlapMm": 0,
+          "pieceExceptions": []
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-8178caa6-9ddf-42f4-bd56-f81f73edf4e7",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil vertical 1",
+        "transform": {
+          "position": [
+            -1800,
+            1600,
+            310
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "cutLengthMm": 3000,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-ce9780ec-ddbc-4418-9c12-fc2b70bdfc8d",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil vertical 2",
+        "transform": {
+          "position": [
+            -1050,
+            1600,
+            310
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "cutLengthMm": 3000,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-5ce156ea-9538-4922-930d-c116c52a4b31",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil vertical 3",
+        "transform": {
+          "position": [
+            -300,
+            1600,
+            310
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "cutLengthMm": 3000,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-dcddcdc1-ab14-4b9c-b59f-e94d427e10ce",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil vertical 4",
+        "transform": {
+          "position": [
+            450,
+            1600,
+            310
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "cutLengthMm": 3000,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-85112503-8f1b-4016-a322-7177a0209485",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil vertical 5",
+        "transform": {
+          "position": [
+            1200,
+            1600,
+            310
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "cutLengthMm": 3000,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-2875b8d0-00e1-4028-8ace-0abb8dd74101",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil vertical 6",
+        "transform": {
+          "position": [
+            1950,
+            1600,
+            310
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "cutLengthMm": 3000,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-29c54d37-5559-411f-ad06-d520824d3376",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil horizontal 1.1 · resuelto contra hueco",
+        "transform": {
+          "position": [
+            -1200,
+            350,
+            318
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ]
+        },
+        "cutLengthMm": 2400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-a24bff69-3af6-42dd-ad9c-5ef4b59daf34",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil horizontal 1.2 · resuelto contra hueco",
+        "transform": {
+          "position": [
+            1200,
+            350,
+            318
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ]
+        },
+        "cutLengthMm": 2400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-8334975b-74e7-457c-9ff4-e32e313412f2",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil horizontal 2.1 · resuelto contra hueco",
+        "transform": {
+          "position": [
+            -1200,
+            950,
+            318
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ]
+        },
+        "cutLengthMm": 2400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-814b3710-c02c-497a-832b-742b5e4106a4",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil horizontal 2.2 · resuelto contra hueco",
+        "transform": {
+          "position": [
+            1200,
+            950,
+            318
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ]
+        },
+        "cutLengthMm": 2400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-42f8d84f-ca50-4530-a564-f7ce7f3b909d",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil horizontal 3.1 · resuelto contra hueco",
+        "transform": {
+          "position": [
+            -1200,
+            1650,
+            318
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ]
+        },
+        "cutLengthMm": 2400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-8ecde0fe-1cac-4d68-aaab-1154c1865e34",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil horizontal 3.2 · resuelto contra hueco",
+        "transform": {
+          "position": [
+            1200,
+            1650,
+            318
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ]
+        },
+        "cutLengthMm": 2400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-eced0638-a29c-4a2d-aaeb-651226b87c31",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil horizontal 4.1 · resuelto contra hueco",
+        "transform": {
+          "position": [
+            -1200,
+            2350,
+            318
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ]
+        },
+        "cutLengthMm": 2400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-5c432452-eb05-4251-b928-5c8fe0f05af3",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil horizontal 4.2 · resuelto contra hueco",
+        "transform": {
+          "position": [
+            1200,
+            2350,
+            318
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ]
+        },
+        "cutLengthMm": 2400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-34d4c3cf-d763-4792-8217-ae215f0e2865",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil horizontal 5.1 · resuelto contra hueco",
+        "transform": {
+          "position": [
+            -1200,
+            2950,
+            318
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ]
+        },
+        "cutLengthMm": 2400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-7b52563d-f983-4960-98ba-63e71c9e0633",
+        "productId": "hilti-perfil-hilti-mft-t-60-40-3-m",
+        "variantId": "hilti-perfil-hilti-mft-t-60-40-3-m-variant",
+        "name": "Perfil horizontal 5.2 · resuelto contra hueco",
+        "transform": {
+          "position": [
+            1200,
+            2950,
+            318
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ]
+        },
+        "cutLengthMm": 2400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-de93dc20-361c-4be7-aad7-e491d29cb5fe",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 1.1",
+        "transform": {
+          "position": [
+            -1800,
+            350,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-dd6ae9a2-f33a-4654-9584-511ae5c16ebe",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 1.2",
+        "transform": {
+          "position": [
+            -1050,
+            350,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-212d4f7a-3c7a-49a0-bb16-29d5d4f6716a",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 1.3",
+        "transform": {
+          "position": [
+            -300,
+            350,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-9d1f4c5e-f725-47c2-9fd2-9116c66a1d27",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 1.4",
+        "transform": {
+          "position": [
+            450,
+            350,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-a65a2db7-d877-492a-beed-0bbd1f841595",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 1.5",
+        "transform": {
+          "position": [
+            1200,
+            350,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-cc819641-a070-45d6-96b7-59687733b7dd",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 1.6",
+        "transform": {
+          "position": [
+            1950,
+            350,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-3ddd2c7a-fe70-4862-8bdb-f17ac5a0e9bc",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 2.1",
+        "transform": {
+          "position": [
+            -1800,
+            950,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-26e2e6a9-ee24-4b18-bc01-edaa3841b61d",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 2.2",
+        "transform": {
+          "position": [
+            -1050,
+            950,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-9d8c8b8c-fbc0-43cd-90eb-e876d2d2bac8",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 2.3",
+        "transform": {
+          "position": [
+            -300,
+            950,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-fdac1c0f-c12f-40a8-ab0a-a6ed15fc2c69",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 2.4",
+        "transform": {
+          "position": [
+            450,
+            950,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-a7463dec-191d-47ca-9d8d-3ddd14168eee",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 2.5",
+        "transform": {
+          "position": [
+            1200,
+            950,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-f4075b7e-9b83-4fca-a09b-c106897ff74c",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 2.6",
+        "transform": {
+          "position": [
+            1950,
+            950,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-d490cc64-fcac-440c-826b-a80dffc0e047",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 3.1",
+        "transform": {
+          "position": [
+            -1800,
+            1650,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-7efa7bc5-f86b-49d8-8e6e-13cc8dc4de96",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 3.2",
+        "transform": {
+          "position": [
+            -1050,
+            1650,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-4f72717e-5649-4bad-9bea-015cfabbb669",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 3.3",
+        "transform": {
+          "position": [
+            -300,
+            1650,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-bac3eb5c-4190-4857-8eb7-05e13e1a1383",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 3.4",
+        "transform": {
+          "position": [
+            450,
+            1650,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-33783c68-9c29-4760-988b-6eb6b42abd3f",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 3.5",
+        "transform": {
+          "position": [
+            1200,
+            1650,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-e2c55b47-9647-4b9a-9379-bfaa698c63fb",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 3.6",
+        "transform": {
+          "position": [
+            1950,
+            1650,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-73510f4e-1f0c-4b9c-8222-8741dfb49ae2",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 4.1",
+        "transform": {
+          "position": [
+            -1800,
+            2350,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-4bed8613-12b5-4214-861f-d8182072bd49",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 4.2",
+        "transform": {
+          "position": [
+            -1050,
+            2350,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-b6f5cf18-9df6-4861-ad34-c5b23c6c66de",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 4.3",
+        "transform": {
+          "position": [
+            -300,
+            2350,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-2f4ad9d1-a69b-4418-8222-83bf2e501cc6",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 4.4",
+        "transform": {
+          "position": [
+            450,
+            2350,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-877b2d94-df99-4aec-a93f-572d13303056",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 4.5",
+        "transform": {
+          "position": [
+            1200,
+            2350,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-a2ea8bb8-e2a9-474b-aef3-4f95df9c83d2",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 4.6",
+        "transform": {
+          "position": [
+            1950,
+            2350,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-03ec973f-d1cc-4d90-b0eb-801a8f3b4fea",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 5.1",
+        "transform": {
+          "position": [
+            -1800,
+            2950,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-6ce563ce-4ea5-4c4d-9404-66b796941653",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 5.2",
+        "transform": {
+          "position": [
+            -1050,
+            2950,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-306153aa-52cf-41ab-afdf-f4c256f809b3",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 5.3",
+        "transform": {
+          "position": [
+            -300,
+            2950,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-bc1cafdb-766e-4c05-903b-2425074f3ccb",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 5.4",
+        "transform": {
+          "position": [
+            450,
+            2950,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-518cc8ac-b99f-48fe-acf5-7b8f98166145",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 5.5",
+        "transform": {
+          "position": [
+            1200,
+            2950,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-8d99e1ec-ca0b-46a5-8b24-8ff933eade04",
+        "productId": "hilti-mensula-hilti-mft-mft-s2s-120",
+        "variantId": "hilti-mensula-hilti-mft-mft-s2s-120-variant",
+        "name": "Ménsula 5.6",
+        "transform": {
+          "position": [
+            1950,
+            2950,
+            280
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-b04f328b-a7f2-42cf-ada7-73faa2dfb602",
+        "productId": "ejot-fijacion-ejot-dh-140",
+        "variantId": "ejot-fijacion-ejot-dh-140-variant",
+        "name": "Fijación de aislamiento 1",
+        "transform": {
+          "position": [
+            -1850,
+            2200,
+            254
+          ],
+          "rotation": [
+            1.5707963267948966,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-a2fe9be5-c0a7-46c7-b9b2-1645e1324c97",
+        "productId": "ejot-fijacion-ejot-dh-140",
+        "variantId": "ejot-fijacion-ejot-dh-140-variant",
+        "name": "Fijación de aislamiento 2",
+        "transform": {
+          "position": [
+            -1250,
+            1100,
+            254
+          ],
+          "rotation": [
+            1.5707963267948966,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-8b38299a-0fe9-4eb5-b932-2e49fead3df1",
+        "productId": "ejot-fijacion-ejot-dh-140",
+        "variantId": "ejot-fijacion-ejot-dh-140-variant",
+        "name": "Fijación de aislamiento 3",
+        "transform": {
+          "position": [
+            -650,
+            2200,
+            254
+          ],
+          "rotation": [
+            1.5707963267948966,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-caf36b36-c778-4376-8873-619d253dc0e9",
+        "productId": "ejot-fijacion-ejot-dh-140",
+        "variantId": "ejot-fijacion-ejot-dh-140-variant",
+        "name": "Fijación de aislamiento 4",
+        "transform": {
+          "position": [
+            -50,
+            1100,
+            254
+          ],
+          "rotation": [
+            1.5707963267948966,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-b62538fb-890c-4d20-873b-38abffde807d",
+        "productId": "ejot-fijacion-ejot-dh-140",
+        "variantId": "ejot-fijacion-ejot-dh-140-variant",
+        "name": "Fijación de aislamiento 5",
+        "transform": {
+          "position": [
+            550,
+            2200,
+            254
+          ],
+          "rotation": [
+            1.5707963267948966,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-c474350a-be02-4d2b-87d6-2e527f2a4431",
+        "productId": "ejot-fijacion-ejot-dh-140",
+        "variantId": "ejot-fijacion-ejot-dh-140-variant",
+        "name": "Fijación de aislamiento 6",
+        "transform": {
+          "position": [
+            1150,
+            1100,
+            254
+          ],
+          "rotation": [
+            1.5707963267948966,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-3094634d-3363-4745-837e-c60ab7ff20ca",
+        "productId": "ejot-fijacion-ejot-dh-140",
+        "variantId": "ejot-fijacion-ejot-dh-140-variant",
+        "name": "Fijación de aislamiento 7",
+        "transform": {
+          "position": [
+            1750,
+            2200,
+            254
+          ],
+          "rotation": [
+            1.5707963267948966,
+            0,
+            0
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-f45bcf8f-3ac5-4cba-a493-d3f41eb01558",
+        "productId": "rockpanel-rockpanel-colours-a2-8-mm-2500-1200",
+        "variantId": "rockpanel-rockpanel-colours-a2-8-mm-2500-1200-variant",
+        "name": "05 · Revestimiento ventilado · cutaway",
+        "transform": {
+          "position": [
+            -1475,
+            1600,
+            345
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "coverage": {
+          "widthMm": 1850,
+          "heightMm": 2880,
+          "jointMm": 10,
+          "bedJointMm": 10,
+          "headJointMm": 10,
+          "mortarRecessMm": 3,
+          "stagger": false,
+          "overlapMm": 0,
+          "pieceExceptions": []
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-843a2fa2-9024-42b6-a4b3-4ba960f9ba7f",
+        "productId": "cortizo-ventana-cortizo-cor-80-industrial-1200-1400",
+        "variantId": "cortizo-ventana-cortizo-cor-80-industrial-1200-1400-variant",
+        "name": "Ventana real · hueco paramétrico",
+        "transform": {
+          "position": [
+            900,
+            1650,
+            390
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "opening": {
+          "widthMm": 1200,
+          "heightMm": 1400,
+          "sillMm": 950,
+          "depthMm": 1000,
+          "affectedEntities": [
+            {
+              "entityId": "entity-3b94ec67-208b-43e6-929c-c1b6276731ff",
+              "behavior": "cut-coverage"
+            },
+            {
+              "entityId": "entity-73de2104-224e-4c7c-8bd8-d7ae1280365d",
+              "behavior": "cut-coverage"
+            },
+            {
+              "entityId": "entity-332bd97f-fc33-49b8-acc5-dd36a4bd5290",
+              "behavior": "cut-coverage"
+            },
+            {
+              "entityId": "entity-d0ece3bc-54e9-4a95-baba-4310b263a609",
+              "behavior": "cut-coverage"
+            },
+            {
+              "entityId": "entity-dcddcdc1-ab14-4b9c-b59f-e94d427e10ce",
+              "behavior": "split-linear"
+            },
+            {
+              "entityId": "entity-85112503-8f1b-4016-a322-7177a0209485",
+              "behavior": "split-linear"
+            },
+            {
+              "entityId": "entity-814b3710-c02c-497a-832b-742b5e4106a4",
+              "behavior": "split-linear"
+            },
+            {
+              "entityId": "entity-8ecde0fe-1cac-4d68-aaab-1154c1865e34",
+              "behavior": "split-linear"
+            },
+            {
+              "entityId": "entity-5c432452-eb05-4251-b928-5c8fe0f05af3",
+              "behavior": "split-linear"
+            },
+            {
+              "entityId": "entity-fdac1c0f-c12f-40a8-ab0a-a6ed15fc2c69",
+              "behavior": "suppress-unit"
+            },
+            {
+              "entityId": "entity-a7463dec-191d-47ca-9d8d-3ddd14168eee",
+              "behavior": "suppress-unit"
+            },
+            {
+              "entityId": "entity-bac3eb5c-4190-4857-8eb7-05e13e1a1383",
+              "behavior": "suppress-unit"
+            },
+            {
+              "entityId": "entity-33783c68-9c29-4760-988b-6eb6b42abd3f",
+              "behavior": "suppress-unit"
+            },
+            {
+              "entityId": "entity-2f4ad9d1-a69b-4418-8222-83bf2e501cc6",
+              "behavior": "suppress-unit"
+            },
+            {
+              "entityId": "entity-877b2d94-df99-4aec-a93f-572d13303056",
+              "behavior": "suppress-unit"
+            },
+            {
+              "entityId": "entity-b62538fb-890c-4d20-873b-38abffde807d",
+              "behavior": "suppress-unit"
+            },
+            {
+              "entityId": "entity-c474350a-be02-4d2b-87d6-2e527f2a4431",
+              "behavior": "suppress-unit"
+            }
+          ],
+          "hostIds": [
+            "entity-3b94ec67-208b-43e6-929c-c1b6276731ff",
+            "entity-73de2104-224e-4c7c-8bd8-d7ae1280365d",
+            "entity-332bd97f-fc33-49b8-acc5-dd36a4bd5290",
+            "entity-d0ece3bc-54e9-4a95-baba-4310b263a609",
+            "entity-dcddcdc1-ab14-4b9c-b59f-e94d427e10ce",
+            "entity-85112503-8f1b-4016-a322-7177a0209485",
+            "entity-814b3710-c02c-497a-832b-742b5e4106a4",
+            "entity-8ecde0fe-1cac-4d68-aaab-1154c1865e34",
+            "entity-5c432452-eb05-4251-b928-5c8fe0f05af3",
+            "entity-fdac1c0f-c12f-40a8-ab0a-a6ed15fc2c69",
+            "entity-a7463dec-191d-47ca-9d8d-3ddd14168eee",
+            "entity-bac3eb5c-4190-4857-8eb7-05e13e1a1383",
+            "entity-33783c68-9c29-4760-988b-6eb6b42abd3f",
+            "entity-2f4ad9d1-a69b-4418-8222-83bf2e501cc6",
+            "entity-877b2d94-df99-4aec-a93f-572d13303056",
+            "entity-b62538fb-890c-4d20-873b-38abffde807d",
+            "entity-c474350a-be02-4d2b-87d6-2e527f2a4431"
+          ]
+        },
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-e3a88cbd-9333-4964-a6ab-8f878eed5796",
+        "productId": "rheinzink-remate-rheinzink-vierteaguas-250",
+        "variantId": "rheinzink-remate-rheinzink-vierteaguas-250-variant",
+        "name": "Vierteaguas independiente",
+        "transform": {
+          "position": [
+            900,
+            925,
+            400
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ]
+        },
+        "cutLengthMm": 1400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-868adf19-520a-429d-9965-0698bfe4d33c",
+        "productId": "rheinzink-remate-rheinzink-vierteaguas-250",
+        "variantId": "rheinzink-remate-rheinzink-vierteaguas-250-variant",
+        "name": "Dintel exterior independiente",
+        "transform": {
+          "position": [
+            900,
+            2375,
+            400
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ]
+        },
+        "cutLengthMm": 1400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-6f08f620-b485-48ab-b31f-c9ce19f6db22",
+        "productId": "rheinzink-remate-rheinzink-vierteaguas-250",
+        "variantId": "rheinzink-remate-rheinzink-vierteaguas-250-variant",
+        "name": "Jamba izquierda independiente",
+        "transform": {
+          "position": [
+            275,
+            1650,
+            400
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "cutLengthMm": 1400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      },
+      {
+        "id": "entity-c2462629-ccd7-4cfc-88fa-2aa9dc50fba8",
+        "productId": "rheinzink-remate-rheinzink-vierteaguas-250",
+        "variantId": "rheinzink-remate-rheinzink-vierteaguas-250-variant",
+        "name": "Jamba derecha independiente",
+        "transform": {
+          "position": [
+            1525,
+            1650,
+            400
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        },
+        "cutLengthMm": 1400,
+        "visible": true,
+        "locked": false,
+        "sample": true
+      }
+    ],
+    "camera": {
+      "mode": "perspective",
+      "position": [
+        4450,
+        3350,
+        4550
+      ],
+      "target": [
+        220,
+        1580,
+        60
+      ]
+    },
+    "section": {
+      "open": true,
+      "expanded": false,
+      "offsetMm": 275,
+      "direction": "vertical-x",
+      "scale": 10
+    }
+  }
+}
