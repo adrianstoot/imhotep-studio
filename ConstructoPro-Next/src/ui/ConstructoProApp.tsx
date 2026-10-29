@@ -72,7 +72,7 @@ export function ConstructoProApp() {
     <StatusBar catalogOpen={catalogOpen} inspectorOpen={inspectorOpen} onCatalogToggle={toggleCatalog} onInspectorToggle={toggleInspector} />
     {qaMode === 'reference' && hydrated && <QaReferenceBoard />}
     {qaMode === 'performance' && hydrated && <div className="performance-route-badge"><strong>QA 12×12 m</strong><span>Escena temporal · no se guarda</span></div>}
-    {!hydrated && <div className="boot-screen"><div className="brand-mark brand-mark--large"><span /><i /></div><strong>CONSTRUCTOPRO NEXT</strong><p>Recuperando el estudio local…</p><span className="boot-line" /></div>}
+    {!hydrated && <div className="boot-screen"><div className="brand-mark brand-mark--large"><span /><i /></div><strong>DETALLES TÉCNICOS</strong><p>Recuperando el estudio local…</p><span className="boot-line" /></div>}
     {ui.toast && <div className="toast"><span />{ui.toast}</div>}
   </div>;
 }

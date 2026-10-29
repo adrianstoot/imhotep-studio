@@ -1,4 +1,4 @@
-# ConstructoPro Next · 0.4
+# Detalles Técnicos · 0.5
 
 Editor CAD educativo, 3D y 2D, para construir detalles de envolvente y acabados producto por producto. Es una aplicación nueva e independiente: no importa código, estado ni dependencias del prototipo anterior.
 

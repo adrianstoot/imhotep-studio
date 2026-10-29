@@ -25,7 +25,7 @@ function header(doc: jsPDF, project: ProjectDocument, section: string, page: num
   doc.setTextColor(23, 73, 151);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(11);
-  doc.text('CONSTRUCTOPRO NEXT', 12, 11.5);
+  doc.text('DETALLES TÉCNICOS', 12, 11.5);
   doc.setTextColor(67, 78, 95);
   doc.setFontSize(8);
   doc.text(section.toUpperCase(), 88, 11.5);
@@ -60,7 +60,7 @@ export async function exportTechnicalPdf(
   sectionPng: string | null,
 ): Promise<void> {
   const doc = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a4', compress: true });
-  doc.setProperties({ title: `${project.title} · ConstructoPro Next`, subject: 'Memoria educativa de detalle constructivo', author: 'ConstructoPro Next', creator: 'ConstructoPro Next' });
+  doc.setProperties({ title: `${project.title} · Detalles Técnicos`, subject: 'Memoria educativa de detalle constructivo', author: 'Detalles Técnicos', creator: 'Detalles Técnicos' });
   let page = 1;
 
   header(doc, project, 'Vista general', page);

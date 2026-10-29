@@ -100,7 +100,7 @@ export function TopBar() {
 
   const menuAction = (action: () => void) => { setMenuOpen(false); action(); };
   return <header className="topbar">
-    <div className="brand"><div className="brand-mark"><span /><i /></div><strong>ConstructoPro</strong></div>
+    <div className="brand"><div className="brand-mark"><span /><i /></div><strong>Detalles Técnicos</strong></div>
     <div className="topbar-divider" />
     <select aria-label="Sistema constructivo" className="detail-selector" value={project.detailType} onChange={(event) => actions.updateProjectMeta({ detailType: event.target.value as typeof project.detailType })}>{Object.entries(DETAIL_LABELS).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select><ChevronDown className="detail-chevron" size={14} />
     <button className="detail-example-button" onClick={() => actions.loadDetailExample(project.detailType)} title="Cargar composición de ejemplo. Puedes deshacer para recuperar la anterior."><BookOpenCheck size={16} /><span>Cargar ejemplo</span></button>

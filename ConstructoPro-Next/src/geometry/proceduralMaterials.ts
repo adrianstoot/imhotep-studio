@@ -290,9 +290,9 @@ function isManufacturedSmooth(kind: GeometryKind): boolean {
 
 function photographicAlbedo(product: ProductDefinition): THREE.Texture | null {
   const path = product.geometryKind === 'insulation' && !isFoamInsulation(product)
-    ? '/materials/lana_roca_real.png'
+    ? import.meta.env.BASE_URL + 'materials/lana_roca_real.png'
     : product.geometryKind === 'solid' && /hormig[oó]n/i.test(product.name)
-      ? '/materials/hormigon_real.png' : null;
+      ? import.meta.env.BASE_URL + 'materials/hormigon_real.png' : null;
   if (!path) return null;
   const texture = new THREE.TextureLoader().load(path);
   texture.colorSpace = THREE.SRGBColorSpace;
